@@ -1,3 +1,4 @@
+// Hero.jsx
 import { Container, Typography, Button, Box, Stack, Grid } from '@mui/material';
 import { Code, RocketLaunch, Speed } from '@mui/icons-material';
 import Orb from '../Orb/Orb';
@@ -17,8 +18,11 @@ const Hero = () => {
         minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
+        justifyContent: 'center',  // <-- centra todo horizontal
         overflow: 'hidden',
-        background: (theme) => theme.palette.background.default,
+        textAlign: 'center',       // <-- centra texto
+        background: '#0b1020',
+        px: 2,
       }}
     >
       {/* Gradient overlay */}
@@ -32,16 +36,42 @@ const Hero = () => {
         }}
       />
 
-      <Container sx={{ position: 'relative', zIndex: 1, py: 8 }}>
-        <Grid container spacing={4} alignItems="center">
-          {/* Left column - Text content */}
-          <Grid size={{ xs: 12, md: 6 }}>
-            <Stack spacing={3}>
+      {/* Orb como fondo centrado */}
+      <Box
+        sx={{
+          position: 'absolute',
+          inset: 0,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          pointerEvents: 'none',
+          zIndex: 1,
+        }}
+      >
+        <Box
+          sx={{
+            width: {md: 900},
+            aspectRatio: '1',
+            opacity: 0.85,
+            filter: 'drop-shadow(0 0 40px rgba(164,107,227,0.6))',
+          }}
+        >
+          <Orb hue={15} hoverIntensity={0.25} rotateOnHover={true} />
+        </Box>
+      </Box>
+
+      {/* CONTENIDO CENTRADO */}
+      <Container sx={{ position: 'relative', zIndex: 2 }}>
+        <Grid container justifyContent="center">
+          <Grid size={{ xs: 12, md: 10, lg: 8 }}>
+            <Stack spacing={3} alignItems="center">
               <Typography
                 variant="h1"
                 sx={{
-                  fontSize: { xs: '2.5rem', md: '3.5rem', lg: '4rem' },
-                  mb: 2,
+                  fontSize: { xs: '2.7rem', md: '3.8rem', lg: '4.2rem' },
+                  fontWeight: 800,
+                  letterSpacing: '-0.03em',
+                  maxWidth: 900,
                 }}
               >
                 Orbit Web Studio
@@ -50,33 +80,37 @@ const Hero = () => {
               <Typography
                 variant="h5"
                 color="text.secondary"
-                sx={{ lineHeight: 1.6 }}
+                sx={{
+                  lineHeight: 1.6,
+                  maxWidth: 600,
+                }}
               >
                 Landing pages y web apps a nivel producción, listas para escalar en AWS o Vercel.
               </Typography>
 
-              <Stack spacing={2} sx={{ pt: 2 }}>
-                <Stack direction="row" spacing={2} alignItems="center">
+              {/* Bullets */}
+              <Stack spacing={2} sx={{ pt: 2 }} alignItems="center">
+                <Stack direction="row" spacing={1.5} alignItems="center">
                   <Code color="primary" />
-                  <Typography variant="body1">
-                    Desarrollo frontend React + MUI
-                  </Typography>
+                  <Typography variant="body1">Desarrollo frontend React + MUI</Typography>
                 </Stack>
-                <Stack direction="row" spacing={2} alignItems="center">
+                <Stack direction="row" spacing={1.5} alignItems="center">
                   <RocketLaunch color="secondary" />
-                  <Typography variant="body1">
-                    Integraciones y pequeños backends
-                  </Typography>
+                  <Typography variant="body1">Integraciones y pequeños backends</Typography>
                 </Stack>
-                <Stack direction="row" spacing={2} alignItems="center">
+                <Stack direction="row" spacing={1.5} alignItems="center">
                   <Speed sx={{ color: '#a46be3' }} />
-                  <Typography variant="body1">
-                    Deploy profesional y performance
-                  </Typography>
+                  <Typography variant="body1">Deploy profesional y performance</Typography>
                 </Stack>
               </Stack>
 
-              <Stack direction="row" spacing={2} sx={{ pt: 3 }}>
+              {/* Botones centrados */}
+              <Stack
+                direction="row"
+                spacing={2}
+                sx={{ pt: 4, flexWrap: 'wrap' }}
+                justifyContent="center"
+              >
                 <Button
                   variant="contained"
                   color="primary"
@@ -95,23 +129,6 @@ const Hero = () => {
                 </Button>
               </Stack>
             </Stack>
-          </Grid>
-
-          {/* Right column - Orb */}
-          <Grid size={{ xs: 12, md: 6 }}>
-            <Box
-              sx={{
-                position: 'relative',
-                width: '100%',
-                aspectRatio: '1',
-                maxWidth: 600,
-                mx: 'auto',
-                background: 'radial-gradient(circle, rgba(125,63,185,0.1) 0%, rgba(93,95,233,0.05) 50%, transparent 70%)',
-                borderRadius: '50%',
-              }}
-            >
-              <Orb />
-            </Box>
           </Grid>
         </Grid>
       </Container>
