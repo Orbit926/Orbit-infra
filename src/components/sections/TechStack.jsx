@@ -19,7 +19,7 @@ const TechStack = () => {
   return (
     <Box id="stack" sx={{ py: 10, background: (theme) => theme.palette.background.paper }}>
       <Container>
-        <Stack spacing={2} sx={{ mb: 6, textAlign: 'center' }}>
+        <Stack spacing={2} sx={{ mb: 6, textAlign: 'center', alignItems: 'center' }}>
           <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.5rem' } }}>
             Tech Stack
           </Typography>

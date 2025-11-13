@@ -28,11 +28,11 @@ const Services = () => {
   return (
     <Box id="services" sx={{ py: 10, background: (theme) => theme.palette.background.default }}>
       <Container>
-        <Stack spacing={2} sx={{ mb: 6, textAlign: 'center' }}>
+        <Stack spacing={2} sx={{ mb: 6, textAlign: 'center', alignItems: 'center' }}>
           <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.5rem' } }}>
             Servicios
           </Typography>
-          <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 600, mx: 'auto' }}>
+          <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 600, textAlign: 'center' }}>
             Soluciones web completas desde el diseño hasta el deploy
           </Typography>
         </Stack>
