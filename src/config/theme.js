@@ -1,4 +1,3 @@
-// src/config/theme.ts
 import { createTheme } from '@mui/material/styles';
 
 const magentaDeep = '#5a1e63';   // más oscuro que el magenta del fondo
@@ -41,7 +40,6 @@ export const theme = createTheme({
     MuiContainer: { defaultProps: { maxWidth: 'lg' } },
   },
   // Tokens custom para usar en sx
-  // @ts-ignore – si usas JS puedes omitir esto
   custom: {
     heroGradient: `linear-gradient(135deg, ${magentaDeep} 0%, ${indigoDeep} 100%)`,
     cardGradient: `linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))`,

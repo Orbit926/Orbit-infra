@@ -1,14 +1,22 @@
-import React from 'react'
-import { Box } from '@mui/material'
-import { Hero } from './sections/hero'
+import { Box } from '@mui/material';
+import Header from './components/layout/Header';
+import Hero from './components/sections/Hero';
+import Services from './components/sections/Services';
+import Process from './components/sections/Process';
+import ProjectsPreview from './components/sections/ProjectsPreview';
+import TechStack from './components/sections/TechStack';
+import ContactCTA from './components/sections/ContactCTA';
 
 export const App = () => {
   return (
-    <Box>
-      <Box component={'header'}>
-        <Hero />
-        <Hero />
-      </Box>
+    <Box sx={{ minHeight: '100vh' }}>
+      <Header />
+      <Hero />
+      <Services />
+      <Process />
+      <ProjectsPreview />
+      <TechStack />
+      <ContactCTA />
     </Box>
-  )
+  );
 }
