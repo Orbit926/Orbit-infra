@@ -1,3 +1,4 @@
+// theme.js
 import { createTheme } from '@mui/material/styles';
 
 const magentaDeep = '#5a1e63';   // más oscuro que el magenta del fondo
@@ -7,25 +8,19 @@ const textHigh    = '#e6e8ee';
 const textLow     = '#9aa3b2';
 
 export const theme = createTheme({
-  cssVariables: true,
-  colorSchemes: {
-    // Solo modo oscuro
-    dark: {
-      palette: {
-        mode: 'dark',
-        primary:   { main: '#7d3fb9', light: '#a46be3' }, // acento violeta
-        secondary: { main: '#5d5fe9', light: '#8a8cff' }, // acento índigo
-        background: {
-          default: bgDeep,
-          paper:   '#0c1024',
-        },
-        text: {
-          primary: textHigh,
-          secondary: textLow,
-        },
-        divider: 'rgba(230,232,238,0.08)',
-      },
+  palette: {
+    mode: 'dark',
+    primary:   { main: '#7d3fb9', light: '#a46be3' }, // acento violeta
+    secondary: { main: '#5d5fe9', light: '#8a8cff' }, // acento índigo
+    background: {
+      default: bgDeep,
+      paper:   '#0c1024',
     },
+    text: {
+      primary: textHigh,
+      secondary: textLow,
+    },
+    divider: 'rgba(230,232,238,0.08)',
   },
   shape: { borderRadius: 14 },
   typography: {

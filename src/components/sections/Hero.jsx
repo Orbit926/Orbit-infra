@@ -2,8 +2,10 @@
 import { Container, Typography, Button, Box, Stack, Grid } from '@mui/material';
 import { Code, RocketLaunch, Speed } from '@mui/icons-material';
 import Orb from '../Orb/Orb';
+import { useTheme } from '@mui/material/styles';
 
 const Hero = () => {
+  const theme = useTheme();
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
@@ -21,7 +23,7 @@ const Hero = () => {
         justifyContent: 'center',  // <-- centra todo horizontal
         overflow: 'hidden',
         textAlign: 'center',       // <-- centra texto
-        background: '#0b1020',
+        background: theme.palette.background.default,
         px: 2,
       }}
     >
