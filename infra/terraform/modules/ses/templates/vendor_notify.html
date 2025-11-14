@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Nuevo mensaje desde el formulario de contacto</title>
+  </head>
+  <body style="font-family: Arial, sans-serif; background-color:#f9f9f9; padding:20px;">
+    <div style="max-width:600px; margin:auto; background-color:white; border-radius:8px; padding:24px;">
+      <h2 style="color:#003366;">Nuevo mensaje de contacto</h2>
+      <p><strong>Nombre:</strong> {{name}}</p>
+      <p><strong>Correo:</strong> {{email}}</p>
+      <p><strong>Teléfono:</strong> {{phone}}</p>
+      <p><strong>Asunto:</strong> {{subject}}</p>
+      <p><strong>Mensaje:</strong></p>
+      <blockquote style="border-left:4px solid #003366; margin:0; padding-left:12px;">
+        {{message}}
+      </blockquote>
+      <br>
+      <p style="font-size:14px; color:#888;">Este mensaje fue generado automáticamente desde el formulario de contacto de Devaltra.</p>
+    </div>
+  </body>
+</html>
