@@ -46,8 +46,7 @@ const Hero = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          pointerEvents: 'none',
-          zIndex: 1,
+          zIndex: 0,
         }}
       >
         <Box
