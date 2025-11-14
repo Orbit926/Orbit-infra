@@ -65,28 +65,28 @@ const Hero = () => {
       <Container sx={{ position: 'relative', zIndex: 2 }}>
         <Grid container justifyContent="center">
           <Grid size={{ xs: 12, md: 10, lg: 8 }}>
-            <Stack spacing={3} alignItems="center">
+            <Stack spacing={1.5} alignItems="center">
               <Typography
-                variant="h1"
+                variant="h3"
                 sx={{
-                  fontSize: { xs: '2.7rem', md: '3.8rem', lg: '4.2rem' },
-                  fontWeight: 800,
+                  fontSize: { xs: '1.8rem', md: '2.2rem', lg: '2.4rem' },
+                  fontWeight: 200,
                   letterSpacing: '-0.03em',
                   maxWidth: 900,
                 }}
               >
                 Orbit Web Studio
               </Typography>
-
               <Typography
-                variant="h5"
-                color="text.secondary"
+                variant="h1"
                 sx={{
-                  lineHeight: 1.6,
-                  maxWidth: 600,
+                  fontSize: { xs: '2.0rem', md: '2.8rem', lg: '3.2rem' },
+                  fontWeight: 800,
+                  letterSpacing: '-0.03em',
+                  maxWidth: 900,
                 }}
               >
-                Landing pages y web apps a nivel producción, listas para escalar en AWS o Vercel.
+                Ponemos tu marca <br /> en orbita
               </Typography>
 
               {/* Bullets */}
