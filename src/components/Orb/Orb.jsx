@@ -1,7 +1,9 @@
 import { useEffect, useRef } from 'react';
 import { Renderer, Program, Mesh, Triangle, Vec3 } from 'ogl';
 
-export default function Orb({ hue = 0, hoverIntensity = 0.2, rotateOnHover = true, forceHoverState = false }) {
+//700 ipad, 400 iphone, 
+
+export default function Orb({ hue = 0, hoverIntensity = 0.2, rotateOnHover = true, forceHoverState = false, size }) {
   const ctnDom = useRef(null);
 
   const vert = /* glsl */ `
@@ -192,8 +194,8 @@ export default function Orb({ hue = 0, hoverIntensity = 0.2, rotateOnHover = tru
     function resize() {
       if (!container) return;
       const dpr = window.devicePixelRatio || 1;
-      const width = container.clientWidth;
-      const height = container.clientHeight;
+      const width = size || container.clientWidth;
+      const height = size || container.clientHeight;
       renderer.setSize(width * dpr, height * dpr);
       gl.canvas.style.width = width + 'px';
       gl.canvas.style.height = height + 'px';

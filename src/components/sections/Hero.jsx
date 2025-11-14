@@ -57,7 +57,7 @@ const Hero = () => {
             filter: 'drop-shadow(0 0 40px rgba(164,107,227,0.6))',
           }}
         >
-          <Orb hue={15} hoverIntensity={0.25} rotateOnHover={true} />
+          <Orb hue={15} hoverIntensity={0.25} rotateOnHover={true}/>
         </Box>
       </Box>
 
