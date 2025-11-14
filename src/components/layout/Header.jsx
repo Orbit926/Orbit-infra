@@ -60,30 +60,56 @@ const Header = () => {
         >
           <Box
             component={Paper}
-            elevation={6}
+            elevation={0}
             sx={{
+              position: 'relative',
               mx: 'auto',
-              px: { xs: 1.5, sm: 3.5, md: 4 },
-              py: { xs: 0.6, sm: 0.9, md: 1.1 },
+              px: { xs: 1.6, sm: 3.5, md: 4 },
+              py: { xs: 0.7, sm: 0.95, md: 1.1 },
               borderRadius: 999,
-              background: 'rgba(20, 25, 45, 0.75)',
-              backdropFilter: 'blur(16px)',
-              display: 'flex',
-              alignItems: 'center',
-              gap: { xs: 1.2, sm: 2.5, md: 3 },
               maxWidth: { xs: '100%', sm: 760, md: 900 },
               width: { xs: '100%', sm: 'auto' },
+
+              // 💧 Liquid glass core
+              background:
+                'radial-gradient(circle at 0% 0%, rgba(125,63,185,0.35), transparent 55%) , radial-gradient(circle at 100% 100%, rgba(93,95,233,0.3), transparent 55%) , rgba(8, 10, 24, 0.72)',
+              backdropFilter: 'blur(22px)',
+              WebkitBackdropFilter: 'blur(22px)',
+
+              border: '1px solid rgba(255,255,255,0.12)',
+              boxShadow:
+                '0 18px 45px rgba(0,0,0,0.65), 0 0 0 1px rgba(125,63,185,0.35)',
+
+              display: 'flex',
+              alignItems: 'center',
+              gap: { xs: 1.1, sm: 2.2, md: 2.8 },
+
+              // Pseudo para brillo líquido
+              overflow: 'hidden',
+              '&::before': {
+                content: '""',
+                position: 'absolute',
+                inset: 0,
+                background:
+                  'linear-gradient(120deg, rgba(255,255,255,0.18), transparent 30%, transparent 70%, rgba(255,255,255,0.12))',
+                opacity: 0.22,
+                mixBlendMode: 'soft-light',
+                pointerEvents: 'none',
+              },
             }}
           >
             {/* Logo */}
             <Typography
               variant="h6"
               sx={{
+                position: 'relative',
+                zIndex: 1,
                 fontWeight: 800,
                 background: 'linear-gradient(135deg, #7d3fb9 0%, #5d5fe9 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 mr: { xs: 0.5, sm: 1.5 },
+                letterSpacing: '0.04em',
               }}
             >
               Orbit
@@ -92,9 +118,11 @@ const Header = () => {
             {/* Navegación desktop/tablet */}
             <Box
               sx={{
+                position: 'relative',
+                zIndex: 1,
                 display: { xs: 'none', sm: 'flex' },
                 flexGrow: 1,
-                gap: { sm: 1.5, md: 2 },
+                gap: { sm: 1.2, md: 2 },
                 justifyContent: 'center',
               }}
             >
@@ -114,7 +142,7 @@ const Header = () => {
                     '&::after': {
                       content: '""',
                       position: 'absolute',
-                      bottom: 0,
+                      bottom: -2,
                       left: 0,
                       height: 2,
                       width: 0,
@@ -135,10 +163,13 @@ const Header = () => {
               color="primary"
               onClick={() => scrollTo('contact')}
               sx={{
+                position: 'relative',
+                zIndex: 1,
                 display: { xs: 'none', sm: 'inline-flex' },
                 fontSize: '0.9rem',
                 textTransform: 'none',
                 ml: { sm: 1 },
+                borderRadius: 999,
               }}
             >
               Agenda una llamada
@@ -148,6 +179,8 @@ const Header = () => {
             <IconButton
               color="inherit"
               sx={{
+                position: 'relative',
+                zIndex: 1,
                 display: { xs: 'inline-flex', sm: 'none' },
                 ml: 'auto',
               }}
@@ -179,10 +212,15 @@ const Header = () => {
         PaperProps={{
           sx: {
             mt: 1,
-            borderRadius: 2,
-            minWidth: 200,
-            backgroundColor: 'rgba(15, 20, 40, 0.95)',
-            backdropFilter: 'blur(18px)',
+            borderRadius: 3,
+            minWidth: 210,
+            background:
+              'radial-gradient(circle at 0% 0%, rgba(125,63,185,0.35), transparent 55%) , radial-gradient(circle at 100% 100%, rgba(93,95,233,0.3), transparent 55%) , rgba(8, 10, 24, 0.96)',
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
+            border: '1px solid rgba(255,255,255,0.18)',
+            boxShadow:
+              '0 20px 40px rgba(0,0,0,0.7), 0 0 0 1px rgba(125,63,185,0.4)',
           },
         }}
       >
@@ -195,7 +233,7 @@ const Header = () => {
             {sec.label}
           </MenuItem>
         ))}
-        <Divider sx={{ my: 0.5 }} />
+        <Divider sx={{ my: 0.5, borderColor: 'rgba(255,255,255,0.15)' }} />
         <MenuItem onClick={() => handleMenuClick('contact')}>
           <Box
             sx={{
