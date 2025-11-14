@@ -90,7 +90,7 @@ const Hero = () => {
               </Typography>
 
               {/* Bullets */}
-              <Stack spacing={2} sx={{ pt: 2 }} alignItems="center">
+              <Stack spacing={2} sx={{ pt: 2, display: { xs: 'none', sm: 'flex' } }} alignItems="center">
                 <Stack direction="row" spacing={1.5} alignItems="center">
                   <Code color="primary" />
                   <Typography variant="body1">Desarrollo frontend React + MUI</Typography>
