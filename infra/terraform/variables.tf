@@ -59,7 +59,7 @@ variable "cors_allow_origins" {
   default     = []
 }
 
-variable "domain" {
+variable "domain_name" {
   type        = string
   description = "Dominio de la aplicación"
   default = "orbit.com.mx"

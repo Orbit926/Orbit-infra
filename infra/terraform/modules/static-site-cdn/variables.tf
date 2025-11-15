@@ -17,3 +17,13 @@ variable "index_document" {
   default     = "index.html"
   description = "Documento raíz del sitio estático"
 }
+
+variable "zone_id" {
+  type        = string
+  description = "ID de la zona DNS"
+}
+
+variable "domain_name" {
+  type        = string
+  description = "Nombre del dominio"
+}

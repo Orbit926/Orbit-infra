@@ -88,4 +88,7 @@ module "site_cdn" {
 
   project = var.project
   env     = var.env
+
+  zone_id = var.zone_id
+  domain_name = var.domain_name
 }
