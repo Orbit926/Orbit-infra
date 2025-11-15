@@ -3,7 +3,6 @@ commands.txt
 
 # Directorio interno de dependencias de Terraform
 infra/terraform/.terraform/
-infra/terraform/.terraform.lock.hcl
 
 # Archivos de estado (contienen datos sensibles)
 infra/terraform/terraform.tfstate
