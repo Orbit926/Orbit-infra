@@ -199,6 +199,11 @@ resource "aws_cloudfront_distribution" "site_cdn" {
   is_ipv6_enabled = true
   comment         = "${var.project}-${var.env} static site CDN"
 
+  aliases = [
+    var.domain_name,
+    "www.${var.domain_name}",
+  ]
+
   default_root_object = var.index_document
 
   origin {
@@ -227,9 +232,10 @@ resource "aws_cloudfront_distribution" "site_cdn" {
     }
   }
 
-  # 🔑 SIN dominio propio: usamos el certificado default de CloudFront
   viewer_certificate {
-    cloudfront_default_certificate = true
+    acm_certificate_arn      = aws_acm_certificate.orbit.arn
+    ssl_support_method       = "sni-only"
+    minimum_protocol_version = "TLSv1.2_2021"
   }
 
   tags = merge(
@@ -244,6 +250,8 @@ resource "aws_cloudfront_distribution" "site_cdn" {
 
   depends_on = [
     aws_s3_bucket_public_access_block.site,
-    aws_s3_bucket_ownership_controls.site
+    aws_s3_bucket_ownership_controls.site,
+    aws_acm_certificate.orbit,
+    aws_acm_certificate_validation.orbit,
   ]
 }
