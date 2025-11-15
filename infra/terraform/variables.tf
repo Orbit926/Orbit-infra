@@ -1,6 +1,6 @@
 variable "aws_region" {
   type    = string
-  default = "us-east-2"
+  default = "us-east-1"
 }
 
 variable "project" {
@@ -50,28 +50,29 @@ variable "allowed_origin" {
 variable "recaptcha_secret_key" {
   type        = string
   description = "Clave secreta de reCAPTCHA"
+  default = "value"
 }
 
 variable "cors_allow_origins" {
   type        = list(string)
   description = "Lista de origins permitidos para CORS"
-  default     = ["http://localhost:5173", "https://devaltra.vercel.app", "https://devaltra.com", "https://www.devaltra.com"]
+  default     = []
 }
 
 variable "domain" {
   type        = string
   description = "Dominio de la aplicación"
-  default = "devaltra.com"
+  default = "orbit.com.mx"
 }
 
 variable "zone_id" {
   type        = string
   description = "ID de la zona DNS"
-  default = "Z024194716EE9NAJ7LJ5A"
+  default = "Z0647556LU6E5QAL6A5"
 }
 
 variable "alternate_domains" {
   type        = list(string)
   description = "Lista de dominios alternativos"
-  default     = ["www.devaltra.com"]
+  default     = ["www.orbit.com.mx"]
 }
