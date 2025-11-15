@@ -88,18 +88,4 @@ module "site_cdn" {
 
   project = var.project
   env     = var.env
-
-  # # 👇 CON dominio propio
-  # domain_name       = var.domain
-  # alternate_domains = var.alternate_domains
-  # route53_zone_id   = var.zone_id
-  # acm_certificate_arn = ""
-
-  # Si tu frontend es SPA (React, Vite, Next CSR)
-  spa_mode = true
-
-  # Si quieres permitir destruir el bucket aunque tenga archivos
-  force_destroy = true
-
-  tags = var.tags
 }
