@@ -1,10 +1,11 @@
 import { useEffect, useRef } from 'react';
 import { Renderer, Program, Mesh, Triangle, Vec3 } from 'ogl';
+import { useOrbSize } from '../../hooks/useOrbSIze';
 
-//700 ipad, 400 iphone, 
-
-export default function Orb({ hue = 0, hoverIntensity = 0.2, rotateOnHover = true, forceHoverState = false, size }) {
+export default function Orb({ hue = 0, hoverIntensity = 0.2, rotateOnHover = true, forceHoverState = false }) {
   const ctnDom = useRef(null);
+
+  const size = useOrbSize();
 
   const vert = /* glsl */ `
     precision highp float;
@@ -193,9 +194,11 @@ export default function Orb({ hue = 0, hoverIntensity = 0.2, rotateOnHover = tru
 
     function resize() {
       if (!container) return;
+      console.log(container.clientWidth);
+      console.log(container.clientHeight);
       const dpr = window.devicePixelRatio || 1;
-      const width = size || container.clientWidth;
-      const height = size || container.clientHeight;
+      const width = size >= 1000 ? container.clientWidth : size;
+      const height = size >= 1000 ? container.clientHeight : size;
       renderer.setSize(width * dpr, height * dpr);
       gl.canvas.style.width = width + 'px';
       gl.canvas.style.height = height + 'px';
