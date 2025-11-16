@@ -62,7 +62,7 @@ const Hero = () => {
       </Box>
 
       {/* CONTENIDO CENTRADO */}
-      <Container sx={{ position: 'relative', zIndex: 2 }}>
+      <Box sx={{ position: 'relative', zIndex: 2, width: 'fit-content', px: 0 }}>
         <Grid container justifyContent="center">
           <Grid size={{ xs: 12, md: 10, lg: 8 }}>
             <Stack spacing={1.5} alignItems="center">
@@ -83,10 +83,27 @@ const Hero = () => {
                   fontSize: { xs: '2.0rem', md: '2.8rem', lg: '3.2rem' },
                   fontWeight: 800,
                   letterSpacing: '-0.03em',
-                  maxWidth: 900,
+                  textAlign: 'center',
                 }}
               >
-                Ponemos tu marca <br /> en orbita
+                <Box
+                  component="span"
+                  sx={{
+                    display: 'block',
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  Ponemos tu marca
+                </Box>
+                <Box
+                  component="span"
+                  sx={{
+                    display: 'block',
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  en orbita
+                </Box>
               </Typography>
 
               {/* Bullets */}
@@ -132,7 +149,7 @@ const Hero = () => {
             </Stack>
           </Grid>
         </Grid>
-      </Container>
+      </Box>
     </Box>
   );
 };
