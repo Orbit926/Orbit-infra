@@ -1,5 +1,5 @@
 // Header.jsx
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   AppBar,
   Toolbar,
@@ -44,8 +44,48 @@ const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const menuOpen = Boolean(anchorEl);
 
-  const scrollTo = (id) =>
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  // 🔥 Estado para saber qué sección está activa
+  const [activeSection, setActiveSection] = useState(null);
+
+  // 🧠 Detectar la sección activa al hacer scroll
+  useEffect(() => {
+    const sectionIds = [...sections.map((s) => s.id), 'contact']; // incluye contact para el CTA
+    const offset = 140; // margen para compensar la altura del header
+
+    const handleScroll = () => {
+      let current = null;
+
+      sectionIds.forEach((id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+
+        const rect = el.getBoundingClientRect();
+
+        // Si la parte superior de la sección ya pasó el header, la tomamos como candidata
+        if (rect.top - offset <= 0) {
+          current = id;
+        }
+      });
+
+      setActiveSection(current);
+    };
+
+    handleScroll(); // para que al cargar ya marque la correcta
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const scrollTo = (id) => {
+    const target = document.getElementById(id);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+    // Marcamos manualmente como activa al hacer click
+    setActiveSection(id);
+  };
 
   const handleOpenMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -122,15 +162,20 @@ const Header = () => {
           >
             {/* Logo */}
             <Box
+              onClick={() => scrollTo('hero')}
               component="img"
               src="/img/logos/orbit-color.png"
               alt="Orbit"
               sx={{
                 width: 80,
                 height: 'auto',
+                cursor: 'pointer',
+                transition: 'opacity 0.25s ease',
+                '&:hover': {
+                  opacity: 0.8,
+                },
               }}
             />
-
             {/* Navegación desktop/tablet */}
             <Box
               sx={{
@@ -142,35 +187,39 @@ const Header = () => {
                 justifyContent: 'center',
               }}
             >
-              {sections.map((sec) => (
-                <Button
-                  key={sec.id}
-                  color="inherit"
-                  onClick={() => scrollTo(sec.id)}
-                  sx={{
-                    fontSize: '0.9rem',
-                    px: { sm: 1.5, md: 2 },
-                    textTransform: 'none',
-                    position: 'relative',
-                    '&:hover::after': {
-                      width: '100%',
-                    },
-                    '&::after': {
-                      content: '""',
-                      position: 'absolute',
-                      bottom: -2,
-                      left: 0,
-                      height: 2,
-                      width: 0,
-                      background:
-                        'linear-gradient(135deg, #7d3fb9 0%, #5d5fe9 100%)',
-                      transition: 'width 0.25s ease',
-                    },
-                  }}
-                >
-                  {sec.label}
-                </Button>
-              ))}
+              {sections.map((sec) => {
+                const isActive = activeSection === sec.id;
+                return (
+                  <Button
+                    key={sec.id}
+                    color="inherit"
+                    onClick={() => scrollTo(sec.id)}
+                    sx={{
+                      fontSize: '0.9rem',
+                      px: { sm: 1.5, md: 2 },
+                      textTransform: 'none',
+                      position: 'relative',
+                      fontWeight: isActive ? 700 : 400,
+                      '&:hover::after': {
+                        width: '100%',
+                      },
+                      '&::after': {
+                        content: '""',
+                        position: 'absolute',
+                        bottom: -2,
+                        left: 0,
+                        height: 2,
+                        width: isActive ? '100%' : 0,
+                        background:
+                          'linear-gradient(135deg, #7d3fb9 0%, #5d5fe9 100%)',
+                        transition: 'width 0.25s ease',
+                      },
+                    }}
+                  >
+                    {sec.label}
+                  </Button>
+                );
+              })}
             </Box>
 
             {/* CTA desktop/tablet */}
@@ -186,6 +235,7 @@ const Header = () => {
                 textTransform: 'none',
                 ml: { sm: 1 },
                 borderRadius: 999,
+                fontWeight: activeSection === 'contact' ? 700 : 500,
               }}
             >
               Agenda una llamada
@@ -240,15 +290,21 @@ const Header = () => {
           },
         }}
       >
-        {sections.map((sec) => (
-          <MenuItem
-            key={sec.id}
-            onClick={() => handleMenuClick(sec.id)}
-            sx={{ fontSize: '0.9rem' }}
-          >
-            {sec.label}
-          </MenuItem>
-        ))}
+        {sections.map((sec) => {
+          const isActive = activeSection === sec.id;
+          return (
+            <MenuItem
+              key={sec.id}
+              onClick={() => handleMenuClick(sec.id)}
+              sx={{
+                fontSize: '0.9rem',
+                fontWeight: isActive ? 700 : 400,
+              }}
+            >
+              {sec.label}
+            </MenuItem>
+          );
+        })}
         <Divider sx={{ my: 0.5, borderColor: 'rgba(255,255,255,0.15)' }} />
         <MenuItem onClick={() => handleMenuClick('contact')}>
           <Box

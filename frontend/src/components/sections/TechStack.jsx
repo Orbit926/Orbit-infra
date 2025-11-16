@@ -1,4 +1,5 @@
 import { Container, Typography, Box, Stack, Chip } from '@mui/material';
+import { motion } from 'framer-motion';
 
 const technologies = [
   { name: 'React', category: 'Frontend' },
@@ -15,20 +16,54 @@ const technologies = [
   { name: 'REST APIs', category: 'Integration' },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const chipVariants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  show: { 
+    opacity: 1, 
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: 'easeOut',
+    },
+  },
+};
+
 const TechStack = () => {
   return (
     <Box id="stack" sx={{ py: 10, background: (theme) => theme.palette.background.paper }}>
       <Container>
-        <Stack spacing={2} sx={{ mb: 6, textAlign: 'center', alignItems: 'center' }}>
-          <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.5rem' } }}>
-            Tech Stack
-          </Typography>
-          <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 600, mx: 'auto' }}>
-            Tecnologías modernas y probadas para resultados excepcionales
-          </Typography>
-        </Stack>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.6 }}
+        >
+          <Stack spacing={2} sx={{ mb: 6, textAlign: 'center', alignItems: 'center' }}>
+            <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.5rem' } }}>
+              Tech Stack
+            </Typography>
+            <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 600, mx: 'auto' }}>
+              Tecnologías modernas y probadas para resultados excepcionales
+            </Typography>
+          </Stack>
+        </motion.div>
 
         <Box
+          component={motion.div}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: '-50px' }}
           sx={{
             display: 'flex',
             flexWrap: 'wrap',
@@ -40,6 +75,8 @@ const TechStack = () => {
         >
           {technologies.map((tech, index) => (
             <Chip
+              component={motion.div}
+              variants={chipVariants}
               key={index}
               label={
                 <Stack direction="row" spacing={1} alignItems="center">
@@ -71,6 +108,11 @@ const TechStack = () => {
 
         {/* Additional info */}
         <Box
+          component={motion.div}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.6, delay: 0.3 }}
           sx={{
             mt: 8,
             p: 4,

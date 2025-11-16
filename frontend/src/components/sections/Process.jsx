@@ -1,5 +1,6 @@
 import { Container, Typography, Box, Stack, Paper, Grid } from '@mui/material';
 import { Search, Draw, Code, Rocket } from '@mui/icons-material';
+import { motion } from 'framer-motion';
 
 const steps = [
   {
@@ -28,24 +29,62 @@ const steps = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20, scale: 0.95 },
+  show: { 
+    opacity: 1, 
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      ease: 'easeOut',
+    },
+  },
+};
+
 const Process = () => {
   return (
     <Box id="process" sx={{ py: 10, background: (theme) => theme.palette.background.paper }}>
       <Container>
-        <Stack spacing={2} sx={{ mb: 6, textAlign: 'center', alignItems: 'center' }}>
-          <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.5rem' } }}>
-            Proceso
-          </Typography>
-          <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 600, mx: 'auto' }}>
-            Un flujo de trabajo transparente de principio a fin
-          </Typography>
-        </Stack>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.6 }}
+        >
+          <Stack spacing={2} sx={{ mb: 6, textAlign: 'center', alignItems: 'center' }}>
+            <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.5rem' } }}>
+              Proceso
+            </Typography>
+            <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 600, mx: 'auto' }}>
+              Un flujo de trabajo transparente de principio a fin
+            </Typography>
+          </Stack>
+        </motion.div>
 
-        <Grid container spacing={3}>
+        <Grid
+          container
+          spacing={3}
+          component={motion.div}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: '-50px' }}
+        >
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (
-              <Grid key={index} size={{ xs: 12, sm: 6, md: 3 }}>
+              <Grid key={index} size={{ xs: 12, sm: 6, md: 3 }} component={motion.div} variants={itemVariants}>
                 <Paper
                   elevation={0}
                   sx={{

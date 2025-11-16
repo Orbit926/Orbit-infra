@@ -1,5 +1,6 @@
 import { Container, Typography, Card, CardContent, Box, Stack, Grid } from '@mui/material';
 import { Code, Web, ShoppingCart, Speed } from '@mui/icons-material';
+import { motion } from 'framer-motion';
 
 const services = [
   {
@@ -24,24 +25,61 @@ const services = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: 'easeOut',
+    },
+  },
+};
+
 const Services = () => {
   return (
     <Box id="services" sx={{ py: 10, background: (theme) => theme.palette.background.default }}>
       <Container>
-        <Stack spacing={2} sx={{ mb: 6, textAlign: 'center', alignItems: 'center' }}>
-          <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.5rem' } }}>
-            Servicios
-          </Typography>
-          <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 600, textAlign: 'center' }}>
-            Soluciones web completas desde el diseño hasta el deploy
-          </Typography>
-        </Stack>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.6 }}
+        >
+          <Stack spacing={2} sx={{ mb: 6, textAlign: 'center', alignItems: 'center' }}>
+            <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.5rem' } }}>
+              Servicios
+            </Typography>
+            <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 600, textAlign: 'center' }}>
+              Soluciones web completas desde el diseño hasta el deploy
+            </Typography>
+          </Stack>
+        </motion.div>
 
-        <Grid container spacing={3}>
+        <Grid
+          container
+          spacing={3}
+          component={motion.div}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: '-50px' }}
+        >
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <Grid key={index} size={{ xs: 12, sm: 6, md: 3 }}>
+              <Grid key={index} size={{ xs: 12, sm: 6, md: 3 }} component={motion.div} variants={itemVariants}>
                 <Card
                   sx={{
                     height: '100%',

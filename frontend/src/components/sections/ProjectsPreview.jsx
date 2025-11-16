@@ -1,5 +1,6 @@
 import { Container, Typography, Card, CardContent, Box, Stack, Chip, Grid } from '@mui/material';
 import { OpenInNew } from '@mui/icons-material';
+import { motion } from 'framer-motion';
 
 const projects = [
   {
@@ -25,22 +26,60 @@ const projects = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30, scale: 0.95 },
+  show: { 
+    opacity: 1, 
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.7,
+      ease: 'easeOut',
+    },
+  },
+};
+
 const ProjectsPreview = () => {
   return (
     <Box id="projects" sx={{ py: 10, background: (theme) => theme.palette.background.default }}>
       <Container>
-        <Stack spacing={2} sx={{ mb: 6, textAlign: 'center', alignItems: 'center'}}>
-          <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.5rem' } }}>
-            Proyectos
-          </Typography>
-          <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 600, mx: 'auto' }}>
-            Algunos de nuestros trabajos recientes
-          </Typography>
-        </Stack>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.6 }}
+        >
+          <Stack spacing={2} sx={{ mb: 6, textAlign: 'center', alignItems: 'center'}}>
+            <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.5rem' } }}>
+              Proyectos
+            </Typography>
+            <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 600, mx: 'auto' }}>
+              Algunos de nuestros trabajos recientes
+            </Typography>
+          </Stack>
+        </motion.div>
 
-        <Grid container spacing={4}>
+        <Grid
+          container
+          spacing={4}
+          component={motion.div}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: '-50px' }}
+        >
           {projects.map((project, index) => (
-            <Grid key={index} size={{ xs: 12, md: 4 }}>
+            <Grid key={index} size={{ xs: 12, md: 4 }} component={motion.div} variants={itemVariants}>
               <Card
                 sx={{
                   height: '100%',

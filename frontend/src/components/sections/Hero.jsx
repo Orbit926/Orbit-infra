@@ -83,6 +83,7 @@ const Hero = () => {
         background: theme.palette.background.default,
         px: 2,
       }}
+      id="hero"
     >
       {/* Gradient overlay */}
       <Box

@@ -6,6 +6,7 @@ import Process from './components/sections/Process';
 import ProjectsPreview from './components/sections/ProjectsPreview';
 import TechStack from './components/sections/TechStack';
 import ContactCTA from './components/sections/ContactCTA';
+import Footer from './components/sections/Footer';
 
 export const App = () => {
   return (
@@ -17,6 +18,7 @@ export const App = () => {
       <ProjectsPreview />
       <TechStack />
       <ContactCTA />
+      <Footer />
     </Box>
   );
 }

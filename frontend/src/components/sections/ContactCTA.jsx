@@ -1,6 +1,7 @@
 import { Container, Typography, Button, Box, Stack, TextField, MenuItem, Paper, Grid } from '@mui/material';
 import { Email, CalendarMonth } from '@mui/icons-material';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const projectTypes = [
   'Landing Page',
@@ -56,20 +57,32 @@ const ContactCTA = () => {
       />
 
       <Container sx={{ position: 'relative', zIndex: 1 }}>
-        <Stack spacing={2} sx={{ mb: 6, textAlign: 'center', alignItems: 'center' }}>
-          <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.5rem' } }}>
-            ¿Listo para lanzar tu próximo proyecto?
-          </Typography>
-          <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 600, mx: 'auto' }}>
-            Cuéntanos sobre tu idea y te ayudaremos a hacerla realidad
-          </Typography>
-        </Stack>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.6 }}
+        >
+          <Stack spacing={2} sx={{ mb: 6, textAlign: 'center', alignItems: 'center' }}>
+            <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.5rem' } }}>
+              ¿Listo para lanzar tu próximo proyecto?
+            </Typography>
+            <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 600, mx: 'auto' }}>
+              Cuéntanos sobre tu idea y te ayudaremos a hacerla realidad
+            </Typography>
+          </Stack>
+        </motion.div>
 
         <Grid container spacing={4} sx={{ maxWidth: 1000, mx: 'auto' }}>
           {/* CTA Buttons */}
           <Grid size={{ xs: 12, md: 4 }}>
             <Stack spacing={3}>
               <Paper
+                component={motion.div}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.6, delay: 0.1 }}
                 sx={{
                   p: 3,
                   background: (theme) => theme.custom.cardGradient,
@@ -110,6 +123,11 @@ const ContactCTA = () => {
               </Paper>
 
               <Paper
+                component={motion.div}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.6, delay: 0.2 }}
                 sx={{
                   p: 3,
                   background: (theme) => theme.custom.cardGradient,
@@ -153,6 +171,11 @@ const ContactCTA = () => {
           {/* Contact Form */}
           <Grid size={{ xs: 12, md: 8 }}>
             <Paper
+              component={motion.div}
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.6, delay: 0.1 }}
               sx={{
                 p: 4,
                 background: (theme) => theme.custom.cardGradient,
@@ -235,13 +258,6 @@ const ContactCTA = () => {
             </Paper>
           </Grid>
         </Grid>
-
-        {/* Footer */}
-        <Box sx={{ mt: 10, pt: 6, borderTop: '1px solid', borderColor: 'divider', textAlign: 'center' }}>
-          <Typography variant="body2" color="text.secondary">
-            © {new Date().getFullYear()} Orbit Web Studio. Creando experiencias web excepcionales.
-          </Typography>
-        </Box>
       </Container>
     </Box>
   );
