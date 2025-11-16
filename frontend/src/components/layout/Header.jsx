@@ -46,32 +46,30 @@ const Header = () => {
   const menuOpen = Boolean(anchorEl);
 
   // 🔥 Estado para saber qué sección está activa
-  const [activeSection, setActiveSection] = useState(null);
+  const [activeSection, setActiveSection] = useState('');
 
-  // 🧠 Detectar la sección activa al hacer scroll
+  // 🧠 Detectar la sección activa al hacer scroll (igual estilo que Navbar.jsx)
   useEffect(() => {
-    const sectionIds = [...sections.map((s) => s.id), 'contact']; // incluye contact para el CTA
-    const offset = 140; // margen para compensar la altura del header
+    const sectionIds = [
+      ...sections.map((s) => s.id),
+      'contact', // incluye contact para el CTA
+    ];
 
     const handleScroll = () => {
-      let current = null;
+      let currentSection = '';
 
-      sectionIds.forEach((id) => {
+      // buscamos la sección cuya zona alrededor de 100px está dentro de la vista
+      currentSection = sectionIds.find((id) => {
         const el = document.getElementById(id);
-        if (!el) return;
-
+        if (!el) return false;
         const rect = el.getBoundingClientRect();
+        return rect.top <= 100 && rect.bottom >= 100;
+      }) || '';
 
-        // Si la parte superior de la sección ya pasó el header, la tomamos como candidata
-        if (rect.top - offset <= 0) {
-          current = id;
-        }
-      });
-
-      setActiveSection(current);
+      setActiveSection(currentSection);
     };
 
-    handleScroll(); // para que al cargar ya marque la correcta
+    handleScroll(); // para que al cargar ya marque algo coherente
     window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
@@ -84,8 +82,9 @@ const Header = () => {
     if (target) {
       target.scrollIntoView({ behavior: 'smooth' });
     }
-    // Marcamos manualmente como activa al hacer click
-    setActiveSection(id);
+    // 👇 Ya NO forzamos setActiveSection aquí.
+    // Dejamos que el scroll y el handleScroll se encarguen,
+    // como en el Navbar.jsx que sí te funciona bien.
   };
 
   const handleOpenMenu = (event) => {
@@ -136,7 +135,7 @@ const Header = () => {
 
               // 💧 Liquid glass core
               background:
-                'radial-gradient(circle at 0% 0%, rgba(125,63,185,0.35), transparent 55%) , radial-gradient(circle at 100% 100%, rgba(93,95,233,0.3), transparent 55%) , rgba(8, 10, 24, 0.72)',
+                'radial-gradient(circle at 0% 0%, rgba(125,63,185,0.35), transparent 55%), radial-gradient(circle at 100% 100%, rgba(93,95,233,0.3), transparent 55%), rgba(8, 10, 24, 0.72)',
               backdropFilter: 'blur(22px)',
               WebkitBackdropFilter: 'blur(22px)',
 
@@ -177,6 +176,7 @@ const Header = () => {
                 },
               }}
             />
+
             {/* Navegación desktop/tablet */}
             <Box
               sx={{
@@ -282,7 +282,7 @@ const Header = () => {
             borderRadius: 3,
             minWidth: 210,
             background:
-              'radial-gradient(circle at 0% 0%, rgba(125,63,185,0.35), transparent 55%) , radial-gradient(circle at 100% 100%, rgba(93,95,233,0.3), transparent 55%) , rgba(8, 10, 24, 0.96)',
+              'radial-gradient(circle at 0% 0%, rgba(125,63,185,0.35), transparent 55%), radial-gradient(circle at 100% 100%, rgba(93,95,233,0.3), transparent 55%), rgba(8, 10, 24, 0.96)',
             backdropFilter: 'blur(20px)',
             WebkitBackdropFilter: 'blur(20px)',
             border: '1px solid rgba(255,255,255,0.18)',
