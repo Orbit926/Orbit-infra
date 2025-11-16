@@ -146,6 +146,7 @@ const Hero = () => {
           width: 'fit-content',
           px: 0,
           pointerEvents: 'none',
+          pb: { xs: 2, sm: 0 },
         }}
       >
         <Grid container justifyContent="center">
