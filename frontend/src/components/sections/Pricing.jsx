@@ -82,7 +82,6 @@ const cardVariants = {
 const Pricing = () => {
   return (
     <Box
-      id="pricing"
       sx={{
         py: 10,
         background: 'transparent',

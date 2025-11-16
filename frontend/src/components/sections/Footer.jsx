@@ -2,11 +2,10 @@ import { Box, Container, Grid, Stack, Typography, IconButton, Link as MuiLink } 
 import { GitHub, LinkedIn, Email } from '@mui/icons-material';
 
 const navigationLinks = [
-  { id: 'about', label: 'Sobre mí' },
-  { id: 'services', label: 'Servicios' },
-  { id: 'process', label: 'Proceso' },
-  { id: 'projects', label: 'Proyectos' },
-  { id: 'stack', label: 'Stack' },
+  { id: 'hero',     label: 'Inicio' },      // Hero (y arriba de todo)
+  { id: 'about',    label: 'Sobre mí' },    // About
+  { id: 'projects', label: 'Proyectos' },   // ProjectsPreview + Testimonials
+  { id: 'services', label: 'Servicios' }, 
 ];
 
 const socialLinks = [

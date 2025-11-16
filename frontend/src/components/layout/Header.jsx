@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import {
   AppBar,
   Toolbar,
-  Typography,
   Button,
   Box,
   Paper,
@@ -16,11 +15,10 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { motion } from 'framer-motion';
 
 const sections = [
-  { id: 'about',    label: 'Sobre mí' },
-  { id: 'services', label: 'Servicios' },
-  { id: 'process',  label: 'Proceso' },
-  { id: 'projects', label: 'Proyectos' },
-  { id: 'stack',    label: 'Stack' },
+  { id: 'hero',     label: 'Inicio' },      // Hero (y arriba de todo)
+  { id: 'about',    label: 'Sobre mí' },    // About
+  { id: 'projects', label: 'Proyectos' },   // ProjectsPreview + Testimonials
+  { id: 'services', label: 'Servicios' },   // Services + Process + TechStack + Pricing
 ];
 
 // ⏱ Ajusta este delay para que el navbar aparezca

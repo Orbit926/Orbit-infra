@@ -14,18 +14,28 @@ import Testimonials from './components/sections/Testimonials';
 
 export const App = () => {
   return (
-    <Box sx={{ minHeight: '100vh' }}>
+    <Box component="main" sx={{ minHeight: '100vh' }}>
       <Header />
       <Hero />
-      <About />
-      <Services />
-      <Process />
-      <ProjectsPreview />
-      <Testimonials />
-      <TechStack />
-      <Pricing />
-      <ContactCTA />
-      <Footer />
+      <Box component="section" id="about">
+        <About />
+      </Box>
+      <Box component="section" id="projects">
+        <ProjectsPreview />
+        <Testimonials />
+      </Box>
+      <Box component="section" id="services">
+        <Services />
+        <Process />
+        <TechStack />
+        <Pricing />
+      </Box>
+      <Box component="section" id="contact">
+        <ContactCTA />
+      </Box>
+      <Box component="footer">
+        <Footer />
+      </Box>
       <FloatingWhatsApp />
     </Box>
   );

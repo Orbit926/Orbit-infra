@@ -34,7 +34,6 @@ const ContactCTA = () => {
 
   return (
     <Box
-      id="contact"
       sx={{
         py: 10,
         background: (theme) => theme.palette.background.paper,

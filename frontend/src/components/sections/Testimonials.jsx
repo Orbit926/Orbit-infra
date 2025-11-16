@@ -28,7 +28,6 @@ const testimonials = [
 const Testimonials = () => {
   return (
     <Box
-      id="testimonials"
       sx={{
         py: { xs: 8, md: 12 },
         background: (theme) => theme.palette.background.default,

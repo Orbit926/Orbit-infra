@@ -54,7 +54,7 @@ const itemVariants = {
 
 const Process = () => {
   return (
-    <Box id="process" sx={{ py: 10, background: (theme) => theme.palette.background.paper }}>
+    <Box sx={{ py: 10, background: (theme) => theme.palette.background.paper }}>
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 20 }}

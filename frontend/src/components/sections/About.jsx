@@ -33,7 +33,6 @@ const itemVariants = {
 const About = () => {
   return (
     <Box
-      id="about"
       sx={{
         py: 10,
         background: (theme) => theme.palette.background.paper,
