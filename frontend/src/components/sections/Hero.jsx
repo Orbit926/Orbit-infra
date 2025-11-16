@@ -62,7 +62,7 @@ const Hero = () => {
       </Box>
 
       {/* CONTENIDO CENTRADO */}
-      <Box sx={{ position: 'relative', zIndex: 2, width: 'fit-content', px: 0 }}>
+      <Box sx={{ position: 'relative', zIndex: 2, width: 'fit-content', px: 0, pointerEvents: 'none' }}>
         <Grid container justifyContent="center">
           <Grid size={{ xs: 12, md: 10, lg: 8 }}>
             <Stack spacing={1.5} alignItems="center">
@@ -114,7 +114,7 @@ const Hero = () => {
                 </Stack>
                 <Stack direction="row" spacing={1.5} alignItems="center">
                   <RocketLaunch color="secondary" />
-                  <Typography variant="body1">Integraciones y pequeños backends</Typography>
+                  <Typography variant="body1" sx={{ display: 'block', whiteSpace: 'nowrap'}}>Integraciones y pequeños backends</Typography>
                 </Stack>
                 <Stack direction="row" spacing={1.5} alignItems="center">
                   <Speed sx={{ color: '#a46be3' }} />
@@ -134,6 +134,7 @@ const Hero = () => {
                   color="primary"
                   size="large"
                   onClick={() => scrollToSection('services')}
+                  sx={{ pointerEvents: 'auto' }}
                 >
                   Ver servicios
                 </Button>
@@ -142,6 +143,7 @@ const Hero = () => {
                   color="secondary"
                   size="large"
                   onClick={() => scrollToSection('projects')}
+                  sx={{ pointerEvents: 'auto' }}
                 >
                   Proyectos
                 </Button>
