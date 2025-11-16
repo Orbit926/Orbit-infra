@@ -153,6 +153,42 @@ resource "aws_cloudfront_cache_policy" "static_site" {
 }
 
 ###############################
+# CloudFront Function redirect#
+###############################
+
+resource "aws_cloudfront_function" "redirect_to_www" {
+  name    = "${var.project}-${var.env}-redirect-to-www"
+  comment = "Redirige ${var.domain_name} -> www.${var.domain_name} con 301"
+  runtime = "cloudfront-js-1.0"
+  publish = true
+
+  code = <<EOF
+function handler(event) {
+  var request = event.request;
+  var host = request.headers.host.value;
+
+  // Si viene al dominio sin www, redirigimos
+  if (host === "${var.domain_name}") {
+    var location = "https://www.${var.domain_name}" + request.uri;
+
+    // NOTA: si quieres preservar querystring, aquí habría que reconstruirlo.
+    return {
+      statusCode: 301,
+      statusDescription: "Moved Permanently",
+      headers: {
+        "location": { "value": location }
+      }
+    };
+  }
+
+  // Si ya viene a www, sigue normal
+  return request;
+}
+EOF
+}
+
+
+###############################
 # Response Headers (seguridad)#
 ###############################
 
@@ -191,7 +227,6 @@ resource "aws_cloudfront_response_headers_policy" "security_headers" {
 
 ##############################
 # CloudFront Distribution    #
-# (sin dominio propio)       #
 ##############################
 
 resource "aws_cloudfront_distribution" "site_cdn" {
@@ -222,6 +257,11 @@ resource "aws_cloudfront_distribution" "site_cdn" {
 
     cache_policy_id            = aws_cloudfront_cache_policy.static_site.id
     response_headers_policy_id = aws_cloudfront_response_headers_policy.security_headers.id
+
+    function_association {
+      function_arn = aws_cloudfront_function.redirect_to_www.arn
+      event_type   = "viewer-request"
+    }
   }
 
   price_class = "PriceClass_100"
