@@ -13,6 +13,7 @@ import {
   Divider,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import { motion } from 'framer-motion';
 
 const sections = [
   { id: 'services', label: 'Servicios' },
@@ -20,6 +21,24 @@ const sections = [
   { id: 'projects', label: 'Proyectos' },
   { id: 'stack',    label: 'Stack' },
 ];
+
+// ⏱ Ajusta este delay para que el navbar aparezca
+// cuando termine la animación del Hero (en segundos)
+const headerDelay = 1.5;
+
+// Variantes de animación del navbar
+const navbarVariants = {
+  hidden: { opacity: 0, y: -20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: headerDelay,
+      duration: 0.8,
+      ease: 'easeOut',
+    },
+  },
+};
 
 const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -44,6 +63,10 @@ const Header = () => {
   return (
     <>
       <AppBar
+        component={motion.header}
+        variants={navbarVariants}
+        initial="hidden"
+        animate="visible"
         position="fixed"
         elevation={0}
         sx={{
@@ -84,7 +107,6 @@ const Header = () => {
               alignItems: 'center',
               gap: { xs: 1.1, sm: 2.2, md: 2.8 },
 
-              // Pseudo para brillo líquido
               overflow: 'hidden',
               '&::before': {
                 content: '""',
@@ -108,6 +130,7 @@ const Header = () => {
                 height: 'auto',
               }}
             />
+
             {/* Navegación desktop/tablet */}
             <Box
               sx={{

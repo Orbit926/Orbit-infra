@@ -1,11 +1,67 @@
 // Hero.jsx
-import { Container, Typography, Button, Box, Stack, Grid } from '@mui/material';
+import { Typography, Button, Box, Stack, Grid } from '@mui/material';
 import { Code, RocketLaunch, Speed } from '@mui/icons-material';
-import Orb from '../Orb/Orb';
 import { useTheme } from '@mui/material/styles';
+import { motion } from 'framer-motion';
+import Orb from '../Orb/Orb';
+
+// Delay base para el contenido después del orb
+const containerDelay = 1.0;   // cámbialo a lo que quieras
+
+// Variantes para el contenido (texto, bullets, botones)
+const contentVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: containerDelay,
+      duration: 0.8,
+      ease: 'easeOut',
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: 'easeOut',
+    },
+  },
+};
+
+const bulletsVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: 'easeOut',
+    },
+  },
+};
+
+const buttonsVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: 'easeOut',
+    },
+  },
+};
 
 const Hero = () => {
   const theme = useTheme();
+
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
@@ -15,14 +71,15 @@ const Hero = () => {
 
   return (
     <Box
+      component="section"
       sx={{
         position: 'relative',
         minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',  // <-- centra todo horizontal
+        justifyContent: 'center',
         overflow: 'hidden',
-        textAlign: 'center',       // <-- centra texto
+        textAlign: 'center',
         background: theme.palette.background.default,
         px: 2,
       }}
@@ -40,6 +97,16 @@ const Hero = () => {
 
       {/* Orb como fondo centrado */}
       <Box
+        component={motion.div}
+        initial={{ opacity: 0, scale: 0.7 }}
+        animate={{
+          opacity: 0.85,
+          scale: 1,
+          transition: {
+            duration: 1.2,
+            ease: 'easeOut',
+          },
+        }}
         sx={{
           position: 'absolute',
           inset: 0,
@@ -51,22 +118,43 @@ const Hero = () => {
       >
         <Box
           sx={{
-            width: {md: 900},
+            width: { md: 900 },
             aspectRatio: '1',
-            opacity: 0.85,
             filter: 'drop-shadow(0 0 40px rgba(164,107,227,0.6))',
+            '@keyframes float': {
+              '0%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-16px)' },
+              '100%': { transform: 'translateY(0px)' },
+            },
+            animation: 'float 18s ease-in-out infinite',
           }}
         >
-          <Orb hue={15} hoverIntensity={0.25} rotateOnHover={true}/>
+          <Orb hue={15} hoverIntensity={0.5} rotateOnHover={true} />
         </Box>
       </Box>
 
       {/* CONTENIDO CENTRADO */}
-      <Box sx={{ position: 'relative', zIndex: 2, width: 'fit-content', px: 0, pointerEvents: 'none' }}>
+      <Box
+        component={motion.div}
+        variants={contentVariants}
+        initial="hidden"
+        animate="visible"
+        // 👇 este delay hace que el contenido espere a que salga el orb
+        sx={{
+          position: 'relative',
+          zIndex: 2,
+          width: 'fit-content',
+          px: 0,
+          pointerEvents: 'none',
+        }}
+      >
         <Grid container justifyContent="center">
           <Grid size={{ xs: 12, md: 10, lg: 8 }}>
             <Stack spacing={1.5} alignItems="center">
+              {/* Subtítulo */}
               <Typography
+                component={motion.h3}
+                variants={itemVariants}
                 variant="h3"
                 sx={{
                   fontSize: { xs: '1.8rem', md: '2.2rem', lg: '2.4rem' },
@@ -77,7 +165,11 @@ const Hero = () => {
               >
                 Orbit Web Studio
               </Typography>
+
+              {/* Título principal */}
               <Typography
+                component={motion.h1}
+                variants={itemVariants}
                 variant="h1"
                 sx={{
                   fontSize: { xs: '2.0rem', md: '2.8rem', lg: '3.2rem' },
@@ -107,26 +199,47 @@ const Hero = () => {
               </Typography>
 
               {/* Bullets */}
-              <Stack spacing={2} sx={{ pt: 2, display: { xs: 'none', sm: 'flex' } }} alignItems="center">
+              <Stack
+                component={motion.div}
+                variants={bulletsVariants}
+                spacing={2}
+                sx={{ pt: 2, display: { xs: 'none', sm: 'flex' } }}
+                alignItems="center"
+              >
                 <Stack direction="row" spacing={1.5} alignItems="center">
                   <Code color="primary" />
-                  <Typography variant="body1">Desarrollo frontend React + MUI</Typography>
+                  <Typography variant="body1">
+                    Desarrollo frontend React + MUI
+                  </Typography>
                 </Stack>
                 <Stack direction="row" spacing={1.5} alignItems="center">
                   <RocketLaunch color="secondary" />
-                  <Typography variant="body1" sx={{ display: 'block', whiteSpace: 'nowrap'}}>Integraciones y pequeños backends</Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{ display: 'block', whiteSpace: 'nowrap' }}
+                  >
+                    Integraciones y pequeños backends
+                  </Typography>
                 </Stack>
                 <Stack direction="row" spacing={1.5} alignItems="center">
                   <Speed sx={{ color: '#a46be3' }} />
-                  <Typography variant="body1">Deploy profesional y performance</Typography>
+                  <Typography variant="body1">
+                    Deploy profesional y performance
+                  </Typography>
                 </Stack>
               </Stack>
 
               {/* Botones centrados */}
               <Stack
+                component={motion.div}
+                variants={buttonsVariants}
                 direction="row"
                 spacing={2}
-                sx={{ pt: 4, flexWrap: 'wrap', display: { xs: 'none', sm: 'flex' } }}
+                sx={{
+                  pt: 4,
+                  flexWrap: 'wrap',
+                  display: { xs: 'none', sm: 'flex' },
+                }}
                 justifyContent="center"
               >
                 <Button
