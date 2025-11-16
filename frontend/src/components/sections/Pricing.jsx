@@ -84,7 +84,7 @@ const Pricing = () => {
     <Box
       sx={{
         py: 10,
-        background: 'transparent',
+        background: (theme) => theme.palette.background.paper,
         position: 'relative',
       }}
     >

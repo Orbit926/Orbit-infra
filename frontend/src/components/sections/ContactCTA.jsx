@@ -36,7 +36,7 @@ const ContactCTA = () => {
     <Box
       sx={{
         py: 10,
-        background: (theme) => theme.palette.background.paper,
+        background: (theme) => theme.palette.background.default,
         position: 'relative',
         overflow: 'hidden',
       }}

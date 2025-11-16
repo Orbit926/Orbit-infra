@@ -49,7 +49,7 @@ const itemVariants = {
 
 const Services = () => {
   return (
-    <Box sx={{ py: 10, background: (theme) => theme.palette.background.default }}>
+    <Box sx={{ py: 10, background: (theme) => theme.palette.background.paper }}>
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
