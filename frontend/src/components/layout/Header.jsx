@@ -99,22 +99,15 @@ const Header = () => {
             }}
           >
             {/* Logo */}
-            <Typography
-              variant="h6"
+            <Box
+              component="img"
+              src="/img/logos/orbit-color.png"
+              alt="Orbit"
               sx={{
-                position: 'relative',
-                zIndex: 1,
-                fontWeight: 800,
-                background: 'linear-gradient(135deg, #7d3fb9 0%, #5d5fe9 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                mr: { xs: 0.5, sm: 1.5 },
-                letterSpacing: '0.04em',
+                width: 80,
+                height: 'auto',
               }}
-            >
-              Orbit
-            </Typography>
-
+            />
             {/* Navegación desktop/tablet */}
             <Box
               sx={{
