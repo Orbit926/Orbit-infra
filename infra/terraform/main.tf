@@ -59,6 +59,7 @@ module "contact_form_lambda" {
   env      = var.env
   role_arn = module.iam_lambda_invoker.lambda_invoker_role_arn
   email_dispatcher_function_name = module.email_dispatcher_lambda.function_name
+  recaptcha_expected_hostname = "www.${var.domain_name}"
 
   # Config función
   function_name   = "" # opcional

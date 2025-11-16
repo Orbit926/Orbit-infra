@@ -92,7 +92,7 @@ variable "recaptcha_expected_action" {
 variable "recaptcha_expected_hostname" {
   type        = string
   description = "Hostname esperado en reCAPTCHA"
-  default     = "www.devaltra.com"
+  default     = "www.orbit.com.mx"
 }
 
 variable "recaptcha_min_score" {
