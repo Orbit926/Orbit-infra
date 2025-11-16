@@ -9,6 +9,7 @@ import ContactCTA from './components/sections/ContactCTA';
 import Footer from './components/sections/Footer';
 import About from './components/sections/About';
 import Pricing from './components/sections/Pricing';
+import FloatingWhatsApp from './components/layout/FloatingWhatsApp';
 
 export const App = () => {
   return (
@@ -23,6 +24,7 @@ export const App = () => {
       <Pricing />
       <ContactCTA />
       <Footer />
+      <FloatingWhatsApp />
     </Box>
   );
 }
