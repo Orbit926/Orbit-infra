@@ -3,7 +3,7 @@ Nuevo mensaje desde el formulario de contacto
 Nombre: {{name}}
 Correo: {{email}}
 Teléfono: {{phone}}
-Asunto: {{subject}}
+Asunto: {{projectType}}
 
 Mensaje:
 {{message}}

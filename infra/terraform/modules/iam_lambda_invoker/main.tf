@@ -8,7 +8,7 @@ locals {
 #################################
 
 resource "aws_iam_role" "lambda_invoke" {
-  name = "${local.role_name}-role"
+  name = "contact-form-${local.role_name}-role"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"

@@ -203,7 +203,7 @@ def handler(event, context):
     name = body.get("name", "")
     email = body.get("email", "")
     phone = body.get("phone", "")
-    subject = body.get("subject", "")
+    subject = body.get("projectType", "")
     message = body.get("message", "")
 
     # Payload para vendor (usa template VendorNotifyTemplate; dispatcher usará VENDOR_EMAIL desde env)

@@ -17,9 +17,9 @@ resource "aws_ses_template" "vendor_notify" {
   text    = file("${path.module}/templates/vendor_notify.txt")
 }
 
-resource "aws_sesv2_email_identity" "test_email_identity" {
-  email_identity = var.from_email
-}
+# resource "aws_sesv2_email_identity" "test_email_identity" {
+#   email_identity = var.from_email
+# }
 
 resource "aws_sesv2_email_identity" "vendor_email_identity" {
   email_identity = var.vendor_email

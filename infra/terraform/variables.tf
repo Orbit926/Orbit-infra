@@ -18,7 +18,7 @@ variable "from_addresses" {
 
 variable "role_name_prefix" {
   type    = string
-  default = ""
+  default = "orbit"
 }
 
 variable "tags" {
@@ -30,7 +30,7 @@ variable "tags" {
 variable "from_email" {
   type        = string
   description = "Dirección remitente verificada en SES (FromEmailAddress)."
-  default = "no-reply@devaltra.com"
+  default = "no-reply@orbit.com.mx"
 }
 
 # Correo del vendedor que recibirá la notificación
@@ -50,13 +50,12 @@ variable "allowed_origin" {
 variable "recaptcha_secret_key" {
   type        = string
   description = "Clave secreta de reCAPTCHA"
-  default = "value"
 }
 
 variable "cors_allow_origins" {
   type        = list(string)
   description = "Lista de origins permitidos para CORS"
-  default     = []
+  default     = ["https://www.orbit.com.mx", "https://orbit.com.mx", "*"]
 }
 
 variable "domain_name" {

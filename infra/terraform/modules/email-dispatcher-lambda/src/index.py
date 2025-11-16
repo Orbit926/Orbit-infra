@@ -15,10 +15,10 @@ TEMPLATES = {
         "whitelist": [],
     },
     "VendorNotifyTemplate": {
-        "required": ["name", "email", "phone", "subject", "message"],
+        "required": ["name", "email", "phone", "projectType", "message"],
         "to_mode": "env",
         "env_key": "VENDOR_EMAIL",
-        "whitelist": ["name", "email", "phone", "subject", "message"],
+        "whitelist": ["name", "email", "phone", "projectType", "message"],
     },
 }
 
