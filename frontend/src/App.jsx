@@ -16,7 +16,7 @@ import Testimonials from './components/sections/Testimonials';
 
 export const App = () => {
   return (
-    <GoogleReCaptchaProvider reCaptchaKey={"6LdmpQ4sAAAAAGfHGArqFG09GNNQgteyWLuI8QT-"}>
+    <GoogleReCaptchaProvider reCaptchaKey={contactConfig.recaptcha.siteKey}>
       <Box component="main" sx={{ minHeight: '100vh' }}>
         <Header />
         <Hero />
