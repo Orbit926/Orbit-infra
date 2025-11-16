@@ -24,3 +24,4 @@ infra/terraform/crash.log
 infra/terraform/*.log
 
 commands.txt
+.env
