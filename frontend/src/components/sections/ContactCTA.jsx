@@ -168,6 +168,7 @@ const ContactCTA = () => {
                   <Grid container spacing={2}>
                     <Grid size={{ xs: 12, sm: 6 }}>
                       <TextField
+                          variant='standard'
                         fullWidth
                         label="Nombre"
                         name="name"
@@ -178,6 +179,7 @@ const ContactCTA = () => {
                     </Grid>
                     <Grid size={{ xs: 12, sm: 6 }}>
                       <TextField
+                        variant='standard'
                         fullWidth
                         label="Email"
                         name="email"
@@ -190,6 +192,7 @@ const ContactCTA = () => {
                   </Grid>
 
                   <TextField
+                    variant='standard'
                     select
                     fullWidth
                     label="Tipo de proyecto"
@@ -206,6 +209,7 @@ const ContactCTA = () => {
                   </TextField>
 
                   <TextField
+                    variant='standard'
                     fullWidth
                     label="Mensaje"
                     name="message"
