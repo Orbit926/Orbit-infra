@@ -1,4 +1,6 @@
 import { Box } from '@mui/material';
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
+import { contactConfig } from './config/data';
 import Header from './components/layout/Header';
 import Hero from './components/sections/Hero';
 import Services from './components/sections/Services';
@@ -14,29 +16,31 @@ import Testimonials from './components/sections/Testimonials';
 
 export const App = () => {
   return (
-    <Box component="main" sx={{ minHeight: '100vh' }}>
-      <Header />
-      <Hero />
-      <Box component="section" id="about">
-        <About />
+    <GoogleReCaptchaProvider reCaptchaKey={contactConfig.recaptcha.siteKey}>
+      <Box component="main" sx={{ minHeight: '100vh' }}>
+        <Header />
+        <Hero />
+        <Box component="section" id="about">
+          <About />
+        </Box>
+        <Box component="section" id="projects">
+          <ProjectsPreview />
+          <Testimonials />
+        </Box>
+        <Box component="section" id="services">
+          <Services />
+          <Process />
+          <TechStack />
+          <Pricing />
+        </Box>
+        <Box component="section" id="contact">
+          <ContactCTA />
+        </Box>
+        <Box component="footer">
+          <Footer />
+        </Box>
+        <FloatingWhatsApp />
       </Box>
-      <Box component="section" id="projects">
-        <ProjectsPreview />
-        <Testimonials />
-      </Box>
-      <Box component="section" id="services">
-        <Services />
-        <Process />
-        <TechStack />
-        <Pricing />
-      </Box>
-      <Box component="section" id="contact">
-        <ContactCTA />
-      </Box>
-      <Box component="footer">
-        <Footer />
-      </Box>
-      <FloatingWhatsApp />
-    </Box>
+    </GoogleReCaptchaProvider>
   );
 }

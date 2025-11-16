@@ -13,4 +13,8 @@ export const contactConfig = {
             en: 'Query from Orbit Web Studio',
         },
     },
+    recaptcha: {
+        siteKey: "6LdmpQ4sAAAAAGfHGArqFG09GNNQgteyWLuI8QT-"
+    },
+    API_URL: "https://exfdv17lmh.execute-api.us-east-2.amazonaws.com/prod"
 };
