@@ -1,4 +1,16 @@
-import { Button, Grid, MenuItem, Stack, TextField, Link, Typography } from '@mui/material';
+import { useState } from 'react';
+import {
+  Button,
+  Grid,
+  MenuItem,
+  Stack,
+  TextField,
+  Link,
+  Typography,
+  LinearProgress,
+  Snackbar,
+  Alert,
+} from '@mui/material';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
@@ -6,27 +18,26 @@ import { z } from 'zod';
 import { contactConfig } from '../../config/data';
 import { sendContactForm } from '../../utils/sendContactForm';
 
-const projectTypes = [
-  'Landing Page',
-  'Web App',
-  'E-commerce',
-  'Otro',
-];
+const projectTypes = ['Landing Page', 'Web App', 'E-commerce', 'Otro'];
 
-// Esquema de validación con Zod
 const contactSchema = z.object({
   name: z.string().min(1, 'El nombre es obligatorio'),
   email: z.string().email('Ingresa un email válido'),
   phone: z.string().min(10, 'Ingresa un número de celular válido'),
   projectType: z.string().min(1, 'Selecciona un tipo de proyecto'),
   message: z.string().min(10, 'Cuéntanos un poco más sobre tu proyecto'),
-  _hp: z.string().optional(), // Honeypot para anti-bots
+  _hp: z.string().optional(), // Honeypot
 });
 
 export const ContactForm = () => {
-
   const { executeRecaptcha } = useGoogleReCaptcha();
   const endpointURL = contactConfig.API_URL;
+
+  const [snackbar, setSnackbar] = useState({
+    open: false,
+    message: '',
+    severity: 'success', // 'success' | 'error' | 'info' | 'warning'
+  });
 
   const {
     control,
@@ -45,29 +56,52 @@ export const ContactForm = () => {
     },
   });
 
+  const handleCloseSnackbar = (_, reason) => {
+    if (reason === 'clickaway') return;
+    setSnackbar((prev) => ({ ...prev, open: false }));
+  };
+
   const onSubmit = async (data) => {
-    if (data._hp) return;
+    if (data._hp) return; // Bot detectado
 
-    console.log('Form submitted:', data);
+    try {
+      const result = await sendContactForm({
+        formData: data,
+        executeRecaptcha,
+        endpointURL,
+      });
 
-    const result = await sendContactForm({
-      formData: data,
-      executeRecaptcha,
-      endpointURL,
-    });
-
-    if (result.ok) {
-      alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
-      reset();
-    } else {
-      alert(`Error al enviar el formulario: ${result.error}`);
+      if (result.ok) {
+        setSnackbar({
+          open: true,
+          message: '¡Gracias por tu mensaje! Te contactaré pronto. 🚀',
+          severity: 'success',
+        });
+        reset();
+      } else {
+        setSnackbar({
+          open: true,
+          message: 'Error al enviar el formulario. Intenta de nuevo más tarde.',
+          severity: 'error',
+        });
+      }
+    } catch (error) {
+      console.error('Error enviando formulario:', error);
+      setSnackbar({
+        open: true,
+        message: 'Ocurrió un error inesperado. Intenta de nuevo más tarde.',
+        severity: 'error',
+      });
     }
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Stack spacing={3}>
-        {/* Honeypot field (oculto) */}
+        {/* Línea de carga mientras se envía */}
+        {isSubmitting && <LinearProgress />}
+
+        {/* Honeypot oculto */}
         <Controller
           name="_hp"
           control={control}
@@ -82,7 +116,7 @@ export const ContactForm = () => {
           )}
         />
 
-        {/* Nombre / Email */}
+        {/* Nombre / Email / Celular */}
         <Grid container spacing={2}>
           <Grid size={{ xs: 12, sm: 6 }}>
             <Controller
@@ -119,8 +153,7 @@ export const ContactForm = () => {
             />
           </Grid>
 
-          {/* Celular (segunda fila pero dentro del mismo Grid) */}
-          <Grid size={{ xs: 12, sm: 12 }}>
+          <Grid size={{ xs: 12 }}>
             <Controller
               name="phone"
               control={control}
@@ -182,7 +215,7 @@ export const ContactForm = () => {
           )}
         />
 
-        {/* Aviso de protección reCAPTCHA */}
+        {/* Aviso reCAPTCHA */}
         <Typography
           variant="caption"
           color="text.secondary"
@@ -208,6 +241,7 @@ export const ContactForm = () => {
           de Google.
         </Typography>
 
+        {/* Botón de envío */}
         <Button
           type="submit"
           variant="contained"
@@ -219,6 +253,23 @@ export const ContactForm = () => {
           {isSubmitting ? 'Enviando...' : 'Enviar mensaje'}
         </Button>
       </Stack>
+
+      {/* Snackbar de feedback */}
+      <Snackbar
+        open={snackbar.open}
+        autoHideDuration={6000}
+        onClose={handleCloseSnackbar}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      >
+        <Alert
+          onClose={handleCloseSnackbar}
+          severity={snackbar.severity}
+          variant="filled"
+          sx={{ width: '100%' }}
+        >
+          {snackbar.message}
+        </Alert>
+      </Snackbar>
     </form>
   );
 };
