@@ -2,6 +2,7 @@ import { Box, Container, Grid, Stack, Typography, IconButton, Link as MuiLink } 
 import { GitHub, LinkedIn, Email } from '@mui/icons-material';
 
 const navigationLinks = [
+  { id: 'about', label: 'Sobre mí' },
   { id: 'services', label: 'Servicios' },
   { id: 'process', label: 'Proceso' },
   { id: 'projects', label: 'Proyectos' },
@@ -56,6 +57,7 @@ const Footer = () => {
           <Grid size={{ xs: 12, md: 4 }}>
             <Stack spacing={2}>
               <Box
+                onClick={() => scrollTo('hero')}
                 component="img"
                 src="/img/logos/orbit-color.png"
                 alt="Orbit"

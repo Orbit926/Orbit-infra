@@ -16,6 +16,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { motion } from 'framer-motion';
 
 const sections = [
+  { id: 'about',    label: 'Sobre mí' },
   { id: 'services', label: 'Servicios' },
   { id: 'process',  label: 'Proceso' },
   { id: 'projects', label: 'Proyectos' },

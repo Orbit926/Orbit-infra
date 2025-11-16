@@ -42,20 +42,6 @@ const ContactCTA = () => {
         overflow: 'hidden',
       }}
     >
-      {/* Decorative gradient */}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          height: '50%',
-          background: (theme) => theme.custom.heroGradient,
-          opacity: 0.1,
-          zIndex: 0,
-        }}
-      />
-
       <Container sx={{ position: 'relative', zIndex: 1 }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
