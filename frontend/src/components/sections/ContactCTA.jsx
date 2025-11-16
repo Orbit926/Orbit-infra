@@ -176,7 +176,7 @@ const ContactCTA = () => {
                   <Grid container spacing={2}>
                     <Grid size={{ xs: 12, sm: 6 }}>
                       <TextField
-                          variant='standard'
+                        variant='standard'
                         fullWidth
                         label="Nombre"
                         name="name"

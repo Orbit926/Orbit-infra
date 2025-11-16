@@ -13,7 +13,7 @@ export const FloatingWhatsApp = () => {
     <motion.div
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
-      transition={{ delay: 1, duration: 0.3 }}
+      transition={{ delay: 2, duration: 0.7 }}
       style={{
         position: 'fixed',
         bottom: 24,
