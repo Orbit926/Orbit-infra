@@ -8,6 +8,7 @@ import TechStack from './components/sections/TechStack';
 import ContactCTA from './components/sections/ContactCTA';
 import Footer from './components/sections/Footer';
 import About from './components/sections/About';
+import Pricing from './components/sections/Pricing';
 
 export const App = () => {
   return (
@@ -19,6 +20,7 @@ export const App = () => {
       <Process />
       <ProjectsPreview />
       <TechStack />
+      <Pricing />
       <ContactCTA />
       <Footer />
     </Box>

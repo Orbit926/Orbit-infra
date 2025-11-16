@@ -37,7 +37,7 @@ const ContactCTA = () => {
       id="contact"
       sx={{
         py: 10,
-        background: (theme) => theme.palette.background.default,
+        background: (theme) => theme.palette.background.paper,
         position: 'relative',
         overflow: 'hidden',
       }}
