@@ -126,7 +126,7 @@ const Hero = () => {
               <Stack
                 direction="row"
                 spacing={2}
-                sx={{ pt: 4, flexWrap: 'wrap' }}
+                sx={{ pt: 4, flexWrap: 'wrap', display: { xs: 'none', sm: 'flex' } }}
                 justifyContent="center"
               >
                 <Button
