@@ -55,7 +55,7 @@ variable "recaptcha_secret_key" {
 variable "cors_allow_origins" {
   type        = list(string)
   description = "Lista de origins permitidos para CORS"
-  default     = ["https://www.orbit.com.mx", "https://orbit.com.mx", "*"]
+  default     = ["https://www.orbit.com.mx", "https://orbit.com.mx",]
 }
 
 variable "domain_name" {

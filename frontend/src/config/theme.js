@@ -33,6 +33,23 @@ export const theme = createTheme({
   },
   components: {
     MuiContainer: { defaultProps: { maxWidth: 'lg' } },
+    MuiAlert: {
+      styleOverrides: {
+        filledSuccess: {
+          color: '#fff',     // Texto blanco
+        },
+        filledError: {
+          color: '#fff',
+        },
+        filledWarning: {
+          color: '#fff',
+        },
+        filledInfo: {
+          color: '#fff',
+        },
+      },
+},
+
   },
   // Tokens custom para usar en sx
   custom: {

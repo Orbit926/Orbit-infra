@@ -74,7 +74,7 @@ export const ContactForm = () => {
       if (result.ok) {
         setSnackbar({
           open: true,
-          message: '¡Gracias por tu mensaje! Te contactaré pronto. 🚀',
+          message: '¡Gracias por tu mensaje! Te contactaré pronto.',
           severity: 'success',
         });
         reset();
