@@ -1,4 +1,4 @@
-import { Button, Grid, MenuItem, Stack, TextField } from '@mui/material';
+import { Button, Grid, MenuItem, Stack, TextField, Link, Typography } from '@mui/material';
 import { useState } from 'react';
 
 const projectTypes = [
@@ -111,6 +111,32 @@ export const ContactForm = () => {
           required
           placeholder="Cuéntanos sobre tu proyecto..."
         />
+
+        {/* Aviso de protección reCAPTCHA */}
+        <Typography
+        variant="caption"
+        color="text.secondary"
+        sx={{ mt: 1 }}
+        aria-label="Aviso de protección reCAPTCHA de Google"
+        >
+        Este sitio está protegido por reCAPTCHA y aplican la{' '}
+        <Link
+            href="https://policies.google.com/privacy?hl=es"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Política de Privacidad
+        </Link>{' '}
+        y los{' '}
+        <Link
+            href="https://policies.google.com/terms?hl=es"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Términos del Servicio
+        </Link>{' '}
+        de Google.
+        </Typography>
 
         <Button
           type="submit"
