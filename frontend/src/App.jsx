@@ -10,6 +10,7 @@ import Footer from './components/sections/Footer';
 import About from './components/sections/About';
 import Pricing from './components/sections/Pricing';
 import FloatingWhatsApp from './components/layout/FloatingWhatsApp';
+import Testimonials from './components/sections/Testimonials';
 
 export const App = () => {
   return (
@@ -20,6 +21,7 @@ export const App = () => {
       <Services />
       <Process />
       <ProjectsPreview />
+      <Testimonials />
       <TechStack />
       <Pricing />
       <ContactCTA />
