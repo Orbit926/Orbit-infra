@@ -1,7 +1,10 @@
 import { Button, Grid, MenuItem, Stack, TextField, Link, Typography } from '@mui/material';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { z } from 'zod';
+import { contactConfig } from '../../config/data';
+import { sendContactForm } from '../../utils/sendContactForm';
 
 const projectTypes = [
   'Landing Page',
@@ -21,6 +24,10 @@ const contactSchema = z.object({
 });
 
 export const ContactForm = () => {
+
+  const { executeRecaptcha } = useGoogleReCaptcha();
+  const endpointURL = contactConfig.API_URL;
+
   const {
     control,
     handleSubmit,
@@ -39,18 +46,22 @@ export const ContactForm = () => {
   });
 
   const onSubmit = async (data) => {
-    // Anti-bot: si _hp tiene contenido, no hacer nada
-    if (data._hp) {
-      return;
-    }
+    if (data._hp) return;
 
     console.log('Form submitted:', data);
 
-    // Simular envío (aquí iría tu lógica de API)
-    await new Promise((resolve) => setTimeout(resolve, 500));
+    const result = await sendContactForm({
+      formData: data,
+      executeRecaptcha,
+      endpointURL,
+    });
 
-    alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
-    reset();
+    if (result.ok) {
+      alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
+      reset();
+    } else {
+      alert(`Error al enviar el formulario: ${result.error}`);
+    }
   };
 
   return (
