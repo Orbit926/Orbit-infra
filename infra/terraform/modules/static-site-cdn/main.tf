@@ -189,7 +189,7 @@ EOF
 
 
 ###############################
-# Response Headers (seguridad)#
+# Response Headers (seguridad + cache único)
 ###############################
 
 resource "aws_cloudfront_response_headers_policy" "security_headers" {
@@ -221,6 +221,14 @@ resource "aws_cloudfront_response_headers_policy" "security_headers" {
       protection = true
       mode_block = true
       override   = true
+    }
+  }
+
+  custom_headers_config {
+    items {
+      header   = "Cache-Control"
+      value    = "public, max-age=3600, must-revalidate"
+      override = true
     }
   }
 }
