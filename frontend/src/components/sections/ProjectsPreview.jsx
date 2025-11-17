@@ -9,7 +9,7 @@ const projects = [
     description: 'Plataforma moderna para empresa de logística internacional con sistema de cotización en tiempo real.',
     tech: ['React', 'MUI', 'Vercel', 'API Integration'],
     gradient: 'linear-gradient(135deg, rgba(125,63,185,0.2) 0%, rgba(93,95,233,0.1) 100%)',
-    image: '/img/projects/devaltra-preview-gray.jpg',
+    image: '/img/projects/devaltra-preview-gray.webp',
     link: 'https://www.devaltra.com',
   },
   {
@@ -18,7 +18,7 @@ const projects = [
     description: 'Invitación de boda digital personalizada con diseño elegante, animaciones suaves y experiencia totalmente responsiva desarrollada para el enlace de mi tía.',
     tech: ['React', 'MUI', 'AWS', 'API Integration', 'GoogleApp Script'],
     gradient: 'linear-gradient(135deg, rgba(200,200,200,0.25) 0%, rgba(180,180,180,0.15) 100%)',
-    image: '/img/projects/invitacion-boda-preview.png',
+    image: '/img/projects/invitacion-boda-preview.webp',
     link: 'https://invitacion-boda-murex.vercel.app',
   },
   {
@@ -27,7 +27,7 @@ const projects = [
     description: 'Tienda online de productos para mascotas con carrito de compras, pasarela de pago y panel admin.',
     tech: ['React', 'MUI', 'Shopify',],
     gradient: 'linear-gradient(135deg, rgba(125,185,63,0.2) 0%, rgba(93,233,95,0.1) 100%)',
-    image: '/img/projects/greenpaw-preview.jpg',
+    image: '/img/projects/greenpaw-preview.webp',
     link: 'https://www.greenpaw.mx',
   },
 ];
@@ -105,25 +105,28 @@ const ProjectsPreview = () => {
                   },
                 }}
               >
-                {/* Gradient decoration */}
                 <Box
                   sx={{
                     position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
+                    inset: 0,
                     height: 120,
-                    backgroundImage: `url(${project.image})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat', // un blanco muy suave translúcido para fondo
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
+                    overflow: 'hidden',
                     zIndex: 0,
-                    backdropFilter: 'blur(4px)',
                   }}
-                />
+                >
+                  <Box
+                    component="img"
+                    src={project.image}
+                    alt={project.title}
+                    loading="lazy"
+                    sx={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      transform: 'scale(1.05)', // para que el blur no deje bordes
+                    }}
+                  />
+                </Box>
                 {/* Hover icon */}
                 <Box
                   component="a"

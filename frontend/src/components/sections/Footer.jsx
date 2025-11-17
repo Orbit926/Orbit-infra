@@ -65,6 +65,7 @@ const Footer = () => {
                   height: 'auto',
                   mb: 1,
                 }}
+                loading='lazy'
               />
               <Typography
                 variant="body2"

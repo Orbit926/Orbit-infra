@@ -38,7 +38,7 @@ const Testimonials = () => {
         {/* Header */}
         <Stack spacing={2} sx={{ mb: 8, textAlign: 'center', alignItems: 'center' }}>
           <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.5rem' } }}>
-            Lo que dicen mis clientes
+            Lo que dicen nuestros clientes
           </Typography>
           <Typography
             variant="body1"

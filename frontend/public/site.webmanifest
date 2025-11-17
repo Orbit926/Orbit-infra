@@ -9,25 +9,19 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/favicon-16x16.png",
+      "src": "/img/favicons/favicon-16x16.webp",
       "sizes": "16x16",
-      "type": "image/png"
+      "type": "image/webp"
     },
     {
-      "src": "/favicon-32x32.png",
+      "src": "/img/favicons/favicon-32x32.webp",
       "sizes": "32x32",
-      "type": "image/png"
+      "type": "image/webp"
     },
     {
-      "src": "/favicon-64x64.png",
+      "src": "/img/favicons/favicon-64x64.webp",
       "sizes": "64x64",
-      "type": "image/png"
-    },
-    {
-      "src": "/apple-touch-icon.png",
-      "sizes": "180x180",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/webp"
     }
   ]
 }

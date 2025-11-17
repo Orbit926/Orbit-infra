@@ -194,8 +194,6 @@ export default function Orb({ hue = 0, hoverIntensity = 0.2, rotateOnHover = tru
 
     function resize() {
       if (!container) return;
-      console.log(container.clientWidth);
-      console.log(container.clientHeight);
       const dpr = window.devicePixelRatio || 1;
       const width = size >= 1000 ? container.clientWidth : size;
       const height = size >= 1000 ? container.clientHeight : size;
