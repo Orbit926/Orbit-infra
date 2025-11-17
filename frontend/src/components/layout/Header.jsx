@@ -253,6 +253,8 @@ const Header = () => {
               aria-controls={menuOpen ? 'orbit-menu' : undefined}
               aria-haspopup="true"
               aria-expanded={menuOpen ? 'true' : undefined}
+              aria-label="Abrir menú de navegación"
+              title="Abrir menú de navegación"
             >
               <MenuIcon />
             </IconButton>
