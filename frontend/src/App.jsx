@@ -1,18 +1,21 @@
+import { Suspense, lazy } from 'react';
 import { Box } from '@mui/material';
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import { contactConfig } from './config/data';
 import Header from './components/layout/Header';
 import Hero from './components/sections/Hero';
-import Services from './components/sections/Services';
-import Process from './components/sections/Process';
-import ProjectsPreview from './components/sections/ProjectsPreview';
-import TechStack from './components/sections/TechStack';
-import ContactCTA from './components/sections/ContactCTA';
-import Footer from './components/sections/Footer';
-import About from './components/sections/About';
-import Pricing from './components/sections/Pricing';
-import FloatingWhatsApp from './components/layout/FloatingWhatsApp';
-import Testimonials from './components/sections/Testimonials';
+
+// Carga diferida (lazy)
+const About = lazy(() => import('./components/sections/About'));
+const Services = lazy(() => import('./components/sections/Services'));
+const Process = lazy(() => import('./components/sections/Process'));
+const ProjectsPreview = lazy(() => import('./components/sections/ProjectsPreview'));
+const TechStack = lazy(() => import('./components/sections/TechStack'));
+const ContactCTA = lazy(() => import('./components/sections/ContactCTA'));
+const Footer = lazy(() => import('./components/sections/Footer'));
+const Pricing = lazy(() => import('./components/sections/Pricing'));
+const FloatingWhatsApp = lazy(() => import('./components/layout/FloatingWhatsApp'));
+const Testimonials = lazy(() => import('./components/sections/Testimonials'));
 
 export const App = () => {
   return (
@@ -20,27 +23,30 @@ export const App = () => {
       <Box component="main" sx={{ minHeight: '100vh' }}>
         <Header />
         <Hero />
-        <Box component="section" id="about">
-          <About />
-        </Box>
-        <Box component="section" id="projects">
-          <ProjectsPreview />
-          <Testimonials />
-        </Box>
-        <Box component="section" id="services">
-          <Services />
-          <Process />
-          <TechStack />
-          <Pricing />
-        </Box>
-        <Box component="section" id="contact">
-          <ContactCTA />
-        </Box>
-        <Box component="footer">
-          <Footer />
-        </Box>
-        <FloatingWhatsApp />
+        {/* Todo lo demás se carga en segundo plano */}
+        <Suspense fallback={null}>
+          <Box component="section" id="about">
+            <About />
+          </Box>
+          <Box component="section" id="projects">
+            <ProjectsPreview />
+            <Testimonials />
+          </Box>
+          <Box component="section" id="services">
+            <Services />
+            <Process />
+            <TechStack />
+            <Pricing />
+          </Box>
+          <Box component="section" id="contact">
+            <ContactCTA />
+          </Box>
+          <Box component="footer">
+            <Footer />
+          </Box>
+          <FloatingWhatsApp />
+        </Suspense>
       </Box>
     </GoogleReCaptchaProvider>
   );
-}
+};
