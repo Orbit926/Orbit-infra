@@ -156,7 +156,7 @@ const About = () => {
                     }}
                   >
                     <Avatar
-                      src="/img/avatar-placeholder.jpg"
+                      src="https://i.pravatar.cc/150?img=32"
                       alt="Profile"
                       sx={{
                         width: { xs: 140, md: 160 },

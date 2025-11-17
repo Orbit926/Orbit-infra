@@ -84,119 +84,144 @@ const ProjectsPreview = () => {
           whileInView="show"
           viewport={{ once: true, margin: '-50px' }}
         >
-          {projects.map((project, index) => (
-            <Grid key={index} size={{ xs: 12, md: 4 }} component={motion.div} variants={itemVariants}>
-              <Card
-                sx={{
-                  height: '100%',
-                  background: (theme) => theme.custom.cardGradient,
-                  border: '1px solid',
-                  borderColor: 'divider',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  transition: 'all 0.3s ease',
-                  '&:hover': {
-                    borderColor: 'primary.main',
-                    transform: 'translateY(-8px)',
-                    '& .project-icon': {
-                      opacity: 1,
-                      transform: 'translate(0, 0)',
-                    },
+        {projects.map((project, index) => (
+          <Grid
+            key={index}
+            size={{ xs: 12, md: 4 }}
+            component={motion.div}
+            variants={itemVariants}
+          >
+            <Card
+              sx={{
+                height: '100%',
+                background: (theme) => theme.custom.cardGradient,
+                border: '1px solid',
+                borderColor: 'divider',
+                position: 'relative',
+                overflow: 'hidden',
+                transition: 'all 0.3s ease',
+                cursor: 'pointer',
+                '&:hover': {
+                  borderColor: 'primary.main',
+                  transform: 'translateY(-8px)',
+                  '& .project-icon': {
+                    opacity: 1,
+                    transform: 'translate(0, 0)',
                   },
+                },
+              }}
+            >
+              {/* Hacer TODA la tarjeta clickeable */}
+              <Box
+                component="a"
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Ir al proyecto ${project.name}`}
+                sx={{
+                  position: 'absolute',
+                  inset: 0,
+                  zIndex: 3,
+                  textDecoration: 'none',
+                }}
+              />
+
+              {/* Imagen de fondo */}
+              <Box
+                sx={{
+                  position: 'absolute',
+                  inset: 0,
+                  height: 120,
+                  overflow: 'hidden',
+                  zIndex: 0,
                 }}
               >
                 <Box
+                  component="img"
+                  src={project.image}
+                  alt={project.name}
+                  loading="lazy"
                   sx={{
-                    position: 'absolute',
-                    inset: 0,
-                    height: 120,
-                    overflow: 'hidden',
-                    zIndex: 0,
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    transform: 'scale(1.05)',
                   }}
-                >
-                  <Box
-                    component="img"
-                    src={project.image}
-                    alt={project.name}
-                    loading="lazy"
-                    sx={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      transform: 'scale(1.05)', // para que el blur no deje bordes
-                    }}
-                  />
-                </Box>
-                {/* Hover icon */}
-                <Box
-                  component="a"
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-icon"
-                  onClick={(e) => e.stopPropagation()}
-                  sx={{
-                    position: 'absolute',
-                    top: 16,
-                    right: 16,
-                    width: 40,
-                    height: 40,
-                    borderRadius: '50%',
-                    background: 'rgba(255, 255, 255, 0.1)',
-                    backdropFilter: 'blur(10px)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    opacity: 0,
-                    transform: 'translate(10px, -10px)',
-                    transition: 'all 0.3s ease',
-                    zIndex: 2,
-                    cursor: 'pointer',
-                    textDecoration: 'none',
-                  }}
-                >
-                  <OpenInNew sx={{ fontSize: 20, color: 'primary.light' }} />
-                </Box>
-                <CardContent sx={{ pt: 10, pb: 3, px: 3, position: 'relative', zIndex: 1 }}>
-                  <Stack spacing={2}>
-                    <Box>
+                />
+              </Box>
+
+              {/* Icono hover — necesita stopPropagation */}
+              <Box
+                component="a"
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                aria-label={`Abrir proyecto ${project.name}`}
+                className="project-icon"
+                sx={{
+                  position: 'absolute',
+                  top: 16,
+                  right: 16,
+                  width: 40,
+                  height: 40,
+                  borderRadius: '50%',
+                  background: 'rgba(255, 255, 255, 0.1)',
+                  backdropFilter: 'blur(10px)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  opacity: 0,
+                  transform: 'translate(10px, -10px)',
+                  transition: 'all 0.3s ease',
+                  zIndex: 4, // encima del overlay
+                  cursor: 'pointer',
+                  textDecoration: 'none',
+                }}
+              >
+                <OpenInNew sx={{ fontSize: 20, color: 'primary.light' }} />
+              </Box>
+
+              <CardContent sx={{ pt: 10, pb: 3, px: 3, position: 'relative', zIndex: 1 }}>
+                <Stack spacing={2}>
+                  <Box>
+                    <Chip
+                      label={project.type}
+                      size="small"
+                      sx={{
+                        background: 'rgba(125, 63, 185, 0.2)',
+                        color: 'primary.light',
+                        fontWeight: 600,
+                        mb: 2,
+                      }}
+                    />
+                    <Typography variant="h5" sx={{ fontWeight: 700, mb: 1 }}>
+                      {project.name}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6 }}>
+                      {project.description}
+                    </Typography>
+                  </Box>
+
+                  <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
+                    {project.tech.map((tech, techIndex) => (
                       <Chip
-                        label={project.type}
+                        key={techIndex}
+                        label={tech}
                         size="small"
+                        variant="outlined"
                         sx={{
-                          background: 'rgba(125, 63, 185, 0.2)',
-                          color: 'primary.light',
-                          fontWeight: 600,
-                          mb: 2,
+                          borderColor: 'divider',
+                          fontSize: '0.75rem',
                         }}
                       />
-                      <Typography variant="h5" sx={{ fontWeight: 700, mb: 1 }}>
-                        {project.name}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6 }}>
-                        {project.description}
-                      </Typography>
-                    </Box>
-
-                    <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
-                      {project.tech.map((tech, techIndex) => (
-                        <Chip
-                          key={techIndex}
-                          label={tech}
-                          size="small"
-                          variant="outlined"
-                          sx={{
-                            borderColor: 'divider',
-                            fontSize: '0.75rem',
-                          }}
-                        />
-                      ))}
-                    </Stack>
+                    ))}
                   </Stack>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
+                </Stack>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
         </Grid>
       </Container>
     </Box>
