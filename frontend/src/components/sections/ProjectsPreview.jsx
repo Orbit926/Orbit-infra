@@ -117,7 +117,7 @@ const ProjectsPreview = () => {
                   <Box
                     component="img"
                     src={project.image}
-                    alt={project.title}
+                    alt={project.name}
                     loading="lazy"
                     sx={{
                       width: '100%',
