@@ -3,25 +3,25 @@ import { FormatQuote } from '@mui/icons-material';
 
 const testimonials = [
   {
-    name: 'Carolina Méndez',
-    role: 'CEO en Nova Studio',
-    avatar: 'https://i.pravatar.cc/150?img=3',
+    name: 'Luis Sergio',
+    role: 'Director de Devaltra Logistics',
+    avatar: 'https://i.pravatar.cc/150?img=12',
     quote:
-      'Orbit nos ayudó a lanzar una landing moderna y rápida. Vimos un aumento inmediato en las conversiones.',
+      'El equipo de Orbit creó una landing page profesional y optimizada que elevó por completo la imagen de nuestra empresa. Ahora nuestros clientes entienden mejor nuestros servicios y cotizan más rápido.',
   },
   {
-    name: 'Luis Ortega',
-    role: 'Fundador de Ruta Local',
-    avatar: 'https://i.pravatar.cc/150?img=5',
+    name: 'Maria Jose',
+    role: 'Fundadora de Greenpaw',
+    avatar: 'https://i.pravatar.cc/150?img=32',
     quote:
-      'El proceso fue súper claro y profesional. En pocas semanas teníamos una web lista para captar clientes.',
+      'La tienda en línea quedó increíble. Todo se ve moderno, rápido y muy claro para nuestros clientes. Gracias a Orbit pudimos lanzar nuestro producto de manera profesional desde el día uno.',
   },
   {
-    name: 'Mariana Torres',
-    role: 'Cofundadora en Bruma Coffee',
-    avatar: 'https://i.pravatar.cc/150?img=8',
+    name: 'Sara',
+    role: 'Novia – Boda',
+    avatar: 'https://i.pravatar.cc/150?img=47',
     quote:
-      'Me encantó la atención al detalle y el enfoque en performance. Nuestra página carga mucho más rápido ahora.',
+      'La invitación digital superó todas nuestras expectativas. El diseño, las animaciones y la experiencia móvil fueron perfectas. Todos nuestros invitados nos felicitaron por lo bonita y funcional que quedó.',
   },
 ];
 
@@ -145,7 +145,7 @@ const Testimonials = () => {
                       fontStyle: 'italic',
                       position: 'relative',
                       '&::before': {
-                        content: '"""',
+                        content: '"“"',
                         position: 'absolute',
                         left: -12,
                         top: -4,
