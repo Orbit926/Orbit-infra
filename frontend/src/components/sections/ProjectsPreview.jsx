@@ -9,20 +9,26 @@ const projects = [
     description: 'Plataforma moderna para empresa de logística internacional con sistema de cotización en tiempo real.',
     tech: ['React', 'MUI', 'Vercel', 'API Integration'],
     gradient: 'linear-gradient(135deg, rgba(125,63,185,0.2) 0%, rgba(93,95,233,0.1) 100%)',
+    image: '/img/projects/devaltra-preview-gray.jpg',
+    link: 'https://www.devaltra.com',
   },
   {
-    name: 'MOVE Travel Planner',
-    type: 'Web App',
-    description: 'Aplicación web para planificación de viajes con mapas interactivos, itinerarios y gestión de presupuesto.',
-    tech: ['React', 'MUI', 'AWS', 'Maps API'],
-    gradient: 'linear-gradient(135deg, rgba(93,95,233,0.2) 0%, rgba(125,63,185,0.1) 100%)',
+    name: 'Invitación de Boda',
+    type: 'Invitación Digital',
+    description: 'Invitación de boda digital personalizada con diseño elegante, animaciones suaves y experiencia totalmente responsiva desarrollada para el enlace de mi tía.',
+    tech: ['React', 'MUI', 'AWS', 'API Integration', 'GoogleApp Script'],
+    gradient: 'linear-gradient(135deg, rgba(200,200,200,0.25) 0%, rgba(180,180,180,0.15) 100%)',
+    image: '/img/projects/invitacion-boda-preview.png',
+    link: 'https://invitacion-boda-murex.vercel.app',
   },
   {
-    name: 'Greenpaw Pets',
+    name: 'Greenpaw',
     type: 'E-commerce',
     description: 'Tienda online de productos para mascotas con carrito de compras, pasarela de pago y panel admin.',
-    tech: ['React', 'MUI', 'Stripe', 'Vercel'],
+    tech: ['React', 'MUI', 'Shopify',],
     gradient: 'linear-gradient(135deg, rgba(125,185,63,0.2) 0%, rgba(93,233,95,0.1) 100%)',
+    image: '/img/projects/greenpaw-preview.jpg',
+    link: 'https://www.greenpaw.mx',
   },
 ];
 
@@ -107,14 +113,25 @@ const ProjectsPreview = () => {
                     left: 0,
                     right: 0,
                     height: 120,
-                    background: project.gradient,
+                    backgroundImage: `url(${project.image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat', // un blanco muy suave translúcido para fondo
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                     zIndex: 0,
+                    backdropFilter: 'blur(4px)',
                   }}
                 />
-
                 {/* Hover icon */}
                 <Box
+                  component="a"
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="project-icon"
+                  onClick={(e) => e.stopPropagation()}
                   sx={{
                     position: 'absolute',
                     top: 16,
@@ -131,11 +148,12 @@ const ProjectsPreview = () => {
                     transform: 'translate(10px, -10px)',
                     transition: 'all 0.3s ease',
                     zIndex: 2,
+                    cursor: 'pointer',
+                    textDecoration: 'none',
                   }}
                 >
                   <OpenInNew sx={{ fontSize: 20, color: 'primary.light' }} />
                 </Box>
-
                 <CardContent sx={{ pt: 10, pb: 3, px: 3, position: 'relative', zIndex: 1 }}>
                   <Stack spacing={2}>
                     <Box>
