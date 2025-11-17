@@ -93,3 +93,10 @@ module "site_cdn" {
   zone_id = var.zone_id
   domain_name = var.domain_name
 }
+
+module "route_53" {
+  source = "./modules/route-53"
+
+  zone_id = var.zone_id
+  domain_name = var.domain_name
+}
