@@ -1,5 +1,8 @@
 import { Box, Container, Grid, Stack, Typography, IconButton, Link as MuiLink } from '@mui/material';
 import { GitHub, LinkedIn, Email } from '@mui/icons-material';
+import { contactConfig } from '../../config/data';
+
+const email = contactConfig.email.address;
 
 const navigationLinks = [
   { id: 'hero',     label: 'Inicio' },      // Hero (y arriba de todo)
@@ -142,7 +145,7 @@ const Footer = () => {
                 </Typography>
                 <Box>
                   <MuiLink
-                    href="mailto:hola@orbitweb.studio"
+                    href={`mailto:${email}`}
                     sx={{
                       display: 'inline-flex',
                       alignItems: 'center',
