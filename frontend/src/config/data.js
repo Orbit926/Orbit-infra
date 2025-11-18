@@ -7,7 +7,7 @@ export const contactConfig = {
         },
     },
     email: {
-        address: 'contact@orbitwebstudio.com',
+        address: 'contacto@orbit.com.mx',
         subject: {
             es: 'Consulta de Orbit Web Studio',
             en: 'Query from Orbit Web Studio',

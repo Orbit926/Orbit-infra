@@ -2,6 +2,11 @@ import { Container, Typography, Button, Box, Stack, TextField, MenuItem, Paper, 
 import { Email, CalendarMonth } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { ContactForm } from '../contact_form/ContactForm';
+import { contactConfig } from '../../config/data';
+
+const defaultMessage = 'Hola, me gustaría agendar una llamada';
+const message = encodeURIComponent(defaultMessage);
+const whatsappUrl = `https://wa.me/${contactConfig.whatsapp.number}?text=${message}`;
 
 const ContactCTA = () => {
   return (
@@ -71,7 +76,7 @@ const ContactCTA = () => {
                     variant="contained"
                     color="primary"
                     fullWidth
-                    href="https://calendly.com"
+                    href={whatsappUrl}
                     target="_blank"
                   >
                     Agendar
@@ -116,7 +121,8 @@ const ContactCTA = () => {
                     variant="outlined"
                     color="secondary"
                     fullWidth
-                    href="mailto:hola@orbitweb.studio"
+                    href={`mailto:${contactConfig.email.address}`}
+                    target="_blank"
                   >
                     Enviar correo
                   </Button>
