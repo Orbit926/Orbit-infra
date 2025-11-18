@@ -82,6 +82,8 @@ module "api_gateway" {
   lambda_invoke_arn = module.contact_form_lambda.invoke_arn
 
   cors_allow_origins = var.cors_allow_origins
+
+  tags = var.tags
 }
 
 module "site_cdn" {
@@ -92,6 +94,8 @@ module "site_cdn" {
 
   zone_id = var.zone_id
   domain_name = var.domain_name
+
+  tags = var.tags
 }
 
 module "route_53" {

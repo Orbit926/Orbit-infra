@@ -23,7 +23,12 @@ variable "role_name_prefix" {
 
 variable "tags" {
   type    = map(string)
-  default = {}
+  default = {
+    Project = "orbit"
+    ManagedBy = "terraform"
+    Environment = "prod"
+    AppName = "LandingPage"
+  }
 }
 
 # Dirección "From" verificada en SES (misma región que uses para SES)

@@ -286,15 +286,7 @@ resource "aws_cloudfront_distribution" "site_cdn" {
     minimum_protocol_version = "TLSv1.2_2021"
   }
 
-  tags = merge(
-    {
-      Project     = var.project
-      Environment = var.env
-      ManagedBy   = "terraform"
-      Purpose     = "cdn"
-    },
-    var.tags
-  )
+  tags = var.tags
 
   depends_on = [
     aws_s3_bucket_public_access_block.site,
