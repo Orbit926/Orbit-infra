@@ -9,19 +9,31 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/img/favicons/favicon-16x16.webp",
+      "src": "/favicon-16x16.png",
       "sizes": "16x16",
-      "type": "image/webp"
+      "type": "image/png"
     },
     {
-      "src": "/img/favicons/favicon-32x32.webp",
+      "src": "/favicon-32x32.png",
       "sizes": "32x32",
-      "type": "image/webp"
+      "type": "image/png"
     },
     {
-      "src": "/img/favicons/favicon-64x64.webp",
+      "src": "/favicon-64x64.png",
       "sizes": "64x64",
-      "type": "image/webp"
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
     }
   ]
 }
