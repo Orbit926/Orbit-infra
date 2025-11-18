@@ -86,10 +86,13 @@ resource "aws_route53_record" "mail_from_spf" {
 #######################################
 resource "aws_route53_record" "dmarc" {
   zone_id = var.zone_id
-  name    = "_dmarc.${var.domain}"
+  name    = "_dmarc"
   type    = "TXT"
   ttl     = 300
-  records = ["v=DMARC1; p=${var.dmarc_policy}; rua=mailto:dmarc@${var.domain}; ruf=mailto:dmarc@${var.domain}; fo=1"]
+  records = [
+    #"v=DMARC1; p=${var.dmarc_policy}; rua=mailto:dmarc@${var.domain}; ruf=mailto:dmarc@${var.domain}; fo=1",
+    "v=DMARC1; p=${var.dmarc_policy}; rua=mailto:admin@${var.domain}; ruf=mailto:admin@${var.domain}; fo=1"
+    ]
 }
 
 #######################################
