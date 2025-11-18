@@ -21,9 +21,9 @@ resource "aws_ses_template" "vendor_notify" {
 #   email_identity = var.from_email
 # }
 
-resource "aws_sesv2_email_identity" "vendor_email_identity" {
-  email_identity = var.vendor_email
-}
+# resource "aws_sesv2_email_identity" "vendor_email_identity" {
+#   email_identity = var.vendor_email
+# }
 
 #######################################
 # 1) Identidad de dominio + verificación

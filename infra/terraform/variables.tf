@@ -37,7 +37,7 @@ variable "from_email" {
 variable "vendor_email" {
   type        = string
   description = "Destino del vendedor para VendorNotifyTemplate."
-  default = "gabrielgcortes@outlook.com"
+  default = "ventas@orbit.com.mx"
 }
 
 # Origen permitido para CORS en la Lambda (tu dominio de Vercel en prod)
