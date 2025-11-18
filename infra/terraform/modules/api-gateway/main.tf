@@ -52,6 +52,12 @@ resource "aws_apigatewayv2_stage" "this" {
   name        = var.env
   auto_deploy = true
 
+  route_settings {
+    route_key = "POST /contact"
+    throttling_burst_limit = 10
+    throttling_rate_limit  = 1
+  }
+
   tags = var.tags
 }
 
