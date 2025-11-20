@@ -59,7 +59,7 @@ const About = () => {
                       mb: 2,
                     }}
                   >
-                    Sobre mí
+                    Sobre nosotros
                   </Typography>
                   <Typography
                     variant="h5"
@@ -70,30 +70,30 @@ const About = () => {
                       lineHeight: 1.5,
                     }}
                   >
-                    Construyo experiencias digitales rápidas, modernas y enfocadas en performance.
+                    Construimos experiencias digitales rápidas, modernas y enfocadas en performance.
                   </Typography>
                 </Box>
 
                 <Stack spacing={2}>
                   <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.8 }}>
-                    Con años de experiencia en desarrollo web, me especializo en crear soluciones
-                    que no solo se ven bien, sino que funcionan excepcionalmente. Desde landing
-                    pages de alto impacto hasta aplicaciones web complejas, cada proyecto es una
-                    oportunidad para combinar código limpio con diseño inteligente.
+                    En Orbit, nos especializamos en crear soluciones que no solo se ven bien, 
+                    sino que funcionan excepcionalmente. Desde landing pages de alto impacto 
+                    hasta aplicaciones web complejas, cada proyecto es una oportunidad para 
+                    combinar código limpio con diseño inteligente.
                   </Typography>
 
                   <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.8 }}>
-                    Mi enfoque está en la experiencia del usuario, la performance y la escalabilidad.
-                    Trabajo con tecnologías modernas como React, Material UI y Node.js, siempre
+                    Nuestro enfoque está en la experiencia del usuario, la performance y la escalabilidad.
+                    Trabajamos con tecnologías modernas como React, Material UI y Node.js, siempre
                     buscando las mejores prácticas y arquitecturas que garanticen código mantenible
                     y productos de calidad.
                   </Typography>
 
                   <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.8 }}>
-                    Más allá del desarrollo, me apasiona el deploy profesional en AWS y la
+                    Más allá del desarrollo, nos apasiona el deploy profesional en AWS y la
                     optimización de aplicaciones para que sean rápidas, seguras y confiables.
-                    Creo en la transparencia, la comunicación constante y en entregar resultados
-                    que superen expectativas.
+                    Creemos en la transparencia, la comunicación constante y en entregar resultados
+                    que superen las expectativas de nuestros clientes.
                   </Typography>
                 </Stack>
               </Stack>

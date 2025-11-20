@@ -16,7 +16,7 @@ import { motion } from 'framer-motion';
 
 const sections = [
   { id: 'hero',     label: 'Inicio' },      // Hero (y arriba de todo)
-  { id: 'about',    label: 'Sobre mí' },    // About
+  { id: 'about',    label: 'Sobre nosotros' },    // About
   { id: 'projects', label: 'Proyectos' },   // ProjectsPreview + Testimonials
   { id: 'services', label: 'Servicios' },   // Services + Process + TechStack + Pricing
 ];

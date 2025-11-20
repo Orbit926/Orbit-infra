@@ -1,5 +1,5 @@
 import { Box, Container, Grid, Stack, Typography, IconButton, Link as MuiLink } from '@mui/material';
-import { GitHub, LinkedIn, Email } from '@mui/icons-material';
+import { GitHub, Email, Instagram } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { contactConfig } from '../../config/data';
 
@@ -7,14 +7,14 @@ const email = contactConfig.email.address;
 
 const navigationLinks = [
   { id: 'hero',     label: 'Inicio' },      // Hero (y arriba de todo)
-  { id: 'about',    label: 'Sobre mí' },    // About
+  { id: 'about',    label: 'Sobre nosotros' },    // About
   { id: 'projects', label: 'Proyectos' },   // ProjectsPreview + Testimonials
   { id: 'services', label: 'Servicios' }, 
 ];
 
 const socialLinks = [
-  { icon: GitHub, href: '#', label: 'GitHub' },
-  { icon: LinkedIn, href: '#', label: 'LinkedIn' },
+  { icon: GitHub, href: contactConfig.gitHub.url, label: 'GitHub' },
+  { icon: Instagram, href: '#', label: 'Instagram' },
 ];
 
 const containerVariants = {
