@@ -1,5 +1,6 @@
 import { Box, Container, Grid, Stack, Typography, IconButton, Link as MuiLink } from '@mui/material';
 import { GitHub, LinkedIn, Email } from '@mui/icons-material';
+import { motion } from 'framer-motion';
 import { contactConfig } from '../../config/data';
 
 const email = contactConfig.email.address;
@@ -15,6 +16,42 @@ const socialLinks = [
   { icon: GitHub, href: '#', label: 'GitHub' },
   { icon: LinkedIn, href: '#', label: 'LinkedIn' },
 ];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  show: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.25, 0.46, 0.45, 0.94],
+    },
+  },
+};
+
+const bottomVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      duration: 0.5,
+      delay: 0.6,
+      ease: 'easeOut',
+    },
+  },
+};
 
 const Footer = () => {
   const scrollTo = (id) => {
@@ -53,10 +90,18 @@ const Footer = () => {
         }}
       />
 
-      <Container sx={{ position: 'relative', zIndex: 1 }}>
-        <Grid container spacing={{ xs: 4, md: 6 }}>
+      <Container sx={{ position: 'relative', zIndex: 1, pb: { xs: 8, md: 0 } }}>
+        <Grid 
+          container 
+          spacing={{ xs: 4, md: 6 }}
+          component={motion.div}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: '-100px' }}
+        >
           {/* Brand / Intro */}
-          <Grid size={{ xs: 12, md: 4 }}>
+          <Grid size={{ xs: 12, md: 4 }} component={motion.div} variants={itemVariants}>
             <Stack spacing={2}>
               <Box
                 onClick={() => scrollTo('hero')}
@@ -84,7 +129,7 @@ const Footer = () => {
           </Grid>
 
           {/* Navigation */}
-          <Grid size={{ xs: 12, md: 4 }}>
+          <Grid size={{ xs: 12, md: 4 }} component={motion.div} variants={itemVariants}>
             <Stack spacing={2}>
               <Typography
                 variant="h6"
@@ -123,7 +168,7 @@ const Footer = () => {
           </Grid>
 
           {/* Contact & Social */}
-          <Grid size={{ xs: 12, md: 4 }}>
+          <Grid size={{ xs: 12, md: 4 }} component={motion.div} variants={itemVariants}>
             <Stack spacing={3}>
               <Stack spacing={2}>
                 <Typography
@@ -218,6 +263,11 @@ const Footer = () => {
 
         {/* Bottom Section */}
         <Box
+          component={motion.div}
+          variants={bottomVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
           sx={{
             mt: { xs: 6, md: 8 },
             pt: 4,

@@ -88,7 +88,7 @@ export default function FaqSection() {
         component="section"
         sx={{
           py: { xs: 8, md: 10 },
-          backgroundColor: (theme) => theme.palette.background.default,
+          backgroundColor: (theme) => theme.palette.background.paper,
         }}
       >
         <Container maxWidth="md">
