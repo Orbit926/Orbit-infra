@@ -16,6 +16,7 @@ const Footer = lazy(() => import('./components/sections/Footer'));
 const Pricing = lazy(() => import('./components/sections/Pricing'));
 const FloatingWhatsApp = lazy(() => import('./components/layout/FloatingWhatsApp'));
 const Testimonials = lazy(() => import('./components/sections/Testimonials'));
+const FaqSection = lazy(() => import('./components/sections/FaqSection'));
 
 export const App = () => {
   return (
@@ -37,6 +38,7 @@ export const App = () => {
             <Process />
             <TechStack />
             <Pricing />
+            <FaqSection />
           </Box>
           <Box component="section" id="contact">
             <ContactCTA />
