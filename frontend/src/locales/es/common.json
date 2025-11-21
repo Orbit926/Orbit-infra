@@ -138,43 +138,45 @@
     "otherTechDescription": "Podemos integrar cualquier herramienta que tu proyecto requiera o adaptar tu stack actual."
   },
   "pricing": {
-    "title": "Planes y servicios",
+    "title": "Planes y Servicios",
     "subtitle": "Elige el tipo de proyecto que mejor se adapta a lo que quieres construir.",
     "basic": {
       "name": "Landing Básica",
-      "description": "Perfecta para presentar tu negocio o proyecto de forma profesional",
-      "price": "Desde $8,000 MXN",
+      "description": "Perfecta para presentar tu negocio o proyecto de forma profesional.",
+      "price": "Desde $449 USD",
       "features": {
         "responsive": "Diseño responsive moderno",
-        "seo": "Optimización básica SEO",
-        "analytics": "Integración con analytics",
+        "seo": "SEO básico",
+        "analytics": "Integración con Google Analytics",
         "deploy": "Deploy en Vercel/Netlify",
         "contact": "Formulario de contacto",
-        "revisions": "1 revisión incluida"
+        "performance": "Optimización ligera de rendimiento",
+        "revisions": "1 revisión incluida",
+        "support": "Soporte por 30 días"
       },
       "cta": "Empezar"
     },
     "professional": {
       "name": "Sitio Profesional",
-      "description": "Ideal para empresas que buscan presencia digital completa",
-      "price": "Desde $18,000 MXN",
+      "description": "Ideal para empresas que buscan una presencia digital completa y bien estructurada.",
+      "price": "Desde $1,079 USD",
       "features": {
         "allBasic": "Todo lo de Landing Básica",
-        "multipage": "Múltiples páginas y secciones",
+        "multipage": "Múltiples páginas y secciones personalizadas",
         "animations": "Animaciones avanzadas",
-        "seoFull": "SEO optimizado completo",
-        "cms": "Integración con CMS",
-        "awsDeploy": "Deploy profesional AWS",
-        "revisions": "3 revisiones incluidas",
-        "support": "Soporte 30 días"
+        "seoFull": "Estructura SEO mejorada",
+        "awsDeploy": "Deploy profesional en AWS (opcional)",
+        "extraForms": "Formularios adicionales",
+        "revisions": "2 revisiones incluidas",
+        "support": "Soporte por 30 días"
       },
       "cta": "Más popular",
       "badge": "Más popular"
     },
     "custom": {
       "name": "Web App a Medida",
-      "description": "Solución completa para aplicaciones web con funcionalidad avanzada",
-      "price": "Desde $35,000 MXN",
+      "description": "Solución completa para aplicaciones web con funcionalidad avanzada y backend personalizado.",
+      "price": "Desde $2,479 USD",
       "features": {
         "allProfessional": "Todo lo de Sitio Profesional",
         "backend": "Backend personalizado",
@@ -182,12 +184,13 @@
         "auth": "Autenticación de usuarios",
         "admin": "Panel de administración",
         "scalable": "Arquitectura escalable",
-        "revisions": "Revisiones ilimitadas",
-        "support": "Soporte 90 días"
+        "integrations": "Integraciones personalizadas",
+        "revisions": "Hasta 5 revisiones",
+        "support": "Soporte por 30 días"
       },
       "cta": "Agenda una llamada"
     },
-    "disclaimer": "Los precios son aproximados y pueden variar según los requerimientos específicos de tu proyecto. Agenda una llamada para obtener una cotización personalizada."
+    "disclaimer": "Los precios mostrados son precios iniciales ('desde') y pueden variar según el alcance del proyecto. Agenda una llamada para obtener una cotización personalizada."
   },
   "testimonials": {
     "title": "Lo que dicen nuestros clientes",

@@ -11,8 +11,8 @@
   },
   "hero": {
     "subtitle": "Orbit Web Studio",
-    "titleLine1": "We put your brand",
-    "titleLine2": "in orbit",
+    "titleLine1": "We launch your brand",
+    "titleLine2": "into orbit",
     "bullets": {
       "frontend": "React + MUI frontend development",
       "backend": "Integrations and small backends",
@@ -138,56 +138,59 @@
     "otherTechDescription": "We can integrate any tool your project requires or adapt your current stack."
   },
   "pricing": {
-    "title": "Plans and Services",
-    "subtitle": "Choose the type of project that best suits what you want to build.",
+    "title": "Plans & Services",
+    "subtitle": "Choose the type of project that best fits what you want to build.",
     "basic": {
       "name": "Basic Landing",
-      "description": "Perfect for presenting your business or project professionally",
-      "price": "From $8,000 MXN",
+      "description": "Perfect for presenting your business or project in a professional way.",
+      "price": "From $449 USD",
       "features": {
         "responsive": "Modern responsive design",
-        "seo": "Basic SEO optimization",
-        "analytics": "Analytics integration",
+        "seo": "Basic SEO setup",
+        "analytics": "Google Analytics integration",
         "deploy": "Deploy on Vercel/Netlify",
         "contact": "Contact form",
-        "revisions": "1 revision included"
+        "performance": "Light performance optimization",
+        "revisions": "1 revision included",
+        "support": "30-day support"
       },
       "cta": "Get Started"
     },
     "professional": {
-      "name": "Professional Site",
-      "description": "Ideal for companies seeking complete digital presence",
-      "price": "From $18,000 MXN",
+      "name": "Professional Website",
+      "description": "Ideal for businesses looking for a complete and polished online presence.",
+      "price": "From $1,079 USD",
       "features": {
-        "allBasic": "Everything from Basic Landing",
-        "multipage": "Multiple pages and sections",
-        "animations": "Advanced animations",
-        "seoFull": "Complete optimized SEO",
-        "cms": "CMS integration",
-        "awsDeploy": "Professional AWS deploy",
-        "revisions": "3 revisions included",
-        "support": "30 days support"
+        "allBasic": "Everything in Basic Landing",
+        "multipage": "Multiple pages and custom sections",
+        "animations": "Advanced animations with Framer Motion",
+        "seoFull": "Enhanced SEO structure",
+        "awsDeploy": "Optional AWS professional deploy",
+        "extraForms": "Additional forms",
+        "revisions": "2 revisions included",
+        "support": "30-day support"
       },
-      "cta": "Most popular",
-      "badge": "Most popular"
+      "cta": "Most Popular",
+      "badge": "Most Popular"
     },
     "custom": {
       "name": "Custom Web App",
-      "description": "Complete solution for web applications with advanced functionality",
-      "price": "From $35,000 MXN",
+      "description": "Complete solution for web applications with advanced functionality and backend.",
+      "price": "From $2,479 USD",
       "features": {
-        "allProfessional": "Everything from Professional Site",
+        "allProfessional": "Everything in Professional Website",
         "backend": "Custom backend",
         "database": "Database and APIs",
         "auth": "User authentication",
-        "admin": "Admin panel",
+        "admin": "Admin dashboard",
         "scalable": "Scalable architecture",
-        "revisions": "Unlimited revisions",
-        "support": "90 days support"
+        "integrations": "Custom integrations",
+        "revisions": "Up to 5 revisions",
+        "support": "30-day support"
       },
-      "cta": "Schedule a call"
+      "cta": "Book a Call"
     },
-    "disclaimer": "Prices are approximate and may vary depending on your project's specific requirements. Schedule a call to get a personalized quote."
+    "disclaimer": "Prices are starting prices and may vary depending on the project scope. Book a call to get a personalized quote."
   },
   "testimonials": {
     "title": "What our clients say",

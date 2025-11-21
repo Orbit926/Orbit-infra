@@ -150,7 +150,7 @@ const Header = () => {
             <Box
               onClick={() => scrollTo('hero')}
               component="img"
-              src="/img/logos/orbit-color.png"
+              src="/img/logos/orbit-color-2.png"
               alt="Orbit"
               sx={{
                 width: 80,
