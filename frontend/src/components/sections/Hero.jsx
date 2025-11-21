@@ -212,24 +212,39 @@ const Hero = () => {
               >
                 <Stack direction="row" spacing={1.5} alignItems="center">
                   <Code color="primary" />
-                  <Typography variant="body1">
+                  <Box
+                    component="span"
+                    sx={{
+                      display: 'block',
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
                     {t('hero.bullets.frontend')}
-                  </Typography>
+                  </Box>
                 </Stack>
                 <Stack direction="row" spacing={1.5} alignItems="center">
                   <RocketLaunch color="secondary" />
-                  <Typography
-                    variant="body1"
-                    sx={{ display: 'block', whiteSpace: 'nowrap' }}
+                  <Box
+                    component="span"
+                    sx={{
+                      display: 'block',
+                      whiteSpace: 'nowrap',
+                    }}
                   >
                     {t('hero.bullets.backend')}
-                  </Typography>
+                  </Box>
                 </Stack>
                 <Stack direction="row" spacing={1.5} alignItems="center">
                   <Speed sx={{ color: '#a46be3' }} />
-                  <Typography variant="body1">
+                  <Box
+                    component="span"
+                    sx={{
+                      display: 'block',
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
                     {t('hero.bullets.deploy')}
-                  </Typography>
+                  </Box>
                 </Stack>
               </Stack>
 

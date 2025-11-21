@@ -131,8 +131,8 @@ const About = () => {
         </motion.div>
 
         {/* Mission & Vision Cards */}
-        <Grid container spacing={3} sx={{ mb: { xs: 6, md: 8 } }}>
-          <Grid size={{ xs: 12, md: 6 }}>
+        <Grid container spacing={3} sx={{ mb: { xs: 6, md: 8 } }} alignItems="stretch">
+          <Grid size={{ xs: 12, md: 6 }} sx={{ display: 'flex' }}>
             <motion.div
               variants={cardVariants}
               initial="hidden"
@@ -204,7 +204,7 @@ const About = () => {
             </motion.div>
           </Grid>
 
-          <Grid size={{ xs: 12, md: 6 }}>
+          <Grid size={{ xs: 12, md: 6 }} sx={{ display: 'flex' }}>
             <motion.div
               variants={cardVariants}
               initial="hidden"
@@ -314,11 +314,11 @@ const About = () => {
             </Typography>
           </motion.div>
 
-          <Grid container spacing={3}>
+          <Grid container spacing={3} alignItems="stretch">
             {strengths.map((strength, index) => {
               const IconComponent = strength.icon;
               return (
-                <Grid key={index} size={{ xs: 12, sm: 6, md: 3 }}>
+                <Grid key={index} size={{ xs: 12, sm: 6, md: 3 }} sx={{ display: 'flex' }}>
                   <motion.div
                     variants={itemVariants}
                     initial="hidden"
