@@ -7,9 +7,8 @@ import {
   Box,
   Paper,
   IconButton,
-  Menu,
-  MenuItem,
   Divider,
+  Drawer,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { motion } from 'framer-motion';
@@ -39,8 +38,9 @@ const navbarVariants = {
 
 const Header = () => {
   const { t } = useTranslation('common');
-  const [anchorEl, setAnchorEl] = useState(null);
-  const menuOpen = Boolean(anchorEl);
+
+  // Drawer móvil
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   // Construir secciones con traducciones dinámicas
   const sections = [
@@ -88,17 +88,17 @@ const Header = () => {
     }
   };
 
-  const handleOpenMenu = (event) => {
-    setAnchorEl(event.currentTarget);
+  const handleOpenMenu = () => {
+    setMobileOpen(true);
   };
 
   const handleCloseMenu = () => {
-    setAnchorEl(null);
+    setMobileOpen(false);
   };
 
   const handleMenuClick = (id) => {
-    handleCloseMenu();
     scrollTo(id);
+    setMobileOpen(false);
   };
 
   return (
@@ -258,9 +258,6 @@ const Header = () => {
                 ml: 'auto',
               }}
               onClick={handleOpenMenu}
-              aria-controls={menuOpen ? 'orbit-menu' : undefined}
-              aria-haspopup="true"
-              aria-expanded={menuOpen ? 'true' : undefined}
               aria-label={t('header.menuAriaLabel')}
               title={t('header.menuAriaLabel')}
             >
@@ -270,83 +267,121 @@ const Header = () => {
         </Toolbar>
       </AppBar>
 
-      {/* Menú popover móvil */}
-      <Menu
-        id="orbit-menu"
-        anchorEl={anchorEl}
-        open={menuOpen}
+      {/* Drawer móvil */}
+      <Drawer
+        anchor="right"
+        open={mobileOpen}
         onClose={handleCloseMenu}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'right',
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}
         PaperProps={{
           sx: {
-            mt: 1,
-            borderRadius: 3,
-            minWidth: 210,
+            width: 260,
             background:
-              'radial-gradient(circle at 0% 0%, rgba(125,63,185,0.35), transparent 55%), radial-gradient(circle at 100% 100%, rgba(93,95,233,0.3), transparent 55%), rgba(8, 10, 24, 0.96)',
-            backdropFilter: 'blur(20px)',
-            WebkitBackdropFilter: 'blur(20px)',
-            border: '1px solid rgba(255,255,255,0.18)',
+              'radial-gradient(circle at 0% 0%, rgba(125,63,185,0.4), transparent 55%), radial-gradient(circle at 100% 100%, rgba(93,95,233,0.35), transparent 55%), rgba(8,10,24,0.98)',
+            backdropFilter: 'blur(24px)',
+            WebkitBackdropFilter: 'blur(24px)',
+            borderLeft: '1px solid rgba(255,255,255,0.18)',
             boxShadow:
-              '0 20px 40px rgba(0,0,0,0.7), 0 0 0 1px rgba(125,63,185,0.4)',
+              '0 0 45px rgba(0,0,0,0.85), 0 0 0 1px rgba(125,63,185,0.45)',
           },
         }}
       >
-        {sections.map((sec) => {
-          const isActive = activeSection === sec.id;
-          return (
-            <MenuItem
-              key={sec.id}
-              onClick={() => handleMenuClick(sec.id)}
-              sx={{
-                fontSize: '0.9rem',
-                fontWeight: isActive ? 700 : 400,
-              }}
-            >
-              {sec.label}
-            </MenuItem>
-          );
-        })}
-        <Divider sx={{ my: 0.5, borderColor: 'rgba(255,255,255,0.15)' }} />
-        {/* Language Switcher en móvil */}
-        <MenuItem>
+        <Box
+          sx={{
+            pt: 3,
+            pb: 2.5,
+            px: 2,
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 1,
+            height: '100%',
+          }}
+        >
+          {/* Logo pequeño arriba opcional */}
           <Box
+            onClick={() => {
+              handleMenuClick('hero');
+            }}
             sx={{
-              width: '100%',
+              mb: 2,
               display: 'flex',
               justifyContent: 'center',
-              py: 0.5,
+            }}
+          >
+            <Box
+              component="img"
+              src="/img/logos/orbit-color.png"
+              alt="Orbit"
+              sx={{
+                width: 90,
+                height: 'auto',
+                cursor: 'pointer',
+              }}
+            />
+          </Box>
+
+          {/* Secciones */}
+          {sections.map((sec) => {
+            const isActive = activeSection === sec.id;
+            return (
+              <Button
+                key={sec.id}
+                onClick={() => handleMenuClick(sec.id)}
+                sx={{
+                  justifyContent: 'flex-start',
+                  textTransform: 'none',
+                  fontSize: '0.9rem',
+                  fontWeight: isActive ? 700 : 400,
+                  color: 'rgba(255,255,255,0.9)',
+                }}
+              >
+                {sec.label}
+              </Button>
+            );
+          })}
+
+          <Divider
+            sx={{
+              my: 1.5,
+              borderColor: 'rgba(255,255,255,0.15)',
+            }}
+          />
+
+          {/* Language Switcher centrado en el drawer */}
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              mb: 1,
             }}
           >
             <LanguageSwitcher />
           </Box>
-        </MenuItem>
-        <Divider sx={{ my: 0.5, borderColor: 'rgba(255,255,255,0.15)' }} />
-        <MenuItem onClick={() => handleMenuClick('contact')}>
-          <Box
+
+          <Divider
             sx={{
-              width: '100%',
-              textAlign: 'center',
-              py: 0.5,
+              my: 1.5,
+              borderColor: 'rgba(255,255,255,0.15)',
+            }}
+          />
+
+          {/* CTA dentro del drawer */}
+          <Button
+            variant="contained"
+            onClick={() => handleMenuClick('contact')}
+            sx={{
+              mt: 0.5,
               borderRadius: 999,
-              background:
-                'linear-gradient(135deg, #7d3fb9 0%, #5d5fe9 100%)',
-              color: '#fff',
+              textTransform: 'none',
               fontWeight: 600,
-              fontSize: '0.9rem',
             }}
           >
             {t('header.cta')}
-          </Box>
-        </MenuItem>
-      </Menu>
+          </Button>
+
+          {/* Para empujar contenido hacia arriba si quieres espacio abajo */}
+          <Box sx={{ flexGrow: 1 }} />
+        </Box>
+      </Drawer>
     </>
   );
 };
