@@ -23,15 +23,41 @@
   },
   "about": {
     "title": "Sobre nosotros",
-    "subtitle": "Construimos experiencias digitales rápidas, modernas y enfocadas en performance.",
-    "paragraph1": "En Orbit, nos especializamos en crear soluciones que no solo se ven bien, sino que funcionan excepcionalmente. Desde landing pages de alto impacto hasta aplicaciones web complejas, cada proyecto es una oportunidad para combinar código limpio con diseño inteligente.",
-    "paragraph2": "Nuestro enfoque está en la experiencia del usuario, la performance y la escalabilidad. Trabajamos con tecnologías modernas como React, Material UI y Node.js, siempre buscando las mejores prácticas y arquitecturas que garanticen código mantenible y productos de calidad.",
-    "paragraph3": "Más allá del desarrollo, nos apasiona el deploy profesional en AWS y la optimización de aplicaciones para que sean rápidas, seguras y confiables. Creemos en la transparencia, la comunicación constante y en entregar resultados que superen las expectativas de nuestros clientes.",
-    "highlightsTitle": "Highlights",
-    "highlights": {
-      "frontend": "Frontend React + MUI",
-      "backend": "APIs y pequeños backends",
-      "deploy": "Deploy profesional AWS"
+    "subtitle": "Somos un estudio especializado en crear soluciones web que impulsan negocios y transforman ideas en realidad digital.",
+    "mission": {
+      "title": "Nuestra Misión",
+      "description": "Ayudar a empresas y emprendedores a establecer una presencia digital sólida mediante desarrollo web de alta calidad, enfocado en performance, escalabilidad y experiencia de usuario excepcional."
+    },
+    "vision": {
+      "title": "Nuestra Visión",
+      "description": "Ser el estudio de referencia para quienes buscan soluciones web profesionales, modernas y escalables. Queremos que cada proyecto que sale de Orbit se convierta en un activo digital que genere valor real."
+    },
+    "strengthsTitle": "Nuestras Fortalezas",
+    "strengthsSubtitle": "Lo que nos distingue en cada proyecto que desarrollamos",
+    "strengths": {
+      "modern": {
+        "title": "Tecnología Moderna",
+        "description": "Trabajamos con React, Material UI, Node.js y las herramientas más actuales del ecosistema web."
+      },
+      "performance": {
+        "title": "Alto Rendimiento",
+        "description": "Optimizamos cada línea de código para garantizar velocidad, SEO y experiencia fluida en todos los dispositivos."
+      },
+      "deploy": {
+        "title": "Deploy Profesional",
+        "description": "Experiencia sólida en AWS, CI/CD y arquitecturas cloud escalables y seguras."
+      },
+      "design": {
+        "title": "Diseño Cuidado",
+        "description": "Cada interfaz es pensada para combinar estética moderna con usabilidad y conversión."
+      }
+    },
+    "valuesTitle": "Nuestros Valores",
+    "valuesSubtitle": "Los principios que guían nuestro trabajo todos los días",
+    "values": {
+      "quality": "Calidad sobre cantidad",
+      "communication": "Comunicación transparente",
+      "results": "Orientados a resultados"
     }
   },
   "projects": {

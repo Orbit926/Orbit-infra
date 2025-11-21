@@ -23,15 +23,41 @@
   },
   "about": {
     "title": "About Us",
-    "subtitle": "We build fast, modern digital experiences focused on performance.",
-    "paragraph1": "At Orbit, we specialize in creating solutions that not only look great, but work exceptionally. From high-impact landing pages to complex web applications, each project is an opportunity to combine clean code with smart design.",
-    "paragraph2": "Our focus is on user experience, performance, and scalability. We work with modern technologies like React, Material UI, and Node.js, always seeking best practices and architectures that ensure maintainable code and quality products.",
-    "paragraph3": "Beyond development, we're passionate about professional AWS deployment and application optimization to make them fast, secure, and reliable. We believe in transparency, constant communication, and delivering results that exceed our clients' expectations.",
-    "highlightsTitle": "Highlights",
-    "highlights": {
-      "frontend": "React + MUI Frontend",
-      "backend": "APIs and small backends",
-      "deploy": "Professional AWS Deploy"
+    "subtitle": "We are a studio specialized in creating web solutions that drive businesses and transform ideas into digital reality.",
+    "mission": {
+      "title": "Our Mission",
+      "description": "Help companies and entrepreneurs establish a solid digital presence through high-quality web development, focused on performance, scalability, and exceptional user experience."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "description": "To be the reference studio for those seeking professional, modern, and scalable web solutions. We want every project from Orbit to become a digital asset that generates real value."
+    },
+    "strengthsTitle": "Our Strengths",
+    "strengthsSubtitle": "What sets us apart in every project we develop",
+    "strengths": {
+      "modern": {
+        "title": "Modern Technology",
+        "description": "We work with React, Material UI, Node.js and the most current tools in the web ecosystem."
+      },
+      "performance": {
+        "title": "High Performance",
+        "description": "We optimize every line of code to ensure speed, SEO and smooth experience on all devices."
+      },
+      "deploy": {
+        "title": "Professional Deploy",
+        "description": "Solid experience in AWS, CI/CD and scalable and secure cloud architectures."
+      },
+      "design": {
+        "title": "Thoughtful Design",
+        "description": "Every interface is designed to combine modern aesthetics with usability and conversion."
+      }
+    },
+    "valuesTitle": "Our Values",
+    "valuesSubtitle": "The principles that guide our work every day",
+    "values": {
+      "quality": "Quality over quantity",
+      "communication": "Transparent communication",
+      "results": "Results-oriented"
     }
   },
   "projects": {
