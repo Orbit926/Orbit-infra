@@ -15,14 +15,10 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './LanguageSwitcher';
 
-// Las labels ahora vienen de i18n, solo necesitamos los IDs
 const sectionsIds = ['hero', 'about', 'projects', 'services'];
 
-// ⏱ Ajusta este delay para que el navbar aparezca
-// cuando termine la animación del Hero (en segundos)
 const headerDelay = 1.5;
 
-// Variantes de animación del navbar
 const navbarVariants = {
   hidden: { opacity: 0, y: -20 },
   visible: {
@@ -39,25 +35,18 @@ const navbarVariants = {
 const Header = () => {
   const { t } = useTranslation('common');
 
-  // Drawer móvil
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  // Construir secciones con traducciones dinámicas
   const sections = [
     { id: 'about', label: t('header.nav.about') },
     { id: 'projects', label: t('header.nav.projects') },
     { id: 'services', label: t('header.nav.services') },
   ];
 
-  // 🔥 Estado para saber qué sección está activa
   const [activeSection, setActiveSection] = useState('');
 
-  // 🧠 Detectar la sección activa al hacer scroll
   useEffect(() => {
-    const sectionIds = [
-      ...sectionsIds,
-      'contact', // incluye contact para el CTA
-    ];
+    const sectionIds = [...sectionsIds, 'contact'];
 
     const handleScroll = () => {
       let currentSection = '';
@@ -131,6 +120,7 @@ const Header = () => {
               px: { xs: 1.6, sm: 3.5, md: 4 },
               py: { xs: 0.7, sm: 0.95, md: 1.1 },
               borderRadius: 999,
+              minWidth: { xs: '100%', sm: 500, md: 540 },
               maxWidth: { xs: '100%', sm: 760, md: 900 },
               width: { xs: '100%', sm: 'auto' },
               background:
@@ -156,7 +146,7 @@ const Header = () => {
               },
             }}
           >
-            {/* Logo */}
+            {/* Logo (izquierda) */}
             <Box
               onClick={() => scrollTo('hero')}
               component="img"
@@ -173,12 +163,12 @@ const Header = () => {
               }}
             />
 
-            {/* Navegación desktop/tablet */}
+            {/* Navegación desktop/tablet (centro) */}
             <Box
               sx={{
                 position: 'relative',
                 zIndex: 1,
-                display: { xs: 'none', sm: 'flex' },
+                display: { xs: 'none', md: 'flex' },
                 flexGrow: 1,
                 gap: { sm: 1.2, md: 2 },
                 justifyContent: 'center',
@@ -219,7 +209,7 @@ const Header = () => {
               })}
             </Box>
 
-            {/* CTA desktop/tablet */}
+            {/* CTA desktop/tablet (antes del grupo derecho) */}
             <Button
               variant="contained"
               color="primary"
@@ -227,7 +217,7 @@ const Header = () => {
               sx={{
                 position: 'relative',
                 zIndex: 1,
-                display: { xs: 'none', sm: 'inline-flex' },
+                display: { xs: 'none', md: 'inline-flex' },
                 fontSize: '0.9rem',
                 textTransform: 'none',
                 ml: { sm: 1 },
@@ -238,31 +228,40 @@ const Header = () => {
               {t('header.cta')}
             </Button>
 
-            {/* Language Switcher (a la derecha del CTA en desktop) */}
+            {/* 🔹 Grupo derecho: idioma + menú (menu solo en mobile) */}
             <Box
               sx={{
-                display: { xs: 'none', sm: 'flex' },
-                alignItems: 'center',
-              }}
-            >
-              <LanguageSwitcher />
-            </Box>
-
-            {/* Botón menú móvil */}
-            <IconButton
-              color="inherit"
-              sx={{
-                position: 'relative',
-                zIndex: 1,
-                display: { xs: 'inline-flex', sm: 'none' },
                 ml: 'auto',
+                display: 'flex',
+                alignItems: 'center',
+                gap: 1,
               }}
-              onClick={handleOpenMenu}
-              aria-label={t('header.menuAriaLabel')}
-              title={t('header.menuAriaLabel')}
             >
-              <MenuIcon />
-            </IconButton>
+              {/* Language Switcher: visible en todos los tamaños */}
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                }}
+              >
+                <LanguageSwitcher />
+              </Box>
+
+              {/* Botón menú móvil */}
+              <IconButton
+                color="inherit"
+                sx={{
+                  position: 'relative',
+                  zIndex: 1,
+                  display: { xs: 'inline-flex', md: 'none' },
+                }}
+                onClick={handleOpenMenu}
+                aria-label={t('header.menuAriaLabel')}
+                title={t('header.menuAriaLabel')}
+              >
+                <MenuIcon />
+              </IconButton>
+            </Box>
           </Box>
         </Toolbar>
       </AppBar>
@@ -296,7 +295,6 @@ const Header = () => {
             height: '100%',
           }}
         >
-          {/* Logo pequeño arriba opcional */}
           <Box
             onClick={() => {
               handleMenuClick('hero');
@@ -319,7 +317,6 @@ const Header = () => {
             />
           </Box>
 
-          {/* Secciones */}
           {sections.map((sec) => {
             const isActive = activeSection === sec.id;
             return (
@@ -346,25 +343,6 @@ const Header = () => {
             }}
           />
 
-          {/* Language Switcher centrado en el drawer */}
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              mb: 1,
-            }}
-          >
-            <LanguageSwitcher />
-          </Box>
-
-          <Divider
-            sx={{
-              my: 1.5,
-              borderColor: 'rgba(255,255,255,0.15)',
-            }}
-          />
-
-          {/* CTA dentro del drawer */}
           <Button
             variant="contained"
             onClick={() => handleMenuClick('contact')}
@@ -378,7 +356,6 @@ const Header = () => {
             {t('header.cta')}
           </Button>
 
-          {/* Para empujar contenido hacia arriba si quieres espacio abajo */}
           <Box sx={{ flexGrow: 1 }} />
         </Box>
       </Drawer>

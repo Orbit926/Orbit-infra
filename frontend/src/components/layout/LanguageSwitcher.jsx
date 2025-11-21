@@ -1,5 +1,5 @@
 // LanguageSwitcher.jsx
-import { Box, ToggleButtonGroup, ToggleButton } from '@mui/material';
+import { Box, ToggleButtonGroup, ToggleButton, Button } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTranslation } from 'react-i18next';
@@ -12,18 +12,46 @@ const LanguageSwitcher = () => {
   const currentLanguage = i18n.language;
 
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   const [open, setOpen] = useState(false);
 
-  const handleLanguageChange = (event, newLanguage) => {
-    if (newLanguage !== null) {
-      i18n.changeLanguage(newLanguage);
-    }
+  const handleLanguageChange = (newLanguage) => {
+    i18n.changeLanguage(newLanguage);
   };
 
-  // En móvil siempre mostramos los botones (no hay hover real)
-  const shouldShowButtons = isMobile || open;
+  // 🔹 Mobile → un solo botón circular toggle (más discreto)
+  if (isMobile) {
+    return (
+      <Button
+        onClick={() => handleLanguageChange(currentLanguage === 'es' ? 'en' : 'es')}
+        sx={{
+          minWidth: 32,
+          width: 32,
+          height: 32,
+          borderRadius: '50%',
+          textTransform: 'uppercase',
+          fontWeight: 600,
+          fontSize: '0.65rem',
+          background: 'rgba(255, 255, 255, 0.08)', // 🔹 Muy sutil
+          color: 'rgba(255,255,255,0.75)',         // 🔹 Texto más suave
+          boxShadow: '0 0 8px rgba(0,0,0,0.15)',
+          backdropFilter: 'blur(6px)',
+          WebkitBackdropFilter: 'blur(6px)',
+          p: 0,
+          transition: 'all 0.25s ease',
+          '&:hover': {
+            background: 'rgba(255, 255, 255, 0.14)', // 🔹 Solo un poco más claro
+          },
+        }}
+      >
+        {currentLanguage.toUpperCase()}
+      </Button>
+    );
+  }
+
+  // 🔹 Desktop → lo mismo que tenías con hover + animación + transición suave
+  const shouldShowButtons = open;
 
   return (
     <Box
@@ -32,12 +60,8 @@ const LanguageSwitcher = () => {
         alignItems: 'center',
         position: 'relative',
       }}
-      onMouseEnter={() => {
-        if (!isMobile) setOpen(true);
-      }}
-      onMouseLeave={() => {
-        if (!isMobile) setOpen(false);
-      }}
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
     >
       {/* Ícono base */}
       <Language
@@ -51,15 +75,14 @@ const LanguageSwitcher = () => {
         }}
       />
 
-      {/* Contenedor que anima el ancho, para que el navbar se expanda suave */}
+      {/* Contenedor que anima el ancho */}
       <Box
         sx={{
           overflow: 'hidden',
           ml: 1,
           display: 'flex',
           alignItems: 'center',
-          // El truco: animar width
-          width: shouldShowButtons ? 90 : 0, // ajusta 90 según lo ancho que necesites
+          width: shouldShowButtons ? 90 : 0,
           transition: 'width 0.25s ease',
         }}
       >
@@ -74,23 +97,22 @@ const LanguageSwitcher = () => {
           <ToggleButtonGroup
             value={currentLanguage}
             exclusive
-            onChange={handleLanguageChange}
+            onChange={(e, lang) => lang && handleLanguageChange(lang)}
             aria-label="Selector de idioma"
             size="small"
             sx={{
               background: 'rgba(125, 63, 185, 0.08)',
               borderRadius: 999,
               border: '1px solid rgba(255,255,255,0.12)',
-              width: 'auto',
-              p: 0, // ❗️ Quita padding interno del grupo
-              overflow: 'hidden', // ❗️ Previene gaps entre botones
+              p: 0,
+              overflow: 'hidden',
 
               '& .MuiToggleButtonGroup-grouped': {
                 border: 0,
                 borderRadius: 999,
-                px: { xs: 0.9, sm: 1.05 }, // ❗️ Ajuste fino para quitar espacio sobrante
+                px: { xs: 0.9, sm: 1.05 },
                 py: 0.35,
-                minWidth: 'unset', // ❗️ Previene que reserve ancho extra
+                minWidth: 'unset',
                 fontSize: '0.75rem',
                 fontWeight: 600,
                 textTransform: 'uppercase',
