@@ -38,17 +38,8 @@ const ProjectsPreview = () => {
       description: t('projects.devaltra.description'),
       tech: ['React', 'MUI', 'Vercel', 'API Integration'],
       gradient: 'linear-gradient(135deg, rgba(125,63,185,0.2) 0%, rgba(93,95,233,0.1) 100%)',
-      image: '/img/projects/devaltra-preview-gray.webp',
+      image: '/img/projects/devaltra-orbit.webp',
       link: 'https://www.devaltra.com',
-    },
-    {
-      name: t('projects.wedding.name'),
-      type: t('projects.wedding.type'),
-      description: t('projects.wedding.description'),
-      tech: ['React', 'MUI', 'AWS', 'API Integration', 'GoogleApp Script'],
-      gradient: 'linear-gradient(135deg, rgba(200,200,200,0.25) 0%, rgba(180,180,180,0.15) 100%)',
-      image: '/img/projects/invitacion-boda-preview.webp',
-      link: 'https://invitacion-boda-murex.vercel.app',
     },
     {
       name: t('projects.greenpaw.name'),
@@ -56,7 +47,7 @@ const ProjectsPreview = () => {
       description: t('projects.greenpaw.description'),
       tech: ['React', 'MUI', 'Shopify'],
       gradient: 'linear-gradient(135deg, rgba(125,185,63,0.2) 0%, rgba(93,233,95,0.1) 100%)',
-      image: '/img/projects/greenpaw-preview.webp',
+      image: '/img/projects/greenpaw-orbit.webp',
       link: 'https://www.greenpaw.mx',
     },
   ];
@@ -92,7 +83,7 @@ const ProjectsPreview = () => {
         {projects.map((project, index) => (
           <Grid
             key={index}
-            size={{ xs: 12, md: 4 }}
+            size={{ xs: 12, md: 6 }}
             component={motion.div}
             variants={itemVariants}
           >
@@ -194,7 +185,7 @@ const ProjectsPreview = () => {
                       label={project.type}
                       size="small"
                       sx={{
-                        background: 'rgba(125, 63, 185, 0.2)',
+                        background: '#3b2e7a',
                         color: 'primary.light',
                         fontWeight: 600,
                         mb: 2,
