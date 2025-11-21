@@ -1,11 +1,13 @@
 import { Fab, Tooltip } from '@mui/material';
 import { WhatsApp as WhatsAppIcon } from '@mui/icons-material';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { contactConfig } from '../../config/data';
 
 export const FloatingWhatsApp = () => {
-  const defaultMessage = 'Hola, me gustaría agendar una llamada';
+  const { t } = useTranslation('common');
   
+  const defaultMessage = t('floatingWhatsApp.defaultMessage');
   const message = encodeURIComponent(defaultMessage);
   const whatsappUrl = `https://wa.me/${contactConfig.whatsapp.number}?text=${message}`;
 
@@ -21,7 +23,7 @@ export const FloatingWhatsApp = () => {
         zIndex: 1000,
       }}
     >
-      <Tooltip title="Contactar" placement="left" arrow>
+      <Tooltip title={t('floatingWhatsApp.tooltip')} placement="left" arrow>
         <Fab
           aria-label="WhatsApp"
           href={whatsappUrl}

@@ -3,6 +3,7 @@ import { Typography, Button, Box, Stack, Grid } from '@mui/material';
 import { Code, RocketLaunch, Speed } from '@mui/icons-material';
 import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import Orb from '../Orb/Orb';
 
 // Delay base para el contenido después del orb
@@ -61,6 +62,7 @@ const buttonsVariants = {
 
 const Hero = () => {
   const theme = useTheme();
+  const { t } = useTranslation('common');
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -165,7 +167,7 @@ const Hero = () => {
                   maxWidth: 900,
                 }}
               >
-                Orbit Web Studio
+                {t('hero.subtitle')}
               </Typography>
 
               {/* Título principal */}
@@ -187,7 +189,7 @@ const Hero = () => {
                     whiteSpace: 'nowrap',
                   }}
                 >
-                  Ponemos tu marca
+                  {t('hero.titleLine1')}
                 </Box>
                 <Box
                   component="span"
@@ -196,7 +198,7 @@ const Hero = () => {
                     whiteSpace: 'nowrap',
                   }}
                 >
-                  en orbita
+                  {t('hero.titleLine2')}
                 </Box>
               </Typography>
 
@@ -211,7 +213,7 @@ const Hero = () => {
                 <Stack direction="row" spacing={1.5} alignItems="center">
                   <Code color="primary" />
                   <Typography variant="body1">
-                    Desarrollo frontend React + MUI
+                    {t('hero.bullets.frontend')}
                   </Typography>
                 </Stack>
                 <Stack direction="row" spacing={1.5} alignItems="center">
@@ -220,13 +222,13 @@ const Hero = () => {
                     variant="body1"
                     sx={{ display: 'block', whiteSpace: 'nowrap' }}
                   >
-                    Integraciones y pequeños backends
+                    {t('hero.bullets.backend')}
                   </Typography>
                 </Stack>
                 <Stack direction="row" spacing={1.5} alignItems="center">
                   <Speed sx={{ color: '#a46be3' }} />
                   <Typography variant="body1">
-                    Deploy profesional y performance
+                    {t('hero.bullets.deploy')}
                   </Typography>
                 </Stack>
               </Stack>
@@ -251,7 +253,7 @@ const Hero = () => {
                   onClick={() => scrollToSection('services')}
                   sx={{ pointerEvents: 'auto' }}
                 >
-                  Ver servicios
+                  {t('hero.ctaPrimary')}
                 </Button>
                 <Button
                   variant="outlined"
@@ -260,7 +262,7 @@ const Hero = () => {
                   onClick={() => scrollToSection('projects')}
                   sx={{ pointerEvents: 'auto' }}
                 >
-                  Proyectos
+                  {t('hero.ctaSecondary')}
                 </Button>
               </Stack>
             </Stack>

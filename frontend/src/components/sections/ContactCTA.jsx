@@ -1,14 +1,19 @@
 import { Container, Typography, Button, Box, Stack, TextField, MenuItem, Paper, Grid } from '@mui/material';
 import { Email, CalendarMonth } from '@mui/icons-material';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { ContactForm } from '../contact_form/ContactForm';
 import { contactConfig } from '../../config/data';
 
-const defaultMessage = 'Hola, me gustaría agendar una llamada';
-const message = encodeURIComponent(defaultMessage);
-const whatsappUrl = `https://wa.me/${contactConfig.whatsapp.number}?text=${message}`;
+// El mensaje de WhatsApp se genera dinámicamente dentro del componente
 
 const ContactCTA = () => {
+  const { t } = useTranslation('common');
+  
+  const defaultMessage = t('floatingWhatsApp.defaultMessage');
+  const message = encodeURIComponent(defaultMessage);
+  const whatsappUrl = `https://wa.me/${contactConfig.whatsapp.number}?text=${message}`;
+
   return (
     <Box
       sx={{
@@ -27,10 +32,10 @@ const ContactCTA = () => {
         >
           <Stack spacing={2} sx={{ mb: 6, textAlign: 'center', alignItems: 'center' }}>
             <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.5rem' } }}>
-              ¿Listo para lanzar tu próximo proyecto?
+              {t('contact.title')}
             </Typography>
             <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 600, mx: 'auto' }}>
-              Cuéntanos sobre tu idea y te ayudaremos a hacerla realidad
+              {t('contact.subtitle')}
             </Typography>
           </Stack>
         </motion.div>
@@ -67,10 +72,10 @@ const ContactCTA = () => {
                     <CalendarMonth sx={{ fontSize: 28, color: 'primary.main' }} />
                   </Box>
                   <Typography variant="h6" sx={{ fontWeight: 700 }}>
-                    Agenda una llamada
+                    {t('contact.schedule.title')}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Conversemos sobre tu proyecto en una videollamada de 30 minutos
+                    {t('contact.schedule.description')}
                   </Typography>
                   <Button
                     variant="contained"
@@ -79,7 +84,7 @@ const ContactCTA = () => {
                     href={whatsappUrl}
                     target="_blank"
                   >
-                    Agendar
+                    {t('contact.schedule.cta')}
                   </Button>
                 </Stack>
               </Paper>
@@ -112,10 +117,10 @@ const ContactCTA = () => {
                     <Email sx={{ fontSize: 28, color: 'secondary.main' }} />
                   </Box>
                   <Typography variant="h6" sx={{ fontWeight: 700 }}>
-                    Escríbenos
+                    {t('contact.email.title')}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Envíanos un correo y te responderemos en menos de 24 horas
+                    {t('contact.email.description')}
                   </Typography>
                   <Button
                     variant="outlined"
@@ -124,7 +129,7 @@ const ContactCTA = () => {
                     href={`mailto:${contactConfig.email.address}`}
                     target="_blank"
                   >
-                    Enviar correo
+                    {t('contact.email.cta')}
                   </Button>
                 </Stack>
               </Paper>
@@ -147,7 +152,7 @@ const ContactCTA = () => {
               }}
             >
               <Typography variant="h5" sx={{ mb: 3, fontWeight: 700 }}>
-                Déjanos un mensaje
+                {t('contact.form.title')}
               </Typography>
               <ContactForm />
             </Paper>

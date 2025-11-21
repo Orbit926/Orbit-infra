@@ -1,31 +1,33 @@
 import { Container, Typography, Box, Stack, Avatar, Paper, Grid } from '@mui/material';
 import { FormatQuote } from '@mui/icons-material';
+import { useTranslation } from 'react-i18next';
 
-const testimonials = [
-  {
-    name: 'Luis Sergio',
-    role: 'Director de Devaltra Logistics',
-    avatar: 'https://i.pravatar.cc/150?img=12',
-    quote:
-      'El equipo de Orbit creó una landing page profesional y optimizada que elevó por completo la imagen de nuestra empresa. Ahora nuestros clientes entienden mejor nuestros servicios y cotizan más rápido.',
-  },
-  {
-    name: 'Maria Jose',
-    role: 'Fundadora de Greenpaw',
-    avatar: 'https://i.pravatar.cc/150?img=32',
-    quote:
-      'La tienda en línea quedó increíble. Todo se ve moderno, rápido y muy claro para nuestros clientes. Gracias a Orbit pudimos lanzar nuestro producto de manera profesional desde el día uno.',
-  },
-  {
-    name: 'Sara',
-    role: 'Novia – Boda',
-    avatar: 'https://i.pravatar.cc/150?img=47',
-    quote:
-      'La invitación digital superó todas nuestras expectativas. El diseño, las animaciones y la experiencia móvil fueron perfectas. Todos nuestros invitados nos felicitaron por lo bonita y funcional que quedó.',
-  },
-];
+// Los testimonios ahora vienen de i18n
 
 const Testimonials = () => {
+  const { t } = useTranslation('common');
+
+  const testimonials = [
+    {
+      name: t('testimonials.luisSergio.name'),
+      role: t('testimonials.luisSergio.role'),
+      avatar: 'https://i.pravatar.cc/150?img=12',
+      quote: t('testimonials.luisSergio.quote'),
+    },
+    {
+      name: t('testimonials.mariaJose.name'),
+      role: t('testimonials.mariaJose.role'),
+      avatar: 'https://i.pravatar.cc/150?img=32',
+      quote: t('testimonials.mariaJose.quote'),
+    },
+    {
+      name: t('testimonials.sara.name'),
+      role: t('testimonials.sara.role'),
+      avatar: 'https://i.pravatar.cc/150?img=47',
+      quote: t('testimonials.sara.quote'),
+    },
+  ];
+
   return (
     <Box
       sx={{
@@ -38,15 +40,14 @@ const Testimonials = () => {
         {/* Header */}
         <Stack spacing={2} sx={{ mb: 8, textAlign: 'center', alignItems: 'center' }}>
           <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.5rem' } }}>
-            Lo que dicen nuestros clientes
+            {t('testimonials.title')}
           </Typography>
           <Typography
             variant="body1"
             color="text.secondary"
             sx={{ maxWidth: 700, mx: 'auto', lineHeight: 1.7 }}
           >
-            Experiencias reales de personas que confiaron en Orbit para llevar su presencia digital
-            al siguiente nivel.
+            {t('testimonials.subtitle')}
           </Typography>
         </Stack>
 

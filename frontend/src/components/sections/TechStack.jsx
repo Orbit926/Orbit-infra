@@ -1,6 +1,7 @@
 // TechStack.jsx
 import { Container, Typography, Box, Stack, Chip } from '@mui/material';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 // Iconos válidos
 import {
@@ -59,6 +60,8 @@ const chipVariants = {
 };
 
 const TechStack = () => {
+  const { t } = useTranslation('common');
+
   return (
     <Box id="stack" sx={{ py: 10, background: (theme) => theme.palette.background.paper }}>
       <Container>
@@ -71,10 +74,10 @@ const TechStack = () => {
         >
           <Stack spacing={2} sx={{ mb: 6, textAlign: 'center', alignItems: 'center' }}>
             <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.5rem' } }}>
-              Tech Stack
+              {t('techStack.title')}
             </Typography>
             <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 600, mx: 'auto' }}>
-              Tecnologías modernas y confiables para construir soluciones escalables
+              {t('techStack.subtitle')}
             </Typography>
           </Stack>
         </motion.div>
@@ -109,7 +112,7 @@ const TechStack = () => {
                       {tech.name}
                     </Typography>
                     <Typography variant="caption" color="text.secondary">
-                      {tech.category}
+                      {t(`techStack.categories.${tech.category}`)}
                     </Typography>
                   </Stack>
                 }
@@ -151,10 +154,10 @@ const TechStack = () => {
           }}
         >
           <Typography variant="h6" sx={{ mb: 2, fontWeight: 700 }}>
-            ¿Necesitas otra tecnología?
+            {t('techStack.otherTechTitle')}
           </Typography>
           <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 500, mx: 'auto' }}>
-            Podemos integrar cualquier herramienta que tu proyecto requiera o adaptar tu stack actual.
+            {t('techStack.otherTechDescription')}
           </Typography>
         </Box>
       </Container>

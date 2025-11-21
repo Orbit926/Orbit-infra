@@ -1,16 +1,13 @@
 import { Box, Container, Grid, Stack, Typography, IconButton, Link as MuiLink } from '@mui/material';
 import { GitHub, Email, Instagram } from '@mui/icons-material';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { contactConfig } from '../../config/data';
 
 const email = contactConfig.email.address;
 
-const navigationLinks = [
-  { id: 'hero',     label: 'Inicio' },      // Hero (y arriba de todo)
-  { id: 'about',    label: 'Sobre nosotros' },    // About
-  { id: 'projects', label: 'Proyectos' },   // ProjectsPreview + Testimonials
-  { id: 'services', label: 'Servicios' }, 
-];
+// Los links de navegación ahora vienen de i18n
+const navigationIds = ['hero', 'about', 'projects', 'services'];
 
 const socialLinks = [
   { icon: GitHub, href: contactConfig.gitHub.url, label: 'GitHub' },
@@ -54,6 +51,15 @@ const bottomVariants = {
 };
 
 const Footer = () => {
+  const { t } = useTranslation('common');
+
+  const navigationLinks = [
+    { id: 'hero', label: t('header.nav.home') },
+    { id: 'about', label: t('header.nav.about') },
+    { id: 'projects', label: t('header.nav.projects') },
+    { id: 'services', label: t('header.nav.services') },
+  ];
+
   const scrollTo = (id) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -123,7 +129,7 @@ const Footer = () => {
                   lineHeight: 1.7,
                 }}
               >
-                Desarrollo web enfocado en performance, diseño y deploy en la nube.
+                {t('footer.description')}
               </Typography>
             </Stack>
           </Grid>
@@ -139,7 +145,7 @@ const Footer = () => {
                   mb: 1,
                 }}
               >
-                Navegación
+                {t('footer.navigation')}
               </Typography>
               <Stack spacing={1.5}>
                 {navigationLinks.map((link) => (
@@ -179,14 +185,14 @@ const Footer = () => {
                     mb: 1,
                   }}
                 >
-                  Contacto
+                  {t('footer.contactTitle')}
                 </Typography>
                 <Typography
                   variant="body2"
                   color="text.secondary"
                   sx={{ lineHeight: 1.7, maxWidth: 280 }}
                 >
-                  ¿Tienes un proyecto en mente? Escríbeme y lo platicamos.
+                  {t('footer.contactDescription')}
                 </Typography>
                 <Box>
                   <MuiLink
@@ -213,7 +219,7 @@ const Footer = () => {
                     }}
                   >
                     <Email sx={{ fontSize: 18 }} />
-                    Enviar correo
+                    {t('footer.sendEmail')}
                   </MuiLink>
                 </Box>
               </Stack>
@@ -225,7 +231,7 @@ const Footer = () => {
                   color="text.secondary"
                   sx={{ fontSize: '0.875rem', fontWeight: 600 }}
                 >
-                  Síguenos
+                  {t('footer.followUs')}
                 </Typography>
                 <Stack direction="row" spacing={1}>
                   {socialLinks.map((social) => {
@@ -287,7 +293,7 @@ const Footer = () => {
               color="text.secondary"
               sx={{ fontSize: '0.875rem' }}
             >
-              © {currentYear} Orbit. Todos los derechos reservados.
+              © {currentYear} {t('footer.copyright')}
             </Typography>
             <Typography
               variant="body2"
@@ -299,7 +305,7 @@ const Footer = () => {
                 gap: 0.5,
               }}
             >
-              Hecho con React, MUI y mucho café ☕
+              {t('footer.madeWith')}
             </Typography>
           </Stack>
         </Box>

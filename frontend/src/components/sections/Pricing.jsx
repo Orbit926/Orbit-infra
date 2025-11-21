@@ -1,61 +1,9 @@
 import { Container, Typography, Box, Stack, Button, Chip, Paper, Grid } from '@mui/material';
 import { CheckCircle } from '@mui/icons-material';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
-const plans = [
-  {
-    name: 'Landing Básica',
-    description: 'Perfecta para presentar tu negocio o proyecto de forma profesional',
-    price: 'Desde $8,000 MXN',
-    features: [
-      'Diseño responsive moderno',
-      'Optimización básica SEO',
-      'Integración con analytics',
-      'Deploy en Vercel/Netlify',
-      'Formulario de contacto',
-      '1 revisión incluida',
-    ],
-    highlighted: false,
-    buttonText: 'Empezar',
-    buttonVariant: 'outlined',
-  },
-  {
-    name: 'Sitio Profesional',
-    description: 'Ideal para empresas que buscan presencia digital completa',
-    price: 'Desde $18,000 MXN',
-    features: [
-      'Todo lo de Landing Básica',
-      'Múltiples páginas y secciones',
-      'Animaciones avanzadas',
-      'SEO optimizado completo',
-      'Integración con CMS',
-      'Deploy profesional AWS',
-      '3 revisiones incluidas',
-      'Soporte 30 días',
-    ],
-    highlighted: true,
-    buttonText: 'Más popular',
-    buttonVariant: 'contained',
-  },
-  {
-    name: 'Web App a Medida',
-    description: 'Solución completa para aplicaciones web con funcionalidad avanzada',
-    price: 'Desde $35,000 MXN',
-    features: [
-      'Todo lo de Sitio Profesional',
-      'Backend personalizado',
-      'Base de datos y APIs',
-      'Autenticación de usuarios',
-      'Panel de administración',
-      'Arquitectura escalable',
-      'Revisiones ilimitadas',
-      'Soporte 90 días',
-    ],
-    highlighted: false,
-    buttonText: 'Agenda una llamada',
-    buttonVariant: 'outlined',
-  },
-];
+// Los planes ahora vienen de i18n
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -80,6 +28,39 @@ const cardVariants = {
 };
 
 const Pricing = () => {
+  const { t } = useTranslation('common');
+
+  const plans = [
+    {
+      name: t('pricing.basic.name'),
+      description: t('pricing.basic.description'),
+      price: t('pricing.basic.price'),
+      features: Object.values(t('pricing.basic.features', { returnObjects: true })),
+      highlighted: false,
+      buttonText: t('pricing.basic.cta'),
+      buttonVariant: 'outlined',
+    },
+    {
+      name: t('pricing.professional.name'),
+      description: t('pricing.professional.description'),
+      price: t('pricing.professional.price'),
+      features: Object.values(t('pricing.professional.features', { returnObjects: true })),
+      highlighted: true,
+      buttonText: t('pricing.professional.cta'),
+      buttonVariant: 'contained',
+      badge: t('pricing.professional.badge'),
+    },
+    {
+      name: t('pricing.custom.name'),
+      description: t('pricing.custom.description'),
+      price: t('pricing.custom.price'),
+      features: Object.values(t('pricing.custom.features', { returnObjects: true })),
+      highlighted: false,
+      buttonText: t('pricing.custom.cta'),
+      buttonVariant: 'outlined',
+    },
+  ];
+
   return (
     <Box
       sx={{
@@ -98,14 +79,14 @@ const Pricing = () => {
         >
           <Stack spacing={2} sx={{ mb: 8, textAlign: 'center', alignItems: 'center' }}>
             <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.5rem' } }}>
-              Planes y servicios
+              {t('pricing.title')}
             </Typography>
             <Typography
               variant="body1"
               color="text.secondary"
               sx={{ maxWidth: 600, mx: 'auto' }}
             >
-              Elige el tipo de proyecto que mejor se adapta a lo que quieres construir.
+              {t('pricing.subtitle')}
             </Typography>
           </Stack>
         </motion.div>
@@ -169,7 +150,7 @@ const Pricing = () => {
                   {plan.highlighted && (
                     <Box sx={{ position: 'absolute', top: -12, right: 16 }}>
                       <Chip
-                        label="Más popular"
+                        label={plan.badge}
                         size="small"
                         sx={{
                           background: 'linear-gradient(135deg, #7d3fb9 0%, #5d5fe9 100%)',
@@ -302,8 +283,7 @@ const Pricing = () => {
         >
           <Box sx={{ mt: 6, textAlign: 'center' }}>
             <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 600, mx: 'auto' }}>
-              Los precios son aproximados y pueden variar según los requerimientos específicos de tu proyecto.
-              Agenda una llamada para obtener una cotización personalizada.
+              {t('pricing.disclaimer')}
             </Typography>
           </Box>
         </motion.div>

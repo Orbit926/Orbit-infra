@@ -9,54 +9,11 @@ import {
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
-const faqs = [
-  {
-    question: '¿Qué incluye el desarrollo de una página web?',
-    answer: 'Incluye diseño personalizado, desarrollo responsive, optimización de rendimiento, SEO esencial, integración con APIs, despliegue en AWS o Vercel, y asesoría técnica durante el proceso.'
-  },
-  {
-    question: '¿Cuánto tarda un proyecto en completarse?',
-    answer: 'El tiempo depende del alcance del proyecto. Una landing page puede tomar 1–2 semanas y un sistema más completo puede tardar entre 4–8 semanas. Siempre se entrega un cronograma claro al iniciar.'
-  },
-  {
-    question: '¿Usan tecnologías modernas y optimizadas?',
-    answer: 'Sí. Trabajamos con React, Vite, Material UI, Node.js, AWS, CI/CD y las mejores prácticas de rendimiento y seguridad.'
-  },
-  {
-    question: '¿Ofrecen mantenimiento o soporte después del desarrollo?',
-    answer: 'Sí. Podemos ofrecer mantenimiento mensual, actualización de contenido, monitoreo, optimización continua, o soporte por evento según el proyecto.'
-  },
-  {
-    question: '¿Cómo funcionan los pagos?',
-    answer: 'Normalmente se divide 50% al inicio y 50% al finalizar. Para proyectos grandes se distribuye en hitos.'
-  },
-  {
-    question: '¿Pueden trabajar con AWS o infraestructura escalable?',
-    answer: 'Sí. Somos especialistas en AWS, incluyendo S3, CloudFront, Lambda, API Gateway, SES, Cognito, EC2, RDS y arquitectura serverless o contenedores con Docker.'
-  },
-  {
-    question: '¿Tendré acceso a mis cuentas (AWS, Vercel, dominios, correos)?',
-    answer: 'Sí. Todas las cuentas pertenecen al cliente. Nosotros configuramos la infraestructura, entregamos accesos y no retenemos nada.'
-  },
-  {
-    question: '¿Puedo migrar mi sitio actual a una mejor tecnología o a AWS?',
-    answer: 'Sí. Podemos tomar tu sitio actual, optimizarlo, rediseñarlo o migrarlo a una infraestructura más moderna, rápida y segura.'
-  }
-];
+// Las FAQs ahora vienen de i18n
 
-const faqJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map(faq => ({
-    '@type': 'Question',
-    name: faq.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: faq.answer
-    }
-  }))
-};
+// JSON-LD se genera dinámicamente dentro del componente
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -82,6 +39,56 @@ const itemVariants = {
 };
 
 export default function FaqSection() {
+  const { t } = useTranslation('common');
+
+  const faqs = [
+    {
+      question: t('faq.questions.whatIncludes.question'),
+      answer: t('faq.questions.whatIncludes.answer'),
+    },
+    {
+      question: t('faq.questions.timeline.question'),
+      answer: t('faq.questions.timeline.answer'),
+    },
+    {
+      question: t('faq.questions.technologies.question'),
+      answer: t('faq.questions.technologies.answer'),
+    },
+    {
+      question: t('faq.questions.support.question'),
+      answer: t('faq.questions.support.answer'),
+    },
+    {
+      question: t('faq.questions.payments.question'),
+      answer: t('faq.questions.payments.answer'),
+    },
+    {
+      question: t('faq.questions.aws.question'),
+      answer: t('faq.questions.aws.answer'),
+    },
+    {
+      question: t('faq.questions.access.question'),
+      answer: t('faq.questions.access.answer'),
+    },
+    {
+      question: t('faq.questions.migration.question'),
+      answer: t('faq.questions.migration.answer'),
+    },
+  ];
+
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer
+      }
+    }))
+  };
+
   return (
     <>
       <Box
@@ -107,14 +114,14 @@ export default function FaqSection() {
                   mb: 1.5,
                 }}
               >
-                Preguntas frecuentes
+                {t('faq.title')}
               </Typography>
               <Typography 
                 variant="body1" 
                 color="text.secondary" 
                 sx={{ maxWidth: 600, mx: 'auto' }}
               >
-                Resolvemos las dudas más comunes sobre cómo trabajamos en Orbit y nuestros servicios de desarrollo web y AWS.
+                {t('faq.subtitle')}
               </Typography>
             </Box>
           </motion.div>

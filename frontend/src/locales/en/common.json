@@ -1,0 +1,284 @@
+{
+  "header": {
+    "nav": {
+      "home": "Home",
+      "about": "About Us",
+      "projects": "Projects",
+      "services": "Services"
+    },
+    "cta": "Schedule a Call",
+    "menuAriaLabel": "Open navigation menu"
+  },
+  "hero": {
+    "subtitle": "Orbit Web Studio",
+    "titleLine1": "We put your brand",
+    "titleLine2": "in orbit",
+    "bullets": {
+      "frontend": "React + MUI frontend development",
+      "backend": "Integrations and small backends",
+      "deploy": "Professional deploy and performance"
+    },
+    "ctaPrimary": "View Services",
+    "ctaSecondary": "Projects"
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "We build fast, modern digital experiences focused on performance.",
+    "paragraph1": "At Orbit, we specialize in creating solutions that not only look great, but work exceptionally. From high-impact landing pages to complex web applications, each project is an opportunity to combine clean code with smart design.",
+    "paragraph2": "Our focus is on user experience, performance, and scalability. We work with modern technologies like React, Material UI, and Node.js, always seeking best practices and architectures that ensure maintainable code and quality products.",
+    "paragraph3": "Beyond development, we're passionate about professional AWS deployment and application optimization to make them fast, secure, and reliable. We believe in transparency, constant communication, and delivering results that exceed our clients' expectations.",
+    "highlightsTitle": "Highlights",
+    "highlights": {
+      "frontend": "React + MUI Frontend",
+      "backend": "APIs and small backends",
+      "deploy": "Professional AWS Deploy"
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Some of our recent work",
+    "devaltra": {
+      "name": "Devaltra Logistics",
+      "type": "Landing Page",
+      "description": "Modern platform for international logistics company with real-time quotation system."
+    },
+    "wedding": {
+      "name": "Wedding Invitation",
+      "type": "Digital Invitation",
+      "description": "Personalized digital wedding invitation with elegant design, smooth animations and fully responsive experience developed for my aunt's wedding."
+    },
+    "greenpaw": {
+      "name": "Greenpaw",
+      "type": "E-commerce",
+      "description": "Online pet products store with shopping cart, payment gateway and admin panel."
+    },
+    "openProject": "Open project"
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "Complete web solutions from design to deploy",
+    "landing": {
+      "title": "High-impact landing pages",
+      "description": "Modern designs optimized for conversion, with fluid animations and exceptional user experience."
+    },
+    "webapp": {
+      "title": "Custom web apps",
+      "description": "Personalized web applications with React, API integration and scalable architecture."
+    },
+    "ecommerce": {
+      "title": "Compact e-commerce",
+      "description": "Complete online stores with payment gateways, inventory management and admin panel."
+    },
+    "deploy": {
+      "title": "Deploy & performance",
+      "description": "Professional deployment on AWS, Vercel or Netlify with performance optimization and monitoring."
+    }
+  },
+  "process": {
+    "title": "Process",
+    "subtitle": "A transparent workflow from start to finish",
+    "discovery": {
+      "title": "Discovery",
+      "description": "We understand your vision, goals and technical requirements of the project."
+    },
+    "design": {
+      "title": "Wireframe & design",
+      "description": "We create prototypes and designs that combine aesthetics with functionality."
+    },
+    "development": {
+      "title": "Development",
+      "description": "We implement with clean code, best practices and scalable architecture."
+    },
+    "deploy": {
+      "title": "Deploy & handoff",
+      "description": "We deploy to production and deliver access and complete documentation."
+    }
+  },
+  "techStack": {
+    "title": "Tech Stack",
+    "subtitle": "Modern and reliable technologies to build scalable solutions",
+    "categories": {
+      "Frontend": "Frontend",
+      "Build Tool": "Build Tool",
+      "UI Framework": "UI Framework",
+      "Backend": "Backend",
+      "API": "API",
+      "Cloud": "Cloud",
+      "Deploy": "Deploy",
+      "Database": "Database",
+      "Payment": "Payment"
+    },
+    "otherTechTitle": "Need another technology?",
+    "otherTechDescription": "We can integrate any tool your project requires or adapt your current stack."
+  },
+  "pricing": {
+    "title": "Plans and Services",
+    "subtitle": "Choose the type of project that best suits what you want to build.",
+    "basic": {
+      "name": "Basic Landing",
+      "description": "Perfect for presenting your business or project professionally",
+      "price": "From $8,000 MXN",
+      "features": {
+        "responsive": "Modern responsive design",
+        "seo": "Basic SEO optimization",
+        "analytics": "Analytics integration",
+        "deploy": "Deploy on Vercel/Netlify",
+        "contact": "Contact form",
+        "revisions": "1 revision included"
+      },
+      "cta": "Get Started"
+    },
+    "professional": {
+      "name": "Professional Site",
+      "description": "Ideal for companies seeking complete digital presence",
+      "price": "From $18,000 MXN",
+      "features": {
+        "allBasic": "Everything from Basic Landing",
+        "multipage": "Multiple pages and sections",
+        "animations": "Advanced animations",
+        "seoFull": "Complete optimized SEO",
+        "cms": "CMS integration",
+        "awsDeploy": "Professional AWS deploy",
+        "revisions": "3 revisions included",
+        "support": "30 days support"
+      },
+      "cta": "Most popular",
+      "badge": "Most popular"
+    },
+    "custom": {
+      "name": "Custom Web App",
+      "description": "Complete solution for web applications with advanced functionality",
+      "price": "From $35,000 MXN",
+      "features": {
+        "allProfessional": "Everything from Professional Site",
+        "backend": "Custom backend",
+        "database": "Database and APIs",
+        "auth": "User authentication",
+        "admin": "Admin panel",
+        "scalable": "Scalable architecture",
+        "revisions": "Unlimited revisions",
+        "support": "90 days support"
+      },
+      "cta": "Schedule a call"
+    },
+    "disclaimer": "Prices are approximate and may vary depending on your project's specific requirements. Schedule a call to get a personalized quote."
+  },
+  "testimonials": {
+    "title": "What our clients say",
+    "subtitle": "Real experiences from people who trusted Orbit to take their digital presence to the next level.",
+    "luisSergio": {
+      "name": "Luis Sergio",
+      "role": "Director of Devaltra Logistics",
+      "quote": "The Orbit team created a professional and optimized landing page that completely elevated our company's image. Now our clients better understand our services and quote faster."
+    },
+    "mariaJose": {
+      "name": "Maria Jose",
+      "role": "Founder of Greenpaw",
+      "quote": "The online store turned out amazing. Everything looks modern, fast and very clear for our customers. Thanks to Orbit we were able to launch our product professionally from day one."
+    },
+    "sara": {
+      "name": "Sara",
+      "role": "Bride – Wedding",
+      "quote": "The digital invitation exceeded all our expectations. The design, animations and mobile experience were perfect. All our guests congratulated us on how beautiful and functional it was."
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "We resolve the most common doubts about how we work at Orbit and our web development and AWS services.",
+    "questions": {
+      "whatIncludes": {
+        "question": "What does website development include?",
+        "answer": "It includes custom design, responsive development, performance optimization, essential SEO, API integration, deployment on AWS or Vercel, and technical consulting during the process."
+      },
+      "timeline": {
+        "question": "How long does a project take to complete?",
+        "answer": "The time depends on the project scope. A landing page can take 1–2 weeks and a more complete system can take between 4–8 weeks. A clear timeline is always delivered at the start."
+      },
+      "technologies": {
+        "question": "Do you use modern and optimized technologies?",
+        "answer": "Yes. We work with React, Vite, Material UI, Node.js, AWS, CI/CD and the best performance and security practices."
+      },
+      "support": {
+        "question": "Do you offer maintenance or support after development?",
+        "answer": "Yes. We can offer monthly maintenance, content updates, monitoring, continuous optimization, or event-based support depending on the project."
+      },
+      "payments": {
+        "question": "How do payments work?",
+        "answer": "Normally it's split 50% at the start and 50% at completion. For large projects it's distributed in milestones."
+      },
+      "aws": {
+        "question": "Can you work with AWS or scalable infrastructure?",
+        "answer": "Yes. We are AWS specialists, including S3, CloudFront, Lambda, API Gateway, SES, Cognito, EC2, RDS and serverless architecture or containers with Docker."
+      },
+      "access": {
+        "question": "Will I have access to my accounts (AWS, Vercel, domains, emails)?",
+        "answer": "Yes. All accounts belong to the client. We configure the infrastructure, deliver access and don't retain anything."
+      },
+      "migration": {
+        "question": "Can I migrate my current site to better technology or AWS?",
+        "answer": "Yes. We can take your current site, optimize it, redesign it or migrate it to a more modern, fast and secure infrastructure."
+      }
+    }
+  },
+  "contact": {
+    "title": "Ready to launch your next project?",
+    "subtitle": "Tell us about your idea and we'll help you make it a reality",
+    "schedule": {
+      "title": "Schedule a call",
+      "description": "Let's talk about your project in a 30-minute video call",
+      "cta": "Schedule"
+    },
+    "email": {
+      "title": "Write to us",
+      "description": "Send us an email and we'll respond in less than 24 hours",
+      "cta": "Send email"
+    },
+    "form": {
+      "title": "Leave us a message",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone number",
+      "phonePlaceholder": "E.g: +52 33 1234 5678",
+      "projectType": "Project type",
+      "message": "Message",
+      "messagePlaceholder": "Tell us about your project...",
+      "recaptchaNotice": "This site is protected by reCAPTCHA and the Google",
+      "privacyPolicy": "Privacy Policy",
+      "and": "and",
+      "termsOfService": "Terms of Service",
+      "ofGoogle": "apply.",
+      "submit": "Send message",
+      "submitting": "Sending...",
+      "projectTypes": {
+        "landing": "Landing Page",
+        "webapp": "Web App",
+        "ecommerce": "E-commerce",
+        "other": "Other"
+      },
+      "validation": {
+        "nameRequired": "Name is required",
+        "emailInvalid": "Enter a valid email",
+        "phoneInvalid": "Enter a valid phone number",
+        "projectTypeRequired": "Select a project type",
+        "messageRequired": "Tell us a bit more about your project"
+      },
+      "success": "Thank you for your message! I'll contact you soon.",
+      "error": "Error sending form. Please try again later.",
+      "errorUnexpected": "An unexpected error occurred. Please try again later."
+    }
+  },
+  "footer": {
+    "description": "Web development focused on performance, design and cloud deployment.",
+    "navigation": "Navigation",
+    "contactTitle": "Contact",
+    "contactDescription": "Have a project in mind? Write me and let's talk about it.",
+    "sendEmail": "Send email",
+    "followUs": "Follow us",
+    "copyright": "Orbit. All rights reserved.",
+    "madeWith": "Made with React, MUI and lots of coffee ☕"
+  },
+  "floatingWhatsApp": {
+    "tooltip": "Contact",
+    "defaultMessage": "Hello, I would like to schedule a call"
+  }
+}

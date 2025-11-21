@@ -1,12 +1,9 @@
 import { Container, Typography, Box, Stack, Paper, Avatar, Grid } from '@mui/material';
 import { CheckCircle } from '@mui/icons-material';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
-const highlights = [
-  'Frontend React + MUI',
-  'APIs y pequeños backends',
-  'Deploy profesional AWS',
-];
+// Los highlights ahora vienen de i18n
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -31,6 +28,14 @@ const itemVariants = {
 };
 
 const About = () => {
+  const { t } = useTranslation('common');
+  
+  const highlights = [
+    t('about.highlights.frontend'),
+    t('about.highlights.backend'),
+    t('about.highlights.deploy'),
+  ];
+
   return (
     <Box
       sx={{
@@ -59,7 +64,7 @@ const About = () => {
                       mb: 2,
                     }}
                   >
-                    Sobre nosotros
+                    {t('about.title')}
                   </Typography>
                   <Typography
                     variant="h5"
@@ -70,30 +75,21 @@ const About = () => {
                       lineHeight: 1.5,
                     }}
                   >
-                    Construimos experiencias digitales rápidas, modernas y enfocadas en performance.
+                    {t('about.subtitle')}
                   </Typography>
                 </Box>
 
                 <Stack spacing={2}>
                   <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.8 }}>
-                    En Orbit, nos especializamos en crear soluciones que no solo se ven bien, 
-                    sino que funcionan excepcionalmente. Desde landing pages de alto impacto 
-                    hasta aplicaciones web complejas, cada proyecto es una oportunidad para 
-                    combinar código limpio con diseño inteligente.
+                    {t('about.paragraph1')}
                   </Typography>
 
                   <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.8 }}>
-                    Nuestro enfoque está en la experiencia del usuario, la performance y la escalabilidad.
-                    Trabajamos con tecnologías modernas como React, Material UI y Node.js, siempre
-                    buscando las mejores prácticas y arquitecturas que garanticen código mantenible
-                    y productos de calidad.
+                    {t('about.paragraph2')}
                   </Typography>
 
                   <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.8 }}>
-                    Más allá del desarrollo, nos apasiona el deploy profesional en AWS y la
-                    optimización de aplicaciones para que sean rápidas, seguras y confiables.
-                    Creemos en la transparencia, la comunicación constante y en entregar resultados
-                    que superen las expectativas de nuestros clientes.
+                    {t('about.paragraph3')}
                   </Typography>
                 </Stack>
               </Stack>
@@ -179,7 +175,7 @@ const About = () => {
                         fontSize: '1.1rem',
                       }}
                     >
-                      Highlights
+                      {t('about.highlightsTitle')}
                     </Typography>
 
                     <Stack

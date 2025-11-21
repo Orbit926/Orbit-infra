@@ -13,13 +13,11 @@ import {
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from './LanguageSwitcher';
 
-const sections = [
-  { id: 'hero',     label: 'Inicio' },      // Hero (y arriba de todo)
-  { id: 'about',    label: 'Sobre nosotros' },    // About
-  { id: 'projects', label: 'Proyectos' },   // ProjectsPreview + Testimonials
-  { id: 'services', label: 'Servicios' },   // Services + Process + TechStack + Pricing
-];
+// Las labels ahora vienen de i18n, solo necesitamos los IDs
+const sectionsIds = ['hero', 'about', 'projects', 'services'];
 
 // ⏱ Ajusta este delay para que el navbar aparezca
 // cuando termine la animación del Hero (en segundos)
@@ -40,34 +38,42 @@ const navbarVariants = {
 };
 
 const Header = () => {
+  const { t } = useTranslation('common');
   const [anchorEl, setAnchorEl] = useState(null);
   const menuOpen = Boolean(anchorEl);
+
+  // Construir secciones con traducciones dinámicas
+  const sections = [
+    { id: 'about', label: t('header.nav.about') },
+    { id: 'projects', label: t('header.nav.projects') },
+    { id: 'services', label: t('header.nav.services') },
+  ];
 
   // 🔥 Estado para saber qué sección está activa
   const [activeSection, setActiveSection] = useState('');
 
-  // 🧠 Detectar la sección activa al hacer scroll (igual estilo que Navbar.jsx)
+  // 🧠 Detectar la sección activa al hacer scroll
   useEffect(() => {
     const sectionIds = [
-      ...sections.map((s) => s.id),
+      ...sectionsIds,
       'contact', // incluye contact para el CTA
     ];
 
     const handleScroll = () => {
       let currentSection = '';
 
-      // buscamos la sección cuya zona alrededor de 100px está dentro de la vista
-      currentSection = sectionIds.find((id) => {
-        const el = document.getElementById(id);
-        if (!el) return false;
-        const rect = el.getBoundingClientRect();
-        return rect.top <= 100 && rect.bottom >= 100;
-      }) || '';
+      currentSection =
+        sectionIds.find((id) => {
+          const el = document.getElementById(id);
+          if (!el) return false;
+          const rect = el.getBoundingClientRect();
+          return rect.top <= 100 && rect.bottom >= 100;
+        }) || '';
 
       setActiveSection(currentSection);
     };
 
-    handleScroll(); // para que al cargar ya marque algo coherente
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
@@ -80,9 +86,6 @@ const Header = () => {
     if (target) {
       target.scrollIntoView({ behavior: 'smooth' });
     }
-    // 👇 Ya NO forzamos setActiveSection aquí.
-    // Dejamos que el scroll y el handleScroll se encarguen,
-    // como en el Navbar.jsx que sí te funciona bien.
   };
 
   const handleOpenMenu = (event) => {
@@ -130,21 +133,16 @@ const Header = () => {
               borderRadius: 999,
               maxWidth: { xs: '100%', sm: 760, md: 900 },
               width: { xs: '100%', sm: 'auto' },
-
-              // 💧 Liquid glass core
               background:
                 'radial-gradient(circle at 0% 0%, rgba(125,63,185,0.35), transparent 55%), radial-gradient(circle at 100% 100%, rgba(93,95,233,0.3), transparent 55%), rgba(8, 10, 24, 0.72)',
               backdropFilter: 'blur(22px)',
               WebkitBackdropFilter: 'blur(22px)',
-
               border: '1px solid rgba(255,255,255,0.12)',
               boxShadow:
                 '0 18px 45px rgba(0,0,0,0.65), 0 0 0 1px rgba(125,63,185,0.35)',
-
               display: 'flex',
               alignItems: 'center',
               gap: { xs: 1.1, sm: 2.2, md: 2.8 },
-
               overflow: 'hidden',
               '&::before': {
                 content: '""',
@@ -237,8 +235,18 @@ const Header = () => {
                 fontWeight: activeSection === 'contact' ? 700 : 500,
               }}
             >
-              Agenda una llamada
+              {t('header.cta')}
             </Button>
+
+            {/* Language Switcher (a la derecha del CTA en desktop) */}
+            <Box
+              sx={{
+                display: { xs: 'none', sm: 'flex' },
+                alignItems: 'center',
+              }}
+            >
+              <LanguageSwitcher />
+            </Box>
 
             {/* Botón menú móvil */}
             <IconButton
@@ -253,8 +261,8 @@ const Header = () => {
               aria-controls={menuOpen ? 'orbit-menu' : undefined}
               aria-haspopup="true"
               aria-expanded={menuOpen ? 'true' : undefined}
-              aria-label="Abrir menú de navegación"
-              title="Abrir menú de navegación"
+              aria-label={t('header.menuAriaLabel')}
+              title={t('header.menuAriaLabel')}
             >
               <MenuIcon />
             </IconButton>
@@ -307,6 +315,20 @@ const Header = () => {
           );
         })}
         <Divider sx={{ my: 0.5, borderColor: 'rgba(255,255,255,0.15)' }} />
+        {/* Language Switcher en móvil */}
+        <MenuItem>
+          <Box
+            sx={{
+              width: '100%',
+              display: 'flex',
+              justifyContent: 'center',
+              py: 0.5,
+            }}
+          >
+            <LanguageSwitcher />
+          </Box>
+        </MenuItem>
+        <Divider sx={{ my: 0.5, borderColor: 'rgba(255,255,255,0.15)' }} />
         <MenuItem onClick={() => handleMenuClick('contact')}>
           <Box
             sx={{
@@ -321,7 +343,7 @@ const Header = () => {
               fontSize: '0.9rem',
             }}
           >
-            Agenda una llamada
+            {t('header.cta')}
           </Box>
         </MenuItem>
       </Menu>

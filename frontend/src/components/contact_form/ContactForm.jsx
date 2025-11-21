@@ -14,24 +14,37 @@ import {
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+import { useTranslation } from 'react-i18next';
 import { z } from 'zod';
 import { contactConfig } from '../../config/data';
 import { sendContactForm } from '../../utils/sendContactForm';
 
-const projectTypes = ['Landing Page', 'Web App', 'E-commerce', 'Otro'];
+// Los tipos de proyecto ahora vienen de i18n
 
-const contactSchema = z.object({
-  name: z.string().min(1, 'El nombre es obligatorio'),
-  email: z.string().email('Ingresa un email válido'),
-  phone: z.string().min(10, 'Ingresa un número de celular válido'),
-  projectType: z.string().min(1, 'Selecciona un tipo de proyecto'),
-  message: z.string().min(10, 'Cuéntanos un poco más sobre tu proyecto'),
-  _hp: z.string().optional(), // Honeypot
-});
+// El schema de validación se crea dinámicamente dentro del componente
 
 export const ContactForm = () => {
+  const { t } = useTranslation('common');
   const { executeRecaptcha } = useGoogleReCaptcha();
   const endpointURL = contactConfig.API_URL;
+
+  // Tipos de proyecto dinámicos
+  const projectTypes = [
+    t('contact.form.projectTypes.landing'),
+    t('contact.form.projectTypes.webapp'),
+    t('contact.form.projectTypes.ecommerce'),
+    t('contact.form.projectTypes.other'),
+  ];
+
+  // Schema de validación con mensajes traducidos
+  const contactSchema = z.object({
+    name: z.string().min(1, t('contact.form.validation.nameRequired')),
+    email: z.string().email(t('contact.form.validation.emailInvalid')),
+    phone: z.string().min(10, t('contact.form.validation.phoneInvalid')),
+    projectType: z.string().min(1, t('contact.form.validation.projectTypeRequired')),
+    message: z.string().min(10, t('contact.form.validation.messageRequired')),
+    _hp: z.string().optional(), // Honeypot
+  });
 
   const [snackbar, setSnackbar] = useState({
     open: false,
@@ -74,14 +87,14 @@ export const ContactForm = () => {
       if (result.ok) {
         setSnackbar({
           open: true,
-          message: '¡Gracias por tu mensaje! Te contactaré pronto.',
+          message: t('contact.form.success'),
           severity: 'success',
         });
         reset();
       } else {
         setSnackbar({
           open: true,
-          message: 'Error al enviar el formulario. Intenta de nuevo más tarde.',
+          message: t('contact.form.error'),
           severity: 'error',
         });
       }
@@ -89,7 +102,7 @@ export const ContactForm = () => {
       console.error('Error enviando formulario:', error);
       setSnackbar({
         open: true,
-        message: 'Ocurrió un error inesperado. Intenta de nuevo más tarde.',
+        message: t('contact.form.errorUnexpected'),
         severity: 'error',
       });
     }
@@ -127,7 +140,7 @@ export const ContactForm = () => {
                   {...field}
                   variant="standard"
                   fullWidth
-                  label="Nombre"
+                  label={t('contact.form.name')}
                   error={!!errors.name}
                   helperText={errors.name?.message}
                 />
@@ -144,7 +157,7 @@ export const ContactForm = () => {
                   {...field}
                   variant="standard"
                   fullWidth
-                  label="Email"
+                  label={t('contact.form.email')}
                   type="email"
                   error={!!errors.email}
                   helperText={errors.email?.message}
@@ -162,9 +175,9 @@ export const ContactForm = () => {
                   {...field}
                   variant="standard"
                   fullWidth
-                  label="Número de celular"
+                  label={t('contact.form.phone')}
                   type="tel"
-                  placeholder="Ej: +52 33 1234 5678"
+                  placeholder={t('contact.form.phonePlaceholder')}
                   error={!!errors.phone}
                   helperText={errors.phone?.message}
                 />
@@ -183,7 +196,7 @@ export const ContactForm = () => {
               variant="standard"
               select
               fullWidth
-              label="Tipo de proyecto"
+              label={t('contact.form.projectType')}
               error={!!errors.projectType}
               helperText={errors.projectType?.message}
             >
@@ -205,10 +218,10 @@ export const ContactForm = () => {
               {...field}
               variant="standard"
               fullWidth
-              label="Mensaje"
+              label={t('contact.form.message')}
               multiline
               rows={4}
-              placeholder="Cuéntanos sobre tu proyecto..."
+              placeholder={t('contact.form.messagePlaceholder')}
               error={!!errors.message}
               helperText={errors.message?.message}
             />
@@ -222,23 +235,23 @@ export const ContactForm = () => {
           sx={{ mt: 1 }}
           aria-label="Aviso de protección reCAPTCHA de Google"
         >
-          Este sitio está protegido por reCAPTCHA y aplican la{' '}
+          {t('contact.form.recaptchaNotice')}{' '}
           <Link
             href="https://policies.google.com/privacy?hl=es"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Política de Privacidad
+            {t('contact.form.privacyPolicy')}
           </Link>{' '}
-          y los{' '}
+          {t('contact.form.and')}{' '}
           <Link
             href="https://policies.google.com/terms?hl=es"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Términos del Servicio
+            {t('contact.form.termsOfService')}
           </Link>{' '}
-          de Google.
+          {t('contact.form.ofGoogle')}
         </Typography>
 
         {/* Botón de envío */}
@@ -250,7 +263,7 @@ export const ContactForm = () => {
           disabled={isSubmitting}
           sx={{ alignSelf: { xs: 'stretch', sm: 'flex-start' } }}
         >
-          {isSubmitting ? 'Enviando...' : 'Enviar mensaje'}
+          {isSubmitting ? t('contact.form.submitting') : t('contact.form.submit')}
         </Button>
       </Stack>
 

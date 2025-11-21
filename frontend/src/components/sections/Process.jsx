@@ -1,33 +1,9 @@
 import { Container, Typography, Box, Stack, Paper, Grid } from '@mui/material';
 import { Search, Draw, Code, Rocket } from '@mui/icons-material';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
-const steps = [
-  {
-    icon: Search,
-    number: '01',
-    title: 'Descubrimiento',
-    description: 'Entendemos tu visión, objetivos y requerimientos técnicos del proyecto.',
-  },
-  {
-    icon: Draw,
-    number: '02',
-    title: 'Wireframe & diseño',
-    description: 'Creamos prototipos y diseños que combinan estética con funcionalidad.',
-  },
-  {
-    icon: Code,
-    number: '03',
-    title: 'Desarrollo',
-    description: 'Implementamos con código limpio, buenas prácticas y arquitectura escalable.',
-  },
-  {
-    icon: Rocket,
-    number: '04',
-    title: 'Deploy & handoff',
-    description: 'Desplegamos en producción y te entregamos accesos y documentación completa.',
-  },
-];
+// Los pasos ahora vienen de i18n
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -53,6 +29,35 @@ const itemVariants = {
 };
 
 const Process = () => {
+  const { t } = useTranslation('common');
+
+  const steps = [
+    {
+      icon: Search,
+      number: '01',
+      title: t('process.discovery.title'),
+      description: t('process.discovery.description'),
+    },
+    {
+      icon: Draw,
+      number: '02',
+      title: t('process.design.title'),
+      description: t('process.design.description'),
+    },
+    {
+      icon: Code,
+      number: '03',
+      title: t('process.development.title'),
+      description: t('process.development.description'),
+    },
+    {
+      icon: Rocket,
+      number: '04',
+      title: t('process.deploy.title'),
+      description: t('process.deploy.description'),
+    },
+  ];
+
   return (
     <Box sx={{ py: 10, background: (theme) => theme.palette.background.paper }}>
       <Container>
@@ -64,10 +69,10 @@ const Process = () => {
         >
           <Stack spacing={2} sx={{ mb: 6, textAlign: 'center', alignItems: 'center' }}>
             <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.5rem' } }}>
-              Proceso
+              {t('process.title')}
             </Typography>
             <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 600, mx: 'auto' }}>
-              Un flujo de trabajo transparente de principio a fin
+              {t('process.subtitle')}
             </Typography>
           </Stack>
         </motion.div>

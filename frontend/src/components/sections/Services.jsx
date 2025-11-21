@@ -1,29 +1,10 @@
 import { Container, Typography, Card, CardContent, Box, Stack, Grid } from '@mui/material';
 import { Code, Web, ShoppingCart, Speed } from '@mui/icons-material';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
-const services = [
-  {
-    icon: Code,
-    title: 'Landing pages de alto impacto',
-    description: 'Diseños modernos y optimizados para conversión, con animaciones fluidas y experiencia de usuario excepcional.',
-  },
-  {
-    icon: Web,
-    title: 'Web apps a medida',
-    description: 'Aplicaciones web personalizadas con React, integración de APIs y arquitectura escalable.',
-  },
-  {
-    icon: ShoppingCart,
-    title: 'E-commerce compacto',
-    description: 'Tiendas online completas con pasarelas de pago, gestión de inventario y panel de administración.',
-  },
-  {
-    icon: Speed,
-    title: 'Deploy & performance',
-    description: 'Despliegue profesional en AWS, Vercel o Netlify con optimización de rendimiento y monitoreo.',
-  },
-];
+// Los servicios ahora vienen de i18n con iconos estáticos
+const serviceIcons = [Code, Web, ShoppingCart, Speed];
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -48,6 +29,31 @@ const itemVariants = {
 };
 
 const Services = () => {
+  const { t } = useTranslation('common');
+
+  const services = [
+    {
+      icon: Code,
+      title: t('services.landing.title'),
+      description: t('services.landing.description'),
+    },
+    {
+      icon: Web,
+      title: t('services.webapp.title'),
+      description: t('services.webapp.description'),
+    },
+    {
+      icon: ShoppingCart,
+      title: t('services.ecommerce.title'),
+      description: t('services.ecommerce.description'),
+    },
+    {
+      icon: Speed,
+      title: t('services.deploy.title'),
+      description: t('services.deploy.description'),
+    },
+  ];
+
   return (
     <Box sx={{ py: 10, background: (theme) => theme.palette.background.paper }}>
       <Container>
@@ -59,10 +65,10 @@ const Services = () => {
         >
           <Stack spacing={2} sx={{ mb: 6, textAlign: 'center', alignItems: 'center' }}>
             <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.5rem' } }}>
-              Servicios
+              {t('services.title')}
             </Typography>
             <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 600, textAlign: 'center' }}>
-              Soluciones web completas desde el diseño hasta el deploy
+              {t('services.subtitle')}
             </Typography>
           </Stack>
         </motion.div>

@@ -1,36 +1,9 @@
 import { Container, Typography, Card, CardContent, Box, Stack, Chip, Grid } from '@mui/material';
 import { OpenInNew } from '@mui/icons-material';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
-const projects = [
-  {
-    name: 'Devaltra Logistics',
-    type: 'Landing Page',
-    description: 'Plataforma moderna para empresa de logística internacional con sistema de cotización en tiempo real.',
-    tech: ['React', 'MUI', 'Vercel', 'API Integration'],
-    gradient: 'linear-gradient(135deg, rgba(125,63,185,0.2) 0%, rgba(93,95,233,0.1) 100%)',
-    image: '/img/projects/devaltra-preview-gray.webp',
-    link: 'https://www.devaltra.com',
-  },
-  {
-    name: 'Invitación de Boda',
-    type: 'Invitación Digital',
-    description: 'Invitación de boda digital personalizada con diseño elegante, animaciones suaves y experiencia totalmente responsiva desarrollada para el enlace de mi tía.',
-    tech: ['React', 'MUI', 'AWS', 'API Integration', 'GoogleApp Script'],
-    gradient: 'linear-gradient(135deg, rgba(200,200,200,0.25) 0%, rgba(180,180,180,0.15) 100%)',
-    image: '/img/projects/invitacion-boda-preview.webp',
-    link: 'https://invitacion-boda-murex.vercel.app',
-  },
-  {
-    name: 'Greenpaw',
-    type: 'E-commerce',
-    description: 'Tienda online de productos para mascotas con carrito de compras, pasarela de pago y panel admin.',
-    tech: ['React', 'MUI', 'Shopify',],
-    gradient: 'linear-gradient(135deg, rgba(125,185,63,0.2) 0%, rgba(93,233,95,0.1) 100%)',
-    image: '/img/projects/greenpaw-preview.webp',
-    link: 'https://www.greenpaw.mx',
-  },
-];
+// Los proyectos ahora vienen de i18n (datos dinámicos con tech estáticos)
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -56,6 +29,38 @@ const itemVariants = {
 };
 
 const ProjectsPreview = () => {
+  const { t } = useTranslation('common');
+
+  const projects = [
+    {
+      name: t('projects.devaltra.name'),
+      type: t('projects.devaltra.type'),
+      description: t('projects.devaltra.description'),
+      tech: ['React', 'MUI', 'Vercel', 'API Integration'],
+      gradient: 'linear-gradient(135deg, rgba(125,63,185,0.2) 0%, rgba(93,95,233,0.1) 100%)',
+      image: '/img/projects/devaltra-preview-gray.webp',
+      link: 'https://www.devaltra.com',
+    },
+    {
+      name: t('projects.wedding.name'),
+      type: t('projects.wedding.type'),
+      description: t('projects.wedding.description'),
+      tech: ['React', 'MUI', 'AWS', 'API Integration', 'GoogleApp Script'],
+      gradient: 'linear-gradient(135deg, rgba(200,200,200,0.25) 0%, rgba(180,180,180,0.15) 100%)',
+      image: '/img/projects/invitacion-boda-preview.webp',
+      link: 'https://invitacion-boda-murex.vercel.app',
+    },
+    {
+      name: t('projects.greenpaw.name'),
+      type: t('projects.greenpaw.type'),
+      description: t('projects.greenpaw.description'),
+      tech: ['React', 'MUI', 'Shopify'],
+      gradient: 'linear-gradient(135deg, rgba(125,185,63,0.2) 0%, rgba(93,233,95,0.1) 100%)',
+      image: '/img/projects/greenpaw-preview.webp',
+      link: 'https://www.greenpaw.mx',
+    },
+  ];
+
   return (
     <Box sx={{ py: 10, background: (theme) => theme.palette.background.default }}>
       <Container>
@@ -67,10 +72,10 @@ const ProjectsPreview = () => {
         >
           <Stack spacing={2} sx={{ mb: 6, textAlign: 'center', alignItems: 'center'}}>
             <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.5rem' } }}>
-              Proyectos
+              {t('projects.title')}
             </Typography>
             <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 600, mx: 'auto' }}>
-              Algunos de nuestros trabajos recientes
+              {t('projects.subtitle')}
             </Typography>
           </Stack>
         </motion.div>
@@ -157,7 +162,7 @@ const ProjectsPreview = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                aria-label={`Abrir proyecto ${project.name}`}
+                aria-label={`${t('projects.openProject')} ${project.name}`}
                 className="project-icon"
                 sx={{
                   position: 'absolute',
