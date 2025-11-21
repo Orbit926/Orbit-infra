@@ -217,10 +217,10 @@ def handler(event, context):
     }
 
     # Payload para cliente (ack)
-    customer_payload = {
-        "template": "ContactAckTemplate",
-        "email": email
-    }
+    # customer_payload = {
+    #     "template": "ContactAckTemplate",
+    #     "email": email
+    # }
 
     # 5) Invocar dispatcher - primero al vendedor (sync)
     print("Invoking email dispatcher (vendor) with:", vendor_payload)
@@ -233,18 +233,18 @@ def handler(event, context):
         return _response(500, {"ok": False, "stage": "vendor_send_failed", "detail": vendor_result})
 
     # 6) Invocar dispatcher - ack al cliente
-    print("Invoking email dispatcher (customer ack) with:", customer_payload)
-    customer_result = _invoke_email_dispatcher(customer_payload, invocation_type="RequestResponse")
-    print("Customer result:", customer_result)
+    # print("Invoking email dispatcher (customer ack) with:", customer_payload)
+    # customer_result = _invoke_email_dispatcher(customer_payload, invocation_type="RequestResponse")
+    # print("Customer result:", customer_result)
 
-    if customer_result.get("error"):
-        # Intentamos devolver lo sucedido, pero ya notificamos al vendedor
-        return _response(500, {"ok": False, "stage": "customer_send_failed", "detail": customer_result})
+    # if customer_result.get("error"):
+    #     # Intentamos devolver lo sucedido, pero ya notificamos al vendedor
+    #     return _response(500, {"ok": False, "stage": "customer_send_failed", "detail": customer_result})
 
     # 7) Todo OK
     return _response(200, {
         "ok": True,
         "message": "validated_and_emails_sent",
         "vendor_result": vendor_result,
-        "customer_result": customer_result
+        #"customer_result": customer_result
     })
