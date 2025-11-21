@@ -7,7 +7,7 @@ export const useOrbSize = () => {
   const isSM = useMediaQuery(theme.breakpoints.only('sm'));
   const isMDUp = useMediaQuery(theme.breakpoints.up('md'));
 
-  if (isXS) return 400;
+  if (isXS) return 450;
   if (isSM) return 700;
   if (isMDUp) return 1000;
 
