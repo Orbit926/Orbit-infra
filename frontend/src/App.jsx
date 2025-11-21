@@ -31,13 +31,13 @@ export const App = () => {
           </Box>
           <Box component="section" id="projects">
             <ProjectsPreview />
-            <Testimonials />
           </Box>
           <Box component="section" id="services">
-            <Services />
+            {/* <Services /> */}
+            <Pricing />
+            <Testimonials />
             <Process />
             <TechStack />
-            <Pricing />
             <FaqSection />
           </Box>
           <Box component="section" id="contact">
