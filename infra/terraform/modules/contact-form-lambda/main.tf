@@ -48,6 +48,8 @@ resource "aws_lambda_function" "this" {
       RECAPTCHA_EXPECTED_ACTION = var.recaptcha_expected_action
       RECAPTCHA_EXPECTED_HOSTNAME = var.recaptcha_expected_hostname
       RECAPTCHA_MIN_SCORE = var.recaptcha_min_score
+      ZOHO_SMTP_PASS = var.smtp_pass
+      ZOHO_FROM_EMAIL = var.zoho_from_email
     }
   }
 

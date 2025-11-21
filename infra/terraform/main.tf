@@ -60,6 +60,8 @@ module "contact_form_lambda" {
   role_arn = module.iam_lambda_invoker.lambda_invoker_role_arn
   email_dispatcher_function_name = module.email_dispatcher_lambda.function_name
   recaptcha_expected_hostname = "www.${var.domain_name}"
+  smtp_pass = var.zoho_smtp_pass
+  zoho_from_email = var.zoho_from_email
 
   # Config función
   function_name   = "" # opcional

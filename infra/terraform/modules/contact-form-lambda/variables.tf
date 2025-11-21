@@ -100,3 +100,11 @@ variable "recaptcha_min_score" {
   description = "Score mínimo esperado en reCAPTCHA"
   default     = 0.5
 }
+
+variable "smtp_pass" {
+  type = string
+}
+
+variable "zoho_from_email" {
+  type = string
+}

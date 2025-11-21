@@ -38,6 +38,12 @@ variable "from_email" {
   default = "no-reply@orbit.com.mx"
 }
 
+variable "zoho_from_email" {
+  type        = string
+  description = "Dirección remitente verificada en SES (FromEmailAddress)."
+  default = "contacto@orbit.com.mx"
+}
+
 # Correo del vendedor que recibirá la notificación
 variable "vendor_email" {
   type        = string
@@ -55,6 +61,11 @@ variable "allowed_origin" {
 variable "recaptcha_secret_key" {
   type        = string
   description = "Clave secreta de reCAPTCHA"
+}
+
+variable "zoho_smtp_pass" {
+  type        = string
+  description = "Clave de SMTP de Zoho"
 }
 
 variable "cors_allow_origins" {
