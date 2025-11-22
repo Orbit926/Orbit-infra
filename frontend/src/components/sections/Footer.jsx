@@ -1,4 +1,5 @@
 import { Box, Container, Grid, Stack, Typography, IconButton, Link as MuiLink } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
 import { GitHub, Email, Instagram } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
@@ -254,9 +255,26 @@ const Footer = () => {
             spacing={2}
             sx={{ textAlign: { xs: 'center', sm: 'left' } }}
           >
-            <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.875rem' }}>
-              © {currentYear} {t('footer.copyright')}
-            </Typography>
+            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={{ xs: 1, sm: 3 }} alignItems="center">
+              <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.875rem' }}>
+                © {currentYear} {t('footer.copyright')}
+              </Typography>
+              <MuiLink
+                component={RouterLink}
+                to="/privacy-policy"
+                sx={{
+                  color: 'text.secondary',
+                  textDecoration: 'none',
+                  fontSize: '0.875rem',
+                  transition: 'all 0.2s ease',
+                  '&:hover': {
+                    color: 'primary.main',
+                  },
+                }}
+              >
+                {t('footer.privacyPolicy')}
+              </MuiLink>
+            </Stack>
 
             <Typography
               variant="body2"

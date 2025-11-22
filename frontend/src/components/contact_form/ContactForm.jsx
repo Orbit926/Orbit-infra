@@ -11,6 +11,7 @@ import {
   Snackbar,
   Alert,
 } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
@@ -252,6 +253,27 @@ export const ContactForm = () => {
             {t('contact.form.termsOfService')}
           </Link>{' '}
           {t('contact.form.ofGoogle')}
+        </Typography>
+
+        {/* Aviso de privacidad de Orbit */}
+        <Typography
+          variant="caption"
+          color="text.secondary"
+          sx={{ mt: 1 }}
+        >
+          {t('contact.form.privacyNotice')}{' '}
+          <Link
+            component={RouterLink}
+            to="/privacy-policy"
+            sx={{
+              color: 'primary.main',
+              textDecoration: 'none',
+              fontWeight: 600,
+              '&:hover': { textDecoration: 'underline' },
+            }}
+          >
+            {t('contact.form.privacyLink')}
+          </Link>
         </Typography>
 
         {/* Botón de envío */}

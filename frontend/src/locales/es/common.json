@@ -293,7 +293,9 @@
       },
       "success": "¡Gracias por tu mensaje! Te contactaré pronto.",
       "error": "Error al enviar el formulario. Intenta de nuevo más tarde.",
-      "errorUnexpected": "Ocurrió un error inesperado. Intenta de nuevo más tarde."
+      "errorUnexpected": "Ocurrió un error inesperado. Intenta de nuevo más tarde.",
+      "privacyNotice": "Al enviar este formulario aceptas nuestro",
+      "privacyLink": "Aviso de privacidad"
     }
   },
   "footer": {
@@ -304,10 +306,58 @@
     "sendEmail": "Enviar correo",
     "followUs": "Síguenos",
     "copyright": "Orbit. Todos los derechos reservados.",
-    "madeWith": "Hecho con React, MUI y mucho café ☕"
+    "madeWith": "Hecho con React, MUI y mucho café ☕",
+    "privacyPolicy": "Aviso de privacidad"
   },
   "floatingWhatsApp": {
     "tooltip": "Contactar",
     "defaultMessage": "Hola, me gustaría agendar una llamada"
+  },
+  "privacy": {
+    "title": "Aviso de Privacidad",
+    "lastUpdated": "Última actualización",
+    "intro": "En Orbit, respetamos tu privacidad y nos comprometemos a proteger tus datos personales. Este aviso describe cómo recopilamos, usamos y protegemos tu información cuando utilizas nuestros servicios o te comunicas con nosotros.",
+    "dataCollected": {
+      "title": "1. Datos que Recopilamos",
+      "description": "Podemos recopilar los siguientes tipos de información personal cuando interactúas con nuestro sitio web o servicios:",
+      "items": [
+        "Nombre completo",
+        "Dirección de correo electrónico",
+        "Número de teléfono",
+        "Información del proyecto (tipo de proyecto, presupuesto, descripción)",
+        "Datos técnicos (dirección IP, tipo de navegador, páginas visitadas)"
+      ]
+    },
+    "purpose": {
+      "title": "2. Finalidad del Tratamiento de Datos",
+      "description": "Utilizamos tus datos personales para los siguientes propósitos:",
+      "items": [
+        "Responder a tus consultas y solicitudes de información",
+        "Proporcionar cotizaciones y propuestas de proyectos",
+        "Mejorar nuestros servicios y experiencia de usuario",
+        "Enviar comunicaciones relacionadas con tu proyecto",
+        "Cumplir con obligaciones legales y fiscales"
+      ]
+    },
+    "retention": {
+      "title": "3. Conservación de Datos",
+      "description": "Conservaremos tus datos personales únicamente durante el tiempo necesario para cumplir con las finalidades descritas o según lo requiera la ley. Una vez cumplido el propósito, procederemos a la eliminación segura de tu información."
+    },
+    "rights": {
+      "title": "4. Tus Derechos",
+      "description": "Como titular de datos personales, tienes derecho a:",
+      "items": [
+        "Acceder a tus datos personales que tenemos registrados",
+        "Rectificar datos inexactos o incompletos",
+        "Cancelar (eliminar) tus datos de nuestros registros",
+        "Oponerte al tratamiento de tus datos para fines específicos",
+        "Revocar tu consentimiento en cualquier momento"
+      ]
+    },
+    "contact": {
+      "title": "5. Contacto",
+      "description": "Si tienes preguntas sobre este aviso de privacidad o deseas ejercer tus derechos, puedes contactarnos a través del formulario de contacto en nuestro sitio web o enviando un correo a la dirección indicada en la página de contacto."
+    },
+    "backToHome": "Volver al inicio"
   }
 }
