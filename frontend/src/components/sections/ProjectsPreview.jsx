@@ -175,7 +175,7 @@ const ProjectsPreview = () => {
                   textDecoration: 'none',
                 }}
               >
-                <OpenInNew sx={{ fontSize: 20, color: 'primary.light' }} />
+                <OpenInNew sx={{ fontSize: 20, color: '#3b2e7a' }} />
               </Box>
 
               <CardContent sx={{ pt: 10, pb: 3, px: 3, position: 'relative', zIndex: 1 }}>

@@ -257,28 +257,41 @@ const Hero = () => {
                 sx={{
                   pt: 4,
                   flexWrap: 'wrap',
-                  display: { xs: 'none', sm: 'flex' },
+                  //display: { xs: 'none', sm: 'flex' },
                 }}
                 justifyContent="center"
               >
-                <Button
-                  variant="contained"
-                  color="primary"
-                  size="large"
-                  onClick={() => scrollToSection('services')}
-                  sx={{ pointerEvents: 'auto' }}
-                >
-                  {t('hero.ctaPrimary')}
-                </Button>
-                <Button
-                  variant="outlined"
-                  color="secondary"
-                  size="large"
-                  onClick={() => scrollToSection('projects')}
-                  sx={{ pointerEvents: 'auto' }}
-                >
-                  {t('hero.ctaSecondary')}
-                </Button>
+<Button
+  component={motion.button}
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.97 }}
+  size="large"
+  onClick={() => scrollToSection('services')}
+  sx={{
+    pointerEvents: 'auto',
+    px: 4,
+    py: 1.4,
+    borderRadius: '999px',
+    textTransform: 'none',
+    fontWeight: 600,
+    letterSpacing: '0.01em',
+
+    background: 'linear-gradient(135deg, #8d4fc9 0%, #6d6ff9 100%)',
+    color: '#fff',
+    border: 'none',
+
+    boxShadow: '0 8px 22px rgba(109, 111, 249, 0.35)',
+    transition: 'all 0.3s ease',
+
+    '&:hover': {
+      background: 'linear-gradient(135deg, #9c5fe0 0%, #7d84ff 100%)',
+      boxShadow: '0 12px 32px rgba(109, 111, 249, 0.45)',
+    },
+  }}
+>
+  {t('hero.ctaPrimary')}
+</Button>
+
               </Stack>
             </Stack>
           </Grid>
