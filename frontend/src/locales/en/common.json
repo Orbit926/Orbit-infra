@@ -213,39 +213,27 @@
   },
   "faq": {
     "title": "Frequently Asked Questions",
-    "subtitle": "We resolve the most common doubts about how we work at Orbit and our web development and AWS services.",
+    "subtitle": "We answer the most common questions about our services and development process.",
     "questions": {
       "whatIncludes": {
-        "question": "What does website development include?",
-        "answer": "It includes custom design, responsive development, performance optimization, essential SEO, API integration, deployment on AWS or Vercel, and technical consulting during the process."
+        "question": "What’s included in the development of a website?",
+        "answer": "It includes custom design, responsive development, performance optimization, essential SEO, API integrations, and deployment on AWS or Vercel."
       },
       "timeline": {
-        "question": "How long does a project take to complete?",
-        "answer": "The time depends on the project scope. A landing page can take 1–2 weeks and a more complete system can take between 4–8 weeks. A clear timeline is always delivered at the start."
+        "question": "How long does a project take?",
+        "answer": "A landing page typically takes 1–2 weeks, and a more complete project takes 4–8 weeks. We always provide a clear timeline at the start."
       },
       "technologies": {
-        "question": "Do you use modern and optimized technologies?",
-        "answer": "Yes. We work with React, Vite, Material UI, Node.js, AWS, CI/CD and the best performance and security practices."
+        "question": "Do you use modern technologies?",
+        "answer": "Yes. We work with React, Vite, Material UI, Node.js, AWS, and modern best practices for performance and security."
       },
       "support": {
-        "question": "Do you offer maintenance or support after development?",
-        "answer": "Yes. We can offer monthly maintenance, content updates, monitoring, continuous optimization, or event-based support depending on the project."
+        "question": "Do you offer support after delivery?",
+        "answer": "All projects include 30 days of support. We also offer optional monthly maintenance for updates and improvements."
       },
       "payments": {
         "question": "How do payments work?",
-        "answer": "Normally it's split 50% at the start and 50% at completion. For large projects it's distributed in milestones."
-      },
-      "aws": {
-        "question": "Can you work with AWS or scalable infrastructure?",
-        "answer": "Yes. We are AWS specialists, including S3, CloudFront, Lambda, API Gateway, SES, Cognito, EC2, RDS and serverless architecture or containers with Docker."
-      },
-      "access": {
-        "question": "Will I have access to my accounts (AWS, Vercel, domains, emails)?",
-        "answer": "Yes. All accounts belong to the client. We configure the infrastructure, deliver access and don't retain anything."
-      },
-      "migration": {
-        "question": "Can I migrate my current site to better technology or AWS?",
-        "answer": "Yes. We can take your current site, optimize it, redesign it or migrate it to a more modern, fast and secure infrastructure."
+        "answer": "For small websites, payments are split 50% upfront and 50% upon completion. For custom projects, payments are divided into milestones according to each development phase."
       }
     }
   },

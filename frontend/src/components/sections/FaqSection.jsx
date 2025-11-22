@@ -61,20 +61,9 @@ export default function FaqSection() {
     {
       question: t('faq.questions.payments.question'),
       answer: t('faq.questions.payments.answer'),
-    },
-    {
-      question: t('faq.questions.aws.question'),
-      answer: t('faq.questions.aws.answer'),
-    },
-    {
-      question: t('faq.questions.access.question'),
-      answer: t('faq.questions.access.answer'),
-    },
-    {
-      question: t('faq.questions.migration.question'),
-      answer: t('faq.questions.migration.answer'),
-    },
+    }
   ];
+
 
   const faqJsonLd = {
     '@context': 'https://schema.org',
