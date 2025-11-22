@@ -9,7 +9,8 @@ import { useState } from 'react';
 
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
-  const currentLanguage = i18n.language;
+  // Normalizar el idioma: si es es-MX, es-ES, etc → 'es'
+  const currentLanguage = i18n.language.split('-')[0];
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));

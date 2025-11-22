@@ -28,6 +28,12 @@ i18n
     fallbackLng: 'es', // Idioma por defecto si no se detecta ninguno
     defaultNS: 'common', // Namespace por defecto
     
+    // Solo usar código de idioma base (es, en), sin región (es-MX, en-US)
+    load: 'languageOnly',
+    
+    // Mapear variantes de idioma al idioma base
+    nonExplicitSupportedLngs: true,
+    
     // Configuración de detección de idioma
     detection: {
       // Orden de búsqueda: localStorage > navigator
