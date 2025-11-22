@@ -3,7 +3,6 @@ import { Box, Container, Typography, Stack, Paper, Divider } from '@mui/material
 import { Link as RouterLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import Header from '../components/layout/Header';
 import Footer from '../components/sections/Footer';
 
 const PrivacyPolicy = () => {
@@ -16,7 +15,6 @@ const PrivacyPolicy = () => {
 
   return (
     <Box component="main" sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      <Header />
       
       {/* Hero Section */}
       <Box
