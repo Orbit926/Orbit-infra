@@ -163,40 +163,55 @@ def _send_customer_ack_via_zoho(to_email: str, name: str, project_type: str, mes
   <head>
     <meta charset="UTF-8" />
     <title>Orbit — Gracias por contactarnos</title>
-    <meta name="color-scheme" content="light">
-    <meta name="supported-color-schemes" content="light">
+
+    <!-- Dejamos que el cliente aplique light/dark -->
+    <meta name="color-scheme" content="light dark">
+    <meta name="supported-color-schemes" content="light dark">
+
   </head>
-  <body style="margin:0; padding:0; background-color:#0b1020; font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; color-scheme: light;">
-    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#0b1020; padding:24px 0;">
+  <body style="
+    margin:0;
+    padding:0;
+    background-color:#f2f4fa;
+    font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  ">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f2f4fa; padding:24px 0;">
       <tr>
         <td align="center">
           <!-- Card principal -->
-          <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:540px; background-color:#0c1024; border-radius:14px; overflow:hidden; box-shadow:0 18px 45px rgba(0,0,0,0.5);">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0" style="
+            max-width:540px;
+            background-color:#ffffff;
+            border-radius:14px;
+            overflow:hidden;
+            box-shadow:0 18px 45px rgba(0,0,0,0.08);
+          ">
+
             <tr>
               <td>
-                <!-- Barra superior con gradiente -->
+                <!-- Barra superior con gradiente (clara) -->
                 <div style="
                   width:100%;
                   height:4px;
-                  background:linear-gradient(135deg,#5a1e63 0%, #3b2e7a 100%);
+                  background:linear-gradient(135deg,#8a5fd3 0%, #6c7df0 100%);
                 "></div>
               </td>
             </tr>
 
             <tr>
-              <td style="padding:28px 32px 24px 32px; text-align:center;">
+              <td style="padding:28px 32px 24px 32px; text-align:center;">            
                 <!-- Logo Orbit -->
                 <img 
-                  src="https://www.orbit.com.mx/img/logos/orbit-color.png" 
+                  src="https://www.orbit.com.mx/img/logos/orbit-color.png"
                   alt="Orbit" 
-                  width="120" 
+                  width="120"
                   style="display:block; margin:0 auto 16px auto;"
                 />
 
                 <!-- Título -->
                 <h2 style="
                   margin:0 0 12px 0;
-                  color:#e6e8ee;
+                  color:#1f2937;
                   font-size:22px;
                   font-weight:700;
                   letter-spacing:-0.03em;
@@ -207,7 +222,7 @@ def _send_customer_ack_via_zoho(to_email: str, name: str, project_type: str, mes
                 <!-- Texto principal -->
                 <p style="
                   margin:0 0 8px 0;
-                  color:#9aa3b2;
+                  color:#4b5563;
                   font-size:14px;
                   line-height:1.6;
                 ">
@@ -217,15 +232,15 @@ def _send_customer_ack_via_zoho(to_email: str, name: str, project_type: str, mes
 
                 <p style="
                   margin:0 0 16px 0;
-                  color:#9aa3b2;
+                  color:#4b5563;
                   font-size:14px;
                   line-height:1.6;
                 ">
                   Si necesitas algo adicional, por favor escríbenos a 
-                  <b style="color:#e6e8ee;">contacto@orbit.com.mx</b>.
+                  <b style="color:#1f2937;">contacto@orbit.com.mx</b>.
                 </p>
 
-                <!-- Botón / CTA opcional -->
+                <!-- Botón / CTA -->
                 <a
                   href="https://www.orbit.com.mx"
                   style="
@@ -246,12 +261,12 @@ def _send_customer_ack_via_zoho(to_email: str, name: str, project_type: str, mes
                 <!-- Firma -->
                 <p style="
                   margin:20px 0 0 0;
-                  color:#9aa3b2;
+                  color:#6b7280;
                   font-size:13px;
                   line-height:1.6;
                 ">
                   Atentamente,<br/>
-                  <strong style="color:#e6e8ee;">Equipo Orbit</strong>
+                  <strong style="color:#1f2937;">Equipo Orbit</strong>
                 </p>
               </td>
             </tr>
@@ -261,7 +276,7 @@ def _send_customer_ack_via_zoho(to_email: str, name: str, project_type: str, mes
               <td style="padding:0 32px;">
                 <hr style="
                   border:none;
-                  border-top:1px solid rgba(230,232,238,0.08);
+                  border-top:1px solid rgba(0,0,0,0.08);
                   margin:12px 0 0 0;
                 " />
               </td>
@@ -271,7 +286,7 @@ def _send_customer_ack_via_zoho(to_email: str, name: str, project_type: str, mes
             <tr>
               <td style="padding:10px 32px 18px 32px; text-align:center;">
                 <small style="
-                  color:#616a7a;
+                  color:#9ca3af;
                   font-size:11px;
                   line-height:1.4;
                 ">
