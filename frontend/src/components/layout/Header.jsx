@@ -38,8 +38,8 @@ const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const sections = [
+    { id: 'hero', label: t('header.nav.home') },
     { id: 'about', label: t('header.nav.about') },
-    { id: 'projects', label: t('header.nav.projects') },
     { id: 'services', label: t('header.nav.services') },
   ];
 

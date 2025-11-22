@@ -16,6 +16,7 @@ import {
   SiPostgresql,
   SiMongodb,
   SiStripe,
+  SiShopify,
 } from 'react-icons/si';
 import { FaAws } from 'react-icons/fa';
 
@@ -39,7 +40,7 @@ const technologies = [
   { name: 'MongoDB', category: 'Database', icon: SiMongodb },
 
   // 🔥 Pagos
-  { name: 'Stripe', category: 'Payment', icon: SiStripe },
+  { name: 'Shopify', category: 'Payment', icon: SiShopify },
 ];
 
 const containerVariants = {

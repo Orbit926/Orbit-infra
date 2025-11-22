@@ -28,8 +28,6 @@ export const App = () => {
         <Suspense fallback={null}>
           <Box component="section" id="about">
             <About />
-          </Box>
-          <Box component="section" id="projects">
             <ProjectsPreview />
           </Box>
           <Box component="section" id="services">

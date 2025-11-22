@@ -6,7 +6,6 @@ import { contactConfig } from '../../config/data';
 
 const email = contactConfig.email.address;
 
-// Los links de navegación ahora vienen de i18n
 const navigationIds = ['hero', 'about', 'projects', 'services'];
 
 const socialLinks = [
@@ -18,35 +17,25 @@ const containerVariants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1,
-    },
+    transition: { staggerChildren: 0.15, delayChildren: 0.1 },
   },
 };
 
 const itemVariants = {
   hidden: { opacity: 0, y: 30 },
-  show: { 
-    opacity: 1, 
+  show: {
+    opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.6,
-      ease: [0.25, 0.46, 0.45, 0.94],
-    },
+    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
   },
 };
 
 const bottomVariants = {
   hidden: { opacity: 0, y: 20 },
-  show: { 
-    opacity: 1, 
+  show: {
+    opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.5,
-      delay: 0.6,
-      ease: 'easeOut',
-    },
+    transition: { duration: 0.5, delay: 0.6, ease: 'easeOut' },
   },
 };
 
@@ -89,24 +78,24 @@ const Footer = () => {
           left: 0,
           right: 0,
           bottom: 0,
-          background: 'radial-gradient(circle at 20% 50%, rgba(125,63,185,0.08), transparent 50%), radial-gradient(circle at 80% 50%, rgba(93,95,233,0.08), transparent 50%)',
+          background:
+            'radial-gradient(circle at 20% 50%, rgba(125,63,185,0.08), transparent 50%), radial-gradient(circle at 80% 50%, rgba(93,95,233,0.08), transparent 50%)',
           backdropFilter: 'blur(12px)',
           WebkitBackdropFilter: 'blur(12px)',
           zIndex: 0,
         }}
       />
 
-      <Container sx={{ position: 'relative', zIndex: 1, pb: { xs: 8, md: 0 } }}>
-        <Grid 
-          container 
+      <Container sx={{ position: 'relative', zIndex: 2, pb: { xs: 8, md: 0 } }}>
+        <Grid
+          container
           spacing={{ xs: 4, md: 6 }}
           component={motion.div}
           variants={containerVariants}
           initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: '-100px' }}
+          animate="show"
         >
-          {/* Brand / Intro */}
+          {/* Brand / Description */}
           <Grid size={{ xs: 12, md: 4 }} component={motion.div} variants={itemVariants}>
             <Stack spacing={2}>
               <Box
@@ -114,20 +103,15 @@ const Footer = () => {
                 component="img"
                 src="/img/logos/orbit-color.png"
                 alt="Orbit"
-                sx={{
-                  width: 100,
-                  height: 'auto',
-                  mb: 1,
-                }}
-                loading='lazy'
+                sx={{ width: 100, height: 'auto', mb: 1, cursor: 'pointer' }}
+                loading="lazy"
               />
+
+              {/* ✔ FIX: Solo un texto, nunca se duplica */}
               <Typography
                 variant="body2"
                 color="text.secondary"
-                sx={{
-                  maxWidth: 280,
-                  lineHeight: 1.7,
-                }}
+                sx={{ maxWidth: 280, lineHeight: 1.7 }}
               >
                 {t('footer.description')}
               </Typography>
@@ -137,14 +121,7 @@ const Footer = () => {
           {/* Navigation */}
           <Grid size={{ xs: 12, md: 4 }} component={motion.div} variants={itemVariants}>
             <Stack spacing={2}>
-              <Typography
-                variant="h6"
-                sx={{
-                  fontWeight: 700,
-                  fontSize: '1rem',
-                  mb: 1,
-                }}
-              >
+              <Typography variant="h6" sx={{ fontWeight: 700, fontSize: '1rem', mb: 1 }}>
                 {t('footer.navigation')}
               </Typography>
               <Stack spacing={1.5}>
@@ -160,10 +137,7 @@ const Footer = () => {
                       fontSize: '0.9rem',
                       cursor: 'pointer',
                       transition: 'all 0.2s ease',
-                      '&:hover': {
-                        color: 'primary.main',
-                        transform: 'translateX(4px)',
-                      },
+                      '&:hover': { color: 'primary.main', transform: 'translateX(4px)' },
                     }}
                   >
                     {link.label}
@@ -177,16 +151,10 @@ const Footer = () => {
           <Grid size={{ xs: 12, md: 4 }} component={motion.div} variants={itemVariants}>
             <Stack spacing={3}>
               <Stack spacing={2}>
-                <Typography
-                  variant="h6"
-                  sx={{
-                    fontWeight: 700,
-                    fontSize: '1rem',
-                    mb: 1,
-                  }}
-                >
+                <Typography variant="h6" sx={{ fontWeight: 700, fontSize: '1rem', mb: 1 }}>
                   {t('footer.contactTitle')}
                 </Typography>
+
                 <Typography
                   variant="body2"
                   color="text.secondary"
@@ -194,6 +162,7 @@ const Footer = () => {
                 >
                   {t('footer.contactDescription')}
                 </Typography>
+
                 <Box>
                   <MuiLink
                     href={`mailto:${email}`}
@@ -204,7 +173,8 @@ const Footer = () => {
                       px: 2.5,
                       py: 1,
                       borderRadius: 2,
-                      background: 'linear-gradient(135deg, rgba(125,63,185,0.15) 0%, rgba(93,95,233,0.1) 100%)',
+                      background:
+                        'linear-gradient(135deg, rgba(125,63,185,0.15) 0%, rgba(93,95,233,0.1) 100%)',
                       border: '1px solid',
                       borderColor: 'primary.main',
                       color: 'primary.light',
@@ -213,7 +183,8 @@ const Footer = () => {
                       fontWeight: 600,
                       transition: 'all 0.3s ease',
                       '&:hover': {
-                        background: 'linear-gradient(135deg, rgba(125,63,185,0.25) 0%, rgba(93,95,233,0.2) 100%)',
+                        background:
+                          'linear-gradient(135deg, rgba(125,63,185,0.25) 0%, rgba(93,95,233,0.2) 100%)',
                         transform: 'translateY(-2px)',
                       },
                     }}
@@ -224,15 +195,11 @@ const Footer = () => {
                 </Box>
               </Stack>
 
-              {/* Social Links */}
               <Stack spacing={1.5}>
-                <Typography
-                  variant="body2"
-                  color="text.secondary"
-                  sx={{ fontSize: '0.875rem', fontWeight: 600 }}
-                >
+                <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.875rem', fontWeight: 600 }}>
                   {t('footer.followUs')}
                 </Typography>
+
                 <Stack direction="row" spacing={1}>
                   {socialLinks.map((social) => {
                     const Icon = social.icon;
@@ -272,8 +239,7 @@ const Footer = () => {
           component={motion.div}
           variants={bottomVariants}
           initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
+          animate="show"
           sx={{
             mt: { xs: 6, md: 8 },
             pt: 4,
@@ -288,22 +254,14 @@ const Footer = () => {
             spacing={2}
             sx={{ textAlign: { xs: 'center', sm: 'left' } }}
           >
-            <Typography
-              variant="body2"
-              color="text.secondary"
-              sx={{ fontSize: '0.875rem' }}
-            >
+            <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.875rem' }}>
               © {currentYear} {t('footer.copyright')}
             </Typography>
+
             <Typography
               variant="body2"
               color="text.secondary"
-              sx={{
-                fontSize: '0.875rem',
-                display: 'flex',
-                alignItems: 'center',
-                gap: 0.5,
-              }}
+              sx={{ fontSize: '0.875rem', display: 'flex', alignItems: 'center', gap: 0.5 }}
             >
               {t('footer.madeWith')}
             </Typography>
