@@ -2,6 +2,7 @@ import { Suspense, lazy } from 'react';
 import { Box } from '@mui/material';
 import Header from '../components/layout/Header';
 import Hero from '../components/sections/Hero';
+import { SnackbarProvider } from '../context/SnackbarContext';
 
 // Carga diferida (lazy)
 const About = lazy(() => import('../components/sections/About'));
@@ -17,32 +18,34 @@ const FloatingWhatsApp = lazy(() => import('../components/layout/FloatingWhatsAp
 
 const LandingPage = () => {
   return (
-    <Box component="main" sx={{ minHeight: '100vh' }}>
-      <Header />
-      <Hero />
-      {/* Todo lo demás se carga en segundo plano */}
-      <Suspense fallback={null}>
-        <Box component="section" id="about">
-          <About />
-          <ProjectsPreview />
-        </Box>
-        <Box component="section" id="services">
-          {/* <Services /> */}
-          <Pricing />
-          <Testimonials />
-          <Process />
-          <TechStack />
-          <FaqSection />
-        </Box>
-        <Box component="section" id="contact">
-          <ContactCTA />
-        </Box>
-        <Box component="footer">
-          <Footer />
-        </Box>
-        <FloatingWhatsApp />
-      </Suspense>
-    </Box>
+    <SnackbarProvider>
+      <Box component="main" sx={{ minHeight: '100vh' }}>
+        <Header />
+        <Hero />
+        {/* Todo lo demás se carga en segundo plano */}
+        <Suspense fallback={null}>
+          <Box component="section" id="about">
+            <About />
+            <ProjectsPreview />
+          </Box>
+          <Box component="section" id="services">
+            {/* <Services /> */}
+            <Pricing />
+            <Testimonials />
+            <Process />
+            <TechStack />
+            <FaqSection />
+          </Box>
+          <Box component="section" id="contact">
+            <ContactCTA />
+          </Box>
+          <Box component="footer">
+            <Footer />
+          </Box>
+          <FloatingWhatsApp />
+        </Suspense>
+      </Box>
+    </SnackbarProvider>
   );
 };
 

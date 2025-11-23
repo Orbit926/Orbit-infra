@@ -19,6 +19,7 @@ import { useTranslation } from 'react-i18next';
 import { z } from 'zod';
 import { contactConfig } from '../../config/data';
 import { sendContactForm } from '../../utils/sendContactForm';
+import { useSnackbar } from '../../context/SnackbarContext';
 
 // Los tipos de proyecto ahora vienen de i18n
 
@@ -28,6 +29,7 @@ export const ContactForm = () => {
   const { t } = useTranslation('common');
   const { executeRecaptcha } = useGoogleReCaptcha();
   const endpointURL = contactConfig.API_URL;
+  const { setIsSnackbarOpen } = useSnackbar();
 
   // Tipos de proyecto dinámicos
   const projectTypes = [
@@ -73,6 +75,7 @@ export const ContactForm = () => {
   const handleCloseSnackbar = (_, reason) => {
     if (reason === 'clickaway') return;
     setSnackbar((prev) => ({ ...prev, open: false }));
+    setIsSnackbarOpen(false);
   };
 
   const onSubmit = async (data) => {
@@ -91,6 +94,7 @@ export const ContactForm = () => {
           message: t('contact.form.success'),
           severity: 'success',
         });
+        setIsSnackbarOpen(true);
         reset();
       } else {
         setSnackbar({
@@ -98,6 +102,7 @@ export const ContactForm = () => {
           message: t('contact.form.error'),
           severity: 'error',
         });
+        setIsSnackbarOpen(true);
       }
     } catch (error) {
       console.error('Error enviando formulario:', error);
@@ -106,6 +111,7 @@ export const ContactForm = () => {
         message: t('contact.form.errorUnexpected'),
         severity: 'error',
       });
+      setIsSnackbarOpen(true);
     }
   };
 
