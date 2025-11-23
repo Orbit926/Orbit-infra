@@ -4,6 +4,7 @@ import { createTheme } from '@mui/material/styles';
 const magentaDeep = '#5a1e63';   // más oscuro que el magenta del fondo
 const indigoDeep  = '#3b2e7a';   // más oscuro que el índigo del fondo
 const bgDeep      = '#0b1020';   // base casi azul petróleo
+const bgPaper     = '#0c1024';   // fondo de tarjetas / inputs
 const textHigh    = '#e6e8ee';
 const textLow     = '#9aa3b2';
 
@@ -14,7 +15,7 @@ export const theme = createTheme({
     secondary: { main: '#5d5fe9', light: '#8a8cff' }, // acento índigo
     background: {
       default: bgDeep,
-      paper:   '#0c1024',
+      paper:   bgPaper,
     },
     text: {
       primary: textHigh,
@@ -32,24 +33,34 @@ export const theme = createTheme({
     button: { textTransform: 'none', fontWeight: 600 },
   },
   components: {
-    MuiContainer: { defaultProps: { maxWidth: 'lg' } },
+    MuiContainer: { 
+      defaultProps: { maxWidth: 'lg' }, 
+    },
     MuiAlert: {
       styleOverrides: {
-        filledSuccess: {
-          color: '#fff',     // Texto blanco
+        filledSuccess: { color: '#fff' },
+        filledError:   { color: '#fff' },
+        filledWarning: { color: '#fff' },
+        filledInfo:    { color: '#fff' },
+      },
+    },
+    MuiCssBaseline: {
+      styleOverrides: {
+        // Fix autofill para Safari / Chrome (iOS y desktop)
+        'input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill': {
+          WebkitBoxShadow: `0 0 0 1000px ${bgPaper} inset`,
+          boxShadow:       `0 0 0 1000px ${bgPaper} inset`,
+          WebkitTextFillColor: textHigh,
+          caretColor: textHigh,
+          borderRadius: 'inherit',
+          transition: 'background-color 9999s ease-in-out 0s',
         },
-        filledError: {
-          color: '#fff',
-        },
-        filledWarning: {
-          color: '#fff',
-        },
-        filledInfo: {
-          color: '#fff',
+        'input:-webkit-autofill:focus, textarea:-webkit-autofill:focus, select:-webkit-autofill:focus': {
+          WebkitBoxShadow: `0 0 0 1000px ${bgPaper} inset`,
+          boxShadow:       `0 0 0 1000px ${bgPaper} inset`,
         },
       },
-},
-
+    },
   },
   // Tokens custom para usar en sx
   custom: {
