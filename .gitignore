@@ -25,4 +25,4 @@ infra/terraform/*.log
 
 commands.txt
 .env
-docs/
+secrets/
