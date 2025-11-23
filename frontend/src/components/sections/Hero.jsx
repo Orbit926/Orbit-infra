@@ -144,6 +144,7 @@ const Hero = () => {
         animate="visible"
         // 👇 este delay hace que el contenido espere a que salga el orb
         sx={{
+          paddingTop: { xs: 6, sm: 0 },
           position: 'relative',
           zIndex: 2,
           width: 'fit-content',
@@ -261,37 +262,37 @@ const Hero = () => {
                 }}
                 justifyContent="center"
               >
-<Button
-  component={motion.button}
-  whileHover={{ scale: 1.05 }}
-  whileTap={{ scale: 0.97 }}
-  size="large"
-  onClick={() => scrollToSection('services')}
-  sx={{
-    pointerEvents: 'auto',
-    px: 4,
-    py: 1.4,
-    borderRadius: '999px',
-    textTransform: 'none',
-    fontWeight: 600,
-    letterSpacing: '0.01em',
+                <Button
+                  component={motion.button}
+                  onClick={() => scrollToSection('services')}
+                  variant="outlined"
+                  whileHover="hover"
+                  initial="rest"
+                  animate="rest"
+                  sx={{
+                    pointerEvents: 'auto',
+                    borderColor: 'primary.main',
+                    color: 'primary.main',
+                    transition: 'all 0.25s ease-in-out', // transición suave
 
-    background: 'linear-gradient(135deg, #8d4fc9 0%, #6d6ff9 100%)',
-    color: '#fff',
-    border: 'none',
-
-    boxShadow: '0 8px 22px rgba(109, 111, 249, 0.35)',
-    transition: 'all 0.3s ease',
-
-    '&:hover': {
-      background: 'linear-gradient(135deg, #9c5fe0 0%, #7d84ff 100%)',
-      boxShadow: '0 12px 32px rgba(109, 111, 249, 0.45)',
-    },
-  }}
->
-  {t('hero.ctaPrimary')}
-</Button>
-
+                    '&:hover': {
+                      backgroundColor: 'primary.main',
+                      borderColor: 'primary.main',
+                      color: '#fff',
+                    },
+                  }}
+                  variants={{
+                    rest: {
+                      scale: 1,
+                    },
+                    hover: {
+                      scale: 1.06,         // pequeño zoom al hover
+                      transition: { duration: 0.25, ease: 'easeOut' },
+                    },
+                  }}
+                >
+                  {t('hero.ctaPrimary')}
+                </Button>
               </Stack>
             </Stack>
           </Grid>
