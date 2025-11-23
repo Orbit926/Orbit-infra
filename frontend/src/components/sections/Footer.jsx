@@ -41,7 +41,7 @@ const bottomVariants = {
 };
 
 const Footer = () => {
-  const { t } = useTranslation('common');
+  const { t, i18n } = useTranslation('common');
 
   const navigationLinks = [
     { id: 'hero', label: t('header.nav.home') },
@@ -64,30 +64,16 @@ const Footer = () => {
         width: '100%',
         py: { xs: 6, md: 8 },
         mt: 'auto',
-        position: 'relative',
-        overflow: 'hidden',
-        background: (theme) => theme.palette.background.paper,
+        background: (theme) => `
+          radial-gradient(circle at 20% 50%, rgba(125,63,185,0.08), transparent 50%),
+          radial-gradient(circle at 80% 50%, rgba(93,95,233,0.08), transparent 50%),
+          ${theme.palette.background.paper}
+        `,
         borderTop: '1px solid',
         borderTopColor: 'divider',
       }}
     >
-      {/* Glassmorphism overlay */}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background:
-            'radial-gradient(circle at 20% 50%, rgba(125,63,185,0.08), transparent 50%), radial-gradient(circle at 80% 50%, rgba(93,95,233,0.08), transparent 50%)',
-          backdropFilter: 'blur(12px)',
-          WebkitBackdropFilter: 'blur(12px)',
-          zIndex: 0,
-        }}
-      />
-
-      <Container sx={{ position: 'relative', zIndex: 2, pb: { xs: 8, md: 0 } }}>
+      <Container sx={{ pb: { xs: 8, md: 0 } }}>
         <Grid
           container
           spacing={{ xs: 4, md: 6 }}
@@ -108,8 +94,8 @@ const Footer = () => {
                 loading="lazy"
               />
 
-              {/* ✔ FIX: Solo un texto, nunca se duplica */}
               <Typography
+                key={`footer-desc-${i18n.language}`}
                 variant="body2"
                 color="text.secondary"
                 sx={{ maxWidth: 280, lineHeight: 1.7 }}
