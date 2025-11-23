@@ -37,7 +37,7 @@
     "strengths": {
       "modern": {
         "title": "Tecnología Moderna",
-        "description": "Trabajamos con React, Material UI, Node.js y las herramientas más actuales del ecosistema web."
+        "description": "Trabajamos con React, Material UI, Django y las herramientas más actuales del ecosistema web."
       },
       "performance": {
         "title": "Alto Rendimiento",
@@ -225,7 +225,7 @@
       },
       "technologies": {
         "question": "¿Usan tecnologías modernas?",
-        "answer": "Sí. Trabajamos con React, Vite, Material UI, Node.js, AWS y prácticas modernas de rendimiento y seguridad."
+        "answer": "Sí. Trabajamos con React, Vite, Material UI, Django, AWS y prácticas modernas de rendimiento y seguridad."
       },
       "support": {
         "question": "¿Ofrecen soporte después del desarrollo?",
