@@ -12,15 +12,24 @@ Orbit es una landing page moderna y escalable construida con React y desplegada 
 - [Arquitectura](#️-arquitectura)
 - [Tecnologías](#-tecnologías)
 - [Estructura del Proyecto](#-estructura-del-proyecto)
-- [Requisitos Previos](#-requisitos-previos)
+- [Requisitos Previos](#️-requisitos-previos)
 - [Instalación](#-instalación)
 - [Desarrollo Local](#-desarrollo-local)
 - [Despliegue](#-despliegue)
-- [Infraestructura AWS](#-infraestructura-aws)
+- [Infraestructura AWS](#️-infraestructura-aws)
 - [Configuración SEO](#-configuración-seo)
 - [Variables de Entorno](#-variables-de-entorno)
 - [Scripts Disponibles](#-scripts-disponibles)
+- [Seguridad](#-seguridad)
+- [Testing](#-testing)
+- [Monitoreo](#-monitoreo)
+- [Performance](#-performance)
+- [Troubleshooting](#-troubleshooting)
+- [Changelog](#-changelog)
 - [Contribución](#-contribución)
+- [Licencia](#-licencia)
+- [Contacto](#-contacto)
+- [Agradecimientos](#-agradecimientos)
 
 ---
 
@@ -413,15 +422,13 @@ El proyecto incluye SEO completo configurado en `index.html`:
 - PWA manifest (`site.webmanifest`)
 - Structured Data (JSON-LD) preparado
 
-### 📋 Pendiente (ver `SEO_SETUP.md`)
+### 📋 Pendiente
 - [ ] Verificar en Google Search Console
 - [ ] Enviar sitemap
 - [ ] Crear imagen OG optimizada (1200x630)
 - [ ] Instalar Google Analytics 4
 - [ ] Configurar Google Tag Manager (opcional)
 - [ ] Convertir imágenes a WebP
-
-**Documentación completa:** [`frontend/SEO_SETUP.md`](frontend/SEO_SETUP.md)
 
 ---
 
