@@ -11,7 +11,7 @@ const navigationIds = ['hero', 'about', 'projects', 'services'];
 
 const socialLinks = [
   { icon: GitHub, href: contactConfig.gitHub.url, label: 'GitHub' },
-  { icon: Instagram, href: '#', label: 'Instagram' },
+  { icon: Instagram, href: contactConfig.instagram.url, label: 'Instagram' },
 ];
 
 const containerVariants = {

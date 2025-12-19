@@ -19,5 +19,8 @@ export const contactConfig = {
     API_URL: "https://5ee40mx0l5.execute-api.us-east-1.amazonaws.com/prod",
     gitHub: {
         url: "https://github.com/Orbit926",
-    }
+    },
+    instagram: {
+        url: "https://www.instagram.com/orbitstud.io?igsh=MndjenRwaTB0MW1m",
+    },
 };
