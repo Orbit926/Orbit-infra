@@ -39,7 +39,7 @@ const ProjectsPreview = () => {
       tech: ['React', 'MUI', 'Vercel', 'API Integration'],
       gradient: 'linear-gradient(135deg, rgba(125,63,185,0.2) 0%, rgba(93,95,233,0.1) 100%)',
       image: '/img/projects/devaltra-orbit.webp',
-      link: 'https://www.devaltra.com',
+      link: 'https://devaltra.vercel.app',
     },
     {
       name: t('projects.greenpaw.name'),
