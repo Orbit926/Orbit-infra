@@ -148,7 +148,6 @@
         "responsive": "Diseño responsive moderno",
         "seo": "SEO básico",
         "analytics": "Integración con Google Analytics",
-        "deploy": "Deploy en Vercel/Netlify",
         "contact": "Formulario de contacto",
         "performance": "Optimización ligera de rendimiento",
         "revisions": "1 revisión incluida",
@@ -165,7 +164,6 @@
         "multipage": "Múltiples páginas y secciones personalizadas",
         "animations": "Animaciones avanzadas",
         "seoFull": "Estructura SEO mejorada",
-        "awsDeploy": "Deploy profesional en AWS (opcional)",
         "extraForms": "Formularios adicionales",
         "revisions": "2 revisiones incluidas",
         "support": "Soporte por 30 días"
@@ -174,16 +172,14 @@
       "badge": "Más popular"
     },
     "custom": {
-      "name": "Web App a Medida",
+      "name": "Web App a Medida / E-commerce",
       "description": "Solución completa para aplicaciones web con funcionalidad avanzada y backend personalizado.",
       "price": "Desde $2,479 USD",
       "features": {
         "allProfessional": "Todo lo de Sitio Profesional",
-        "backend": "Backend personalizado",
-        "database": "Base de datos y APIs",
+        "database": "Base de datos",
         "auth": "Autenticación de usuarios",
         "admin": "Panel de administración",
-        "scalable": "Arquitectura escalable",
         "integrations": "Integraciones personalizadas",
         "revisions": "Hasta 5 revisiones",
         "support": "Soporte por 30 días"

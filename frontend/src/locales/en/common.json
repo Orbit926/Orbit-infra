@@ -148,7 +148,6 @@
         "responsive": "Modern responsive design",
         "seo": "Basic SEO setup",
         "analytics": "Google Analytics integration",
-        "deploy": "Deploy on Vercel/Netlify",
         "contact": "Contact form",
         "performance": "Light performance optimization",
         "revisions": "1 revision included",
@@ -165,7 +164,6 @@
         "multipage": "Multiple pages and custom sections",
         "animations": "Advanced animations with Framer Motion",
         "seoFull": "Enhanced SEO structure",
-        "awsDeploy": "Optional AWS professional deploy",
         "extraForms": "Additional forms",
         "revisions": "2 revisions included",
         "support": "30-day support"
@@ -174,16 +172,14 @@
       "badge": "Most Popular"
     },
     "custom": {
-      "name": "Custom Web App",
+      "name": "Custom Web App / E-commerce",
       "description": "Complete solution for web applications with advanced functionality and backend.",
       "price": "From $2,479 USD",
       "features": {
         "allProfessional": "Everything in Professional Website",
-        "backend": "Custom backend",
-        "database": "Database and APIs",
+        "database": "Database",
         "auth": "User authentication",
         "admin": "Admin dashboard",
-        "scalable": "Scalable architecture",
         "integrations": "Custom integrations",
         "revisions": "Up to 5 revisions",
         "support": "30-day support"
