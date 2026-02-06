@@ -1,6 +1,6 @@
 export const contactConfig = {
     whatsapp: {
-        number: '523339541634',
+        number: '5213323788559',
         defaultMessage: {
             es: 'Hola, ¿en qué puedo ayudarte?',
             en: 'Hello, how can I help you?',
